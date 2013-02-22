@@ -1,0 +1,72 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>编辑管理组</h2>
+            </div>
+            <div class="contentbox">
+			<form name='form1' action='admin_group.php?action=save&acttype=edit' method='post'>
+      <table width="98%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="9%" height="30">组名称：</td>
+          <td width="91%"> <input name="typename" type="text" id="typename" value="<?php echo $groupSet['typename']?>"> 
+          </td>
+        </tr>
+        <tr> 
+          <td width="9%" height="30">级别值：</td>
+          <td width="91%">
+          	<input name="rank" type="hidden" id="rank" value="<?php echo $groupSet['rank']?>">
+          	<?php echo $groupSet['rank']?>
+          </td>
+        </tr>
+        <?php
+        $start = 0;
+        $k = 0;
+        $gouplists = file(EK_ADMIN.'/inc/grouplist.txt');
+        foreach($gouplists as $line)
+        {
+        	$line = trim($line);
+        	if($line=="") continue;
+        	if(ereg("^>>",$line))
+        	{
+        		if($start>0) echo "        	 </td></tr>\r\n";
+        		$start++;
+        		$lhead = "
+        	 <tr> 
+           <td height='25' colspan='2' bgcolor='#F9FAF3'>{$start}、".str_replace('>>','',$line)."</td></tr>
+           <tr><td height='25' colspan='2'>
+        		"; 
+        		echo $lhead;
+        	}
+        	else if(ereg("^>",$line))
+        	{
+        		$ls = explode('>',$line);
+        		$tag = $ls[1];
+        		$tagname = str_replace('[br]','<br>',$ls[2]);
+        		if(!ereg('<br />', $tagname) ) $tagname .= "<font color='#888888'>($tag)</font>";
+        		else $tagname = str_replace('<br />', "<font color='#888888'>($tag)</font><br />", $tagname);
+        		echo "          	<input name='purviews[]' type='checkbox' class='np' id='purviews$k' value='$tag'".CRank($tag).">$tagname\r\n";
+        	  $k++;
+        	}
+        }
+        $start++;
+        ?>
+        </td>
+        </tr>
+        <tr> 
+          <td height="50" align="center">&nbsp;</td>
+          <td height="50"><input type=Submit class=button value="确认保存" name=Submit>&nbsp;<input type=button class=button value="返　回" onclick="javascript:history.go(-1);">
+          </td>
+        </tr>
+      </table>
+	  </form>
+            </div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

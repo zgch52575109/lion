@@ -1,0 +1,283 @@
+    <div id="rightside">
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script> 
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>现金系统</h2>
+            </div>
+            <div class="contentbox"><form method="post" name="main_form" action="" style="margin:0px;"> 
+            	<table width="100%">
+                	<thead>
+				<tr><form method="POST" name="myform" action="admin_member_incash.php">
+				<td colspan="21">
+				帐号：<input type="text" name="account" size="12" value="<?php echo $account;?>" id="account">
+				日期：<input type="text" name="begin_date" value="<?php echo $begin_date;?>" size="12" id="begin_date" onclick="return showCalendar('begin_date', 'y-m-d');" />
+      			至 <input type="text" name="end_date" size="12" value="<?php echo $end_date;?>" id="end_date" onclick="return showCalendar('end_date', 'y-m-d');" />
+				级别：<select size="1" name="groupid"><option value="0">所有级别</option><?php
+$sqlStr="select * from ek_member_group order by groupid asc";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+while($row=$dsql->GetArray('class_list'))
+{
+?>
+<option value="<?php echo $row['groupid'];?>"<?php if($groupid==$row['groupid']) echo ' selected';?>><?php echo $row['grouptitle'];?></option>
+<?php
+}
+?></select>
+				类别：<select size="1" name="stype">
+				<?php
+					  	$selesql="Select id,uid,name from ek_member_promotions where states=1";						
+						$dsql->SetQuery($selesql); 
+						$dsql->Execute('class_list');
+						while($row=$dsql->GetArray('class_list'))
+						{
+							$ii++;
+							?>
+							<option value=<?php echo $row['uid'];?>><?php echo $row['name'];?></option>
+						<?php 
+						}		
+						?>
+				
+				
+				</select>
+				银行：<select size="1" name="bankid">
+				<option value="0">所有银行</option>
+				<option value="all">所有银行（除第三方）</option>
+			<optgroup label="收款银行">
+			<?php
+			$sqlStr="select * from ek_receive_bank order by torder asc,id desc";
+			$dsql->SetQuery($sqlStr);
+			$dsql->Execute('class_list');
+			while($row=$dsql->GetArray('class_list'))
+			{
+			?>
+			<option value="<?php echo $row['id'];?>"<?php if($bankid==$row['id']) echo ' selected';?>><?php echo $row['subject'];?></option>
+			<?php
+			}
+			?></optgroup><optgroup label="第三方支付"><?php
+			$sqlStr="select * from ek_payment_config WHERE upid = '0' ORDER BY used DESC";
+			$dsql->SetQuery($sqlStr);
+			$dsql->Execute('class_list');
+			while($row=$dsql->GetArray('class_list'))
+			{
+			?>
+			<option value="s<?php echo $row['id'];?>"<?php if($bankid==$row['id']) echo ' selected';?>><?php echo $row['subject'];?></option>
+			<?php
+			}
+			?></optgroup></select><br>
+				订单状态：<select size="1" name="state"><option value="0">所有状态</option><option value="1"<?php if($state==1) echo ' selected';?>>处理中</option><option value="2"<?php if($state==2) echo ' selected';?>>完成</option><option value="3"<?php if($state==3) echo ' selected';?>>拒绝</option><option value="4"<?php if($state==4) echo ' selected';?>>审核</option></select>
+				审核状态：<select size="1" name="check"><option value="">全部</option><option value="0"<?php if($check=='0') echo ' selected';?>>未审核</option><option value="1"<?php if($check==1) echo ' selected';?>>拒绝</option><option value="2"<?php if($check==2) echo ' selected';?>>通过</option></select>
+				操作状态：<select size="1" name="operation"><option value="">全部</option><option value="0"<?php if($operation=='0') echo ' selected';?>>未审核</option><option value="1"<?php if($operation==1) echo ' selected';?>>拒绝</option><option value="2"<?php if($operation==2) echo ' selected';?>>通过</option></select>
+				冲正冲负：<select size="1" name="czhengfu"><option value="">全部</option><option value="1"<?php if($czhengfu==1) echo ' selected';?>>冲正</option><option value="2"<?php if($czhengfu==2) echo ' selected';?>>冲负</option></select>
+				审核操作员：<input type="text" name="checkadmin" size="12" value="<?php echo $checkadmin;?>" id="checkadmin">
+				银行卡号：<input type="text" name="cardnum" size="12" value="<?php echo $cardnum;?>" id="cardnum"><br>
+				金额：<input type="text" name="begincash" size="12" value="<?php echo $begincash;?>" id="begincash"> 至 <input type="text" name="endcash" size="12" value="<?php echo $endcash;?>" id="endcash">
+				北京时间：<input type="checkbox" name="ctime" value="1"<?php if($ctime==1) echo ' checked';?>>
+				每页显示：<input type="text" class="inputbox" style="width:10px;" name="listpage" value="<?php if(!intval($listpage)) echo '30'; else echo $listpage;?>">
+				<input type="submit" name="Submit" align="absmiddle" value="查 询..." class="btn"></td>
+				</form>
+				</tr>
+                    	<tr>
+                        	<th>ID</th>
+                            <th>用户</th>
+							<th>真实姓名</th>
+							<th>会员级别</th>
+							<th>类别</th>
+							<th>出入款银行</th>
+							<th>出入款时间</th>
+							<th>手续费</th>
+							<th>红利</th>
+                            <th>金额</th>
+							<th>冲正冲负</th>
+							<th>状态</th>
+							<th><?php if($cuserLogin->getUserRank()==1) echo '审核'; else echo '操作';?></th>
+							<th>操作记录</th>
+							<!--th><input name="" type="checkbox" value="" id="checkboxall" /></th-->
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$numPerPage = isset($listpage) ? intval($listpage) : 30;
+$page = isset($page) ? intval($page) : 1;
+$uid = isset($uid) ? intval($uid) : 0;
+$begincash = isset($begincash) ? intval($begincash) : 0;
+$endcash = isset($endcash) ? intval($endcash) : 0;
+
+if($page==0) $page=1;
+$whereStr=" where 1='1'";
+$leftstr="";
+	if ($begin_date){
+		$begindate=strtotime($begin_date);
+		if($ctime){$begindate=strtotime($begin_date)-8*3600;}
+		$whereStr.=" and b.addtime >='$begindate'";
+	}
+	if ($end_date){
+		$enddate=strtotime($end_date);
+		if($ctime){$enddate=strtotime($end_date)-8*3600;}
+		$whereStr.=" and b.addtime <='$enddate'";
+	}
+	if(trim($account)!=''){
+		$leftstr=" left join ek_member m on m.uid=b.uid";
+		$whereStr.=" and (m.username ='$account' or m.truename='$account')";
+	}
+	if($groupid){
+		$leftstr=" left join ek_member m on m.uid=b.uid";
+		$whereStr.=" and m.groupid ='$groupid'";
+	}
+	if ($uid){$whereStr.=" and b.uid ='$uid'";}
+	if ($bankid){
+	if($bankid==all){
+	$whereStr.=" and b.ctype !='2'";
+	}else{
+	$whereStr.=" and b.bankid ='".str_replace('s','',$bankid)."'";
+	if(strpos($bankid,'s')!==false){
+	$whereStr.=" and b.ctype ='2'";
+	}else{
+	$whereStr.=" and b.ctype ='1'";
+	}
+	}
+}
+if ($stype){$whereStr.=" and b.type ='$stype'";}
+if($list=='new'){
+	$whereStr.=" and (b.state ='1' or b.state='4')";
+}
+if ($state){$whereStr.=" and b.state ='$state'";}
+if ($check!=''){$whereStr.=" and b.check ='$check'";}
+if ($operation!=''){$whereStr.=" and b.operation ='$operation'";}
+if ($czhengfu==1){
+	$whereStr.=" and b.czhengfu >0";
+}elseif($czhengfu==2){
+	$whereStr.=" and b.czhengfu <0";
+}
+if($checkadmin){
+	$whereStr.=" and b.note like '%".$checkadmin.","."%'";
+}
+if ($cardnum!=''){$whereStr.=" and b.cardnum ='$cardnum'";}
+if($begincash){
+$whereStr.=" and b.cash >='$begincash'";
+}
+if($endcash){
+$whereStr.=" and b.cash <='$endcash'";
+}
+$csqlStr="select count(*) as dd from `ek_member_incash` b $leftstr $whereStr";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_member_incash.php?uid='.$uid.'&bankid='.$bankid.($listpage ? '&listpage='.$listpage : '').($begin_date ? '&begin_date='.$begin_date : '').($end_date ? '&end_date='.$end_date : '').($account ? '&account='.$account : '').($groupid ? '&groupid='.$groupid : '').($stype ? '&stype='.$stype : '').($state ? '&state='.$state : '').($check!='' ? '&check='.$check : '').($operation!='' ? '&operation='.$operation : '').($czhengfu ? '&czhengfu='.$czhengfu : '').($checkadmin ? '&checkadmin='.$checkadmin : '').($cardnum ? '&cardnum='.$cardnum : '').($begincash ? '&begincash='.$begincash : '').($endcash ? '&endcash='.$endcash : '').($ctime ? '&ctime='.$ctime : ''));
+
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select b.*,m.username,m.truename,g.grouptitle,mp.name as mpname from ek_member_incash b left join ek_member m on m.uid=b.uid left join ek_member_promotions mp on mp.uid=b.type left join ek_member_group g on g.groupid=m.groupid $whereStr order by b.addtime desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+$cunkuan=$qukuan='0';
+while($row=$dsql->GetArray('class_list'))
+{
+if($row['state']==2){
+if($row['type']==1){
+if($row['username'] != 'bevin6'){
+$cunkuan=$cunkuan+$row['cash'];
+}
+}elseif($row['type']==2){
+$qukuan=$qukuan+$row['cash'];
+}
+}
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?> title="订单号：<?php echo $row['orderid'];?>">
+                        	<td><?php echo $row['id'];?></td>
+                            <td><a href="admin_member.php?action=view&id=<?php echo $row['uid'];?>"><?php echo $row['username'];?></a></td>
+							<td><?php echo $row['truename'];?></td>
+							<td><?php echo $row['grouptitle'];?></td>
+							<!--<td><?php /*echo $row['mpname'];*/?></td>-->
+							<td><?php if($row[type]==1){echo $row['mpname'];}else{echo "<font color='red'>".$row['mpname']."</a>";}?></td>
+							
+							<td><?php if($row['ctype']==1) echo $row['bank'].'<br>'.$row['realname'].','.$row['cardnum']; else echo $row['bank']; if($row['otherbank']) echo '<font color="red">,跨行</font> ';?></td>
+							<td><?php echo isCurrentDay($row['addtime'],$ctime);?></td>
+							<td><?php echo number_format($row['shouxufei'],2);?></td>
+							<td><?php echo number_format($row['hongli'],2);?></td>
+							<td><?php if($row['type']==2) echo '-';?><?php echo number_format($row['cash'],2);?></td>
+							<td><?php echo number_format($row['czhengfu'],2);?></td>
+							<td><?php if($row['state']==1) echo '处理中'; elseif($row['state']==2) echo '完成'; elseif($row['state']==3) echo '拒绝'; elseif($row['state']==4) echo '审核';?></td>
+                            <td><span id="check<?php echo $row['id'];?>">
+							<?php
+							if($rand==1){
+								if($row['check']==0){
+								?>
+									<a href="?action=check&type=<?php echo $row['type']?>&id=<?php echo $row['id'];?>" title="">接受</a>
+									<a href="javascript:void(0)" onclick="setInCashCheck('<?php echo $row['id'];?>','<?php echo $row['type']?>')" title="">拒绝</a>
+								<?php
+								}else{
+									if($row['check']==1) echo '<font color="red">已拒绝</font>'; else echo '<font color="green">已接受</font>';
+								}
+							}else{
+								if($row['check']==0){
+									echo '等待审核';
+								}else{
+									if($row['operation']==0){
+									?>
+										<?php
+										if($row['check']==2){
+										?>
+											<a href="?action=operation&type=<?php echo $row['type']?>&id=<?php echo $row['id'];?>" title="">接受</a>
+										<?php
+										}
+										?>
+										<a href="javascript:void(0)" onclick="setInCashOperation('<?php echo $row['id'];?>','<?php echo $row['type']?>')" title="">拒绝</a>
+									<?php
+									}else{
+										if($row['operation']==1) echo '<font color="red">已拒绝</font>'; else echo '<a href="javascript:void(0)" onclick="setInCashCzhengfu(\''.$row['id'].'\',\''.$row['type'].'\')" title="">冲正冲负</a>';
+									}
+								}
+							}
+							?>
+								</span>
+                            </td>
+							<td><a href="admin_member_cash_log.php?orderid=<?php echo $row['orderid']?>"><?php echo $row['note'];?></a></td>
+							<!--td><input type="checkbox" value="<?php echo $row['id'];?>" id="checkall" name="checkall[]" /></td-->
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <!--div class="extrabottom">
+                	<ul>
+                    	<li><img src="img/icons/icon_edit.png" alt="Edit" /> 编辑</li>
+                        <li><img src="img/icons/icon_delete.png" alt="Delete" /> 删除</li>
+                    </ul>
+                    <div class="bulkactions">
+                    	<select name="action">
+                        	<option value="delall">删除选择</option>
+                        </select>
+                        <input type="submit" value="提交" class="btn" />
+                    </div>
+                </div-->
+                <ul class="pagination">
+				<li class="text">有效存款：<font color=#ff0000><?php echo $cunkuan;?></font>元 有效取款：<font color=#ff0000><?php echo $qukuan;?></font>元&nbsp;页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> 总收录数据<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>
+<script type='text/javascript' src='scripts/main.js'></script>

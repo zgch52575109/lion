@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登陆</title>
+<link type="text/css" href="css/login.css" rel="stylesheet">
+<script language="javascript" src="js/date.js"></script>
+<style type="text/css">
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
+
+</head>
+
+<body onload="MM_preloadImages('images/AAE5.gif')">
+<!--{include file="top.html"}-->
+<form action="" method=post id="agentLogin" name="agentLogin"  onSubmit="" style="border:0;margin:0;padding:0;">
+   <div class="neirong">
+   <div class="login_top"></div>
+   <div class="login_center">
+   <div class="login_center_1"></div>
+   <div class="login_center_2">
+   <div class="login_center_2_top">
+   <div class="login_center_2_top_1"><strong>代理商登陆</strong></div>
+   </div>
+   <div class="login_center_2_1eft">
+   <div>账号 ：</div>
+   <div style="margin-top:41px;">密码 ：</div>
+   <div style="margin-top:41px;">验证码 ：</div>
+   </div>
+   <div class="login_center_2_center">
+   <ul>
+   <li class="line_1"> </li>
+   <li class="line_2"><input name="username" type="text" style="height:19px; font-size:16px; padding-top:3px; padding-left:3px;" size="23" border="0"/></li>
+   <li class="line_1"></li>
+   <li class="line_2"><input name="password" type="password" style="height:19px; font-size:16px; padding-top:3px; padding-left:3px;" size="23"/></li>
+   <li class="line_1"></li>
+   <li class="line_3">
+     <table width="100%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+         <td><input name="ValidateCode" type="text" style="height:19px; font-size:16px; padding-top:3px; padding-left:3px; margin-left: 7px;" size="8"/></td>
+         <td><div style="padding-left:10px;"><img id="vdimgck" src="/include/vdimgck.php" alt="看不清？点击更换" align="absmiddle" style="cursor:pointer" onclick="this.src=this.src+'?'" /></div></td>
+       </tr>
+     </table>
+   </li>
+   <li class="line_4"></li>
+   </ul>
+   </div>
+   <div class="login_center_2_right">
+   <div style="margin-top:20px; text-align:left; margin-left:6px;"><a href="javascript://"><img src="images/4893.gif" name="Image8" width="95" height="97" border="0" id="Image8" onclick="document.agentLogin.submit();" /></a></div>
+   </div>
+   <div class="login_center_2_bottom">
+   <ul>
+   <li> </li>
+   </ul>
+   </div>
+   </div>
+   <div class="login_center_3"></div>  
+   </div>
+   </div>
+   <input type="hidden" name="action" value="login">
+   </form>
+<!--{include file="foot.html"}-->
+</body>
+
+</html>

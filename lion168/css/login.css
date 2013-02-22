@@ -1,0 +1,183 @@
+/* CSS Document */
+*{ margin:0px; padding:0px;}
+body{ text-align:center; background:#000000}
+.img{ border:none}
+.box{ width:100%; height:auto; background:url(../images/img1.jpg) no-repeat top center }
+.top{ width:100%; height:222px; text-align:center;}
+.top-1{
+	width:100%;
+	height:23px;
+	margin:auto;
+	font-size: 12px;
+}
+.top-2{ width:100%; height:199px; margin:auto;}
+.banner-1{ width:1000px; height:19px; background:url(../images/img5.jpg) no-repeat center; margin:auto;}
+.banner-2{ width:1000px; height:368px; background:url(../images/img6.jpg); margin:auto}
+.banner-3{ width:1000px; height:9px; background:url(../images/img7.jpg) no-repeat; margin:auto; }
+.neirong{
+	width:1000px;
+	height:445px;
+	margin:auto
+}
+.ggao{ color:#b79898; line-height:20px; padding-top:7px}
+
+.game{ padding-left:0px; padding-top:5px}
+.game img{ border:none;}
+.g1{ width:176px; height:124px; float:left}
+.g1 a{ display:block; width:176px; height:124px; background:url(../images/img16.gif)}
+.g1 a:hover{ background:url(../images/img12.gif)}
+
+.g2{ width:175px; height:124px; float:left}
+.g2 a{ display:block; width:175px; height:124px; background:url(../images/img17.gif)}
+.g2 a:hover{ background:url(../images/img13.gif)}
+
+.g3{ width:174px; height:124px; float:left}
+.g3 a{ display:block; width:174px; height:124px; background:url(../images/img18.gif)}
+.g3 a:hover{ background:url(../images/img14.gif)}
+
+.xiazai a{ display:block; width:183px; height:104px; background:url(../images/img20.jpg); margin-top:17px}
+.xiazai a:hover{ background:url(../images/21.jpg)}
+.bottom{
+	width:100%;
+	height:169px;
+	background:url(../images/2.png) no-repeat center top;
+	margin-top:18px;
+	font-size: 12px;
+}
+.di a{color:#444343; text-decoration:none }
+.di a:hover{ color:#FF9900}
+
+.yvyuan{ width:1000px; height:50px; position:absolute; top:-199px; left:0px; color:#FFFFFF; margin:auto; text-align:right; color:#878787}
+.yvyuan a{ color:#878787; text-decoration:none}
+.yvyuan a:hover{ color:#FF9900; }
+
+.toubu td{ color:#acacac; line-height:22px; text-align:left}
+.toubu a{color:#acabab; text-decoration:none}
+.toubu a:hover{color:#FFCC00}
+.wb-1 input{ width:104px; height:16px; border:solid 1px #373737; background:#0f0f0f; color:#999999; font-weight:bold; line-height:16px; }
+.tijiao input{ border:none; width:51px; height:17px; background:url(../images/img22.jpg)}
+.wangmi a{ color:#acabab; text-decoration:none}
+.wangmi a:hover{ color:#FFCC00}
+
+.yyxz{ width:80px;  height:22px; position:relative}
+.yyjd{  height:22px; position:absolute; left:-5px; top:0px; overflow:hidden}
+.login_top{
+	width:1000px;
+    height:86px;
+    background-image:url(../images/login_05.gif)}
+   
+.login_center_1{
+	float:left;
+	width:221px;
+	height:359px;
+	background-image:url(../images/login_06.gif)
+}
+	
+.login_center_2{
+	float:left;
+	width:411px;
+	height:359px;
+}
+
+.login_center_3{
+	float:left;
+	width:368px;
+	height:359px;
+	background-image:url(../images/login_08.png)
+}
+
+.login_center_2_top{
+	float:left;
+	width:411px;
+	height:23px;
+	background-image:url(../images/login_07.gif)
+}
+
+.login_center_2_top_1{
+	color:#F90;
+	font-size:14px;
+	margin-top: 5px;
+	width: 200px;
+	margin-left: 25px;
+	}
+
+.login_center_2_1eft{
+	float:left;
+	width:79px;
+	height:180px;
+	background-image:url(../images/login_09.gif);
+	text-align: right;
+}
+.login_center_2_1eft div{
+	margin-top:30px;
+	font-size:14px;
+	color:#F93;	
+	}
+
+.login_center_2_center{
+	float:left;
+	width:213px;
+	height:180px;
+	background-image:url(../images/login_09.gif)}
+
+.login_center_2_center,ul{
+	list-style-type:none;
+	width:213px;
+}
+
+.line_1{
+	list-style-type:none;
+	width:213px;
+	height:27px;
+	background-image:url(../images/login_10.gif)
+}
+
+.line_2{
+	list-style-type:none;
+	width:213px;
+	height:28px
+}
+
+.line_3{
+	list-style-type:none;
+	width:113px;
+	height:28px;
+	text-align: left;
+	_margin-left:-30px;
+}
+
+.line_4{
+	list-style-type:none;
+	width:113px;
+	height:23px;
+	background-image:url(../images/login_18.gif)
+}
+
+.login_center_2_right{
+	float:left;
+	width:119px;
+	height:180px;
+	background-image:url(../images/login_11.gif)}
+	
+.login_center_2_bottom{
+	float:left;
+	width:411px;
+	height:156px;
+	_margin-top:-12px;
+	background-image:url(../images/login_19.gif);
+	}
+.login_center_2_bottom ul{ margin-left:95px; _margin-left:5px;}
+.login_center_2_bottom li{
+	display:block;
+	float:left;
+	font-size:16px;
+	color:#FFF;
+	margin-top:10px;
+	font-family:"黑体";
+
+	}
+.login_center_2_bottom li a{
+	color:#FFF;	
+	font-family:"黑体";
+
+	}

@@ -1,0 +1,132 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0px; padding:0px; font-size:12px;}
+body{ text-align:center; background:#000000}
+.img{ border:none}
+.box{ width:100%; height:auto;}
+.top{ width:100%; height:222px; text-align:center;}
+.top-1{ width:100%; height:23px; margin:auto;}
+.top-2{ width:100%; height:199px; margin:auto;}
+.banner-1{
+	width:1000px;
+	height:19px;
+	background:url(../images/ranking_list_05.gif) no-repeat center;
+	margin:auto;
+}
+.banner-2{
+	width:1000px;
+	height:368px;
+	margin:auto
+}
+.banner-3{ width:1000px; height:9px; background:url(../images/img7.jpg) no-repeat; margin:auto; }
+.ggao{ color:#b79898; line-height:20px; padding-top:7px}
+
+.game{ padding-left:0px; padding-top:5px}
+.game img{ border:none;}
+.g1{ width:176px; height:124px; float:left}
+.g1 a{ display:block; width:176px; height:124px; background:url(../images/img16.gif)}
+.g1 a:hover{ background:url(../images/img12.gif)}
+
+.g2{ width:175px; height:124px; float:left}
+.g2 a{ display:block; width:175px; height:124px; background:url(../images/img17.gif)}
+.g2 a:hover{ background:url(../images/img13.gif)}
+
+.g3{ width:174px; height:124px; float:left}
+.g3 a{ display:block; width:174px; height:124px; background:url(../images/img18.gif)}
+.g3 a:hover{ background:url(../images/img14.gif)}
+
+.xiazai a{ display:block; width:183px; height:104px; background:url(../images/img20.jpg); margin-top:17px}
+.xiazai a:hover{ background:url(../images/21.jpg)}
+.bottom{ width:100%; height:169px; background:url(../images/2.png) no-repeat center top;}
+.di a{color:#444343; text-decoration:none }
+.di a:hover{ color:#FF9900}
+
+.yvyuan{ width:1000px; height:50px; position:absolute; top:-199px; left:0px; color:#FFFFFF; margin:auto; text-align:right; color:#878787}
+.yvyuan a{ color:#878787; text-decoration:none}
+.yvyuan a:hover{ color:#FF9900; }
+
+.toubu td{ color:#acacac; line-height:22px; text-align:left}
+.toubu a{color:#acabab; text-decoration:none}
+.toubu a:hover{color:#FFCC00}
+.wb-1 input{ width:104px; height:16px; border:solid 1px #373737; background:#0f0f0f; color:#999999; font-weight:bold; line-height:16px; }
+.tijiao input{ border:none; width:51px; height:17px; background:url(../images/img22.jpg)}
+.wangmi a{ color:#acabab; text-decoration:none}
+.wangmi a:hover{ color:#FFCC00}
+
+.yyxz{ width:80px;  height:22px; position:relative}
+.yyjd{  height:22px; position:absolute; left:-5px; top:0px; overflow:hidden}
+
+.neirong{
+	width:1400px;
+	height: auto;
+	margin:auto
+}
+.top12{
+	background-image: url(../images/vip_terms_and_rules_03.gif);
+	height:109px;	
+	}
+.bottom_1{
+	background-image:url(../images/vip_terms_and_rules_33.gif);
+	height:111px;
+	clear:left;	
+	}
+#c{
+	display:block;
+	float:left;
+	height:471px;
+}
+.left{
+	background-image:url(../images/vip_terms_and_rules_04.gif);
+	width:244px;
+	}
+.right{
+	background-image:url(../images/vip_terms_and_rules_09.gif);
+	width:245px;
+	}
+.center{
+	background:url(../images/vip_terms_and_rules_05.gif) repeat-x;
+	width:200px;
+	height:99px;
+}
+#center{
+	margin-bottom:15px;	
+	}
+.center_2{
+	width:25px;
+	background-image:url(../images/vip_terms_and_rules_06.gif);
+}
+.center_3{
+	width:666px;
+	float:left;
+	height:471px;
+}
+.center_4{
+	margin-top:27px;
+	height:54px;
+	background:url(../images/vip_preferential_10.gif) no-repeat;
+	margin-left: 22px;
+}
+.center_5{
+	background:url(../images/vip_preferential_13.gif) no-repeat;
+	height:369px;
+	margin-left: 22px;
+	width:185px;
+	float:left;
+}
+.center_6{
+	float:left;
+	height:349px;
+	width:400px;
+	margin-top: 17px;
+	margin-bottom: 17px;
+	margin-left:26px;
+	font-size:12px;
+	line-height:20px;
+	color:#F7F0B9;
+}
+.l{
+	background:url(images/vip_terms_and_rules_18.gif);
+	height:372px;
+	width:17px;
+	float:left;
+ }

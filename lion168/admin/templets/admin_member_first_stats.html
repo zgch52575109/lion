@@ -1,0 +1,104 @@
+    <div id="rightside">
+        
+         <!-- Graphs Box Start -->
+        <div class="contentcontainer" id="graphs">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>会员首存统计</h2>
+            </div>
+            <div class="contentbox" id="graphs-1">
+					<table style="display: none;" class="area">
+                        <caption> 月首次存款人数</caption>
+                        <thead>
+                            <tr>
+                                <td></td>
+								<?php for($i=1;$i<=12;$i++){echo '<th scope="col">'.sadate('M',mktime(0,0,0,$i,1,$y)).'</th>';}?>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><?php echo $y?></th>
+                                <?php
+								for($i=1;$i<=12;$i++){
+								$totalday  = sadate('t',mktime(0,0,0,$i,1,$y));
+								$begin_date=$y.'-'.$i.'-1';
+								$end_date=$y.'-'.$i.'-'.$totalday;
+								$countnum=getmemberfirstcount($begin_date,$end_date);
+									echo '<td>'.$countnum.'</td>';
+								}?>
+                            </tr>
+	                            <tr>
+                                <th scope="row"><?php echo $lastyear?></th>
+                                <?php
+								for($i=1;$i<=12;$i++){
+								$totalday  = sadate('t',mktime(0,0,0,$i,1,$lastyear));
+								$begin_date=$lastyear.'-'.$i.'-1';
+								$end_date=$lastyear.'-'.$i.'-'.$totalday;
+								$countnum=getmemberfirstcount($begin_date,$end_date);
+									echo '<td>'.$countnum.'</td>';
+								}?>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+
+            <div class="contentbox" id="graphs-1">
+					<table style="display: none;" class="area">
+                        <caption> 本月首次存款人数</caption>
+                        <thead>
+                            <tr>
+                                <td></td>
+								<?php
+								$totalday = sadate('t');
+								$thismonth=MyDate('m',time());
+								for($i=1;$i<=$totalday;$i++){echo '<th scope="col">'.$i.'</th>';}
+								?>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><?php echo $thismonth;?>月份</th>
+                                <?php
+								for($i=1;$i<=$totalday;$i++){
+								$begin_date=$y.'-'.$thismonth.'-'.$i;
+								$end_date=$y.'-'.$thismonth.'-'.$i;
+								$countnum=getmemberfirstcount($begin_date,$end_date);
+									echo '<td>'.$countnum.'</td>';
+								}?>
+                            </tr>
+
+                        </tbody>
+                    </table>
+            </div>
+			<?php
+				$rowd = $dsql->GetOne("select count(*) as dd from `ek_member`  where firstmoney <>'0'");
+				$totalnum=$rowd['dd'];
+				if($rowd['dd'] >'0') $row=$dsql->GetOne("select jointime from `ek_member` where firstmoney <>'0' order by jointime asc");
+				$monthper=$weekper=$dayper=0;
+				
+				
+				if(is_array($row)){
+					
+					$starttime=$row['jointime'];
+					
+					$endtime=time();
+					$months=ceil(($endtime-$starttime)/(30*24*3600));
+					$weeks=ceil(($endtime-$starttime)/(7*24*3600));
+					$days=ceil(($endtime-$starttime)/(24*3600));
+					$monthper=number_format(($totalnum/$months),2);
+					$weekper=number_format(($totalnum/$weeks),2);
+					$dayper=number_format(($totalnum/$days),2);
+					
+					
+					
+				}
+			?>
+			<table width="100%"><tr><td>月平均首存人数：<?php echo $monthper;?>  周平均首存人数：<?php echo $weekper;?>  日平均首存人数：<?php echo $dayper;?></td></tr></table>
+  
+        </div>
+        <!-- Graphs Box End -->
+   
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

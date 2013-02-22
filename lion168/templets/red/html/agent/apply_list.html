@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <title>代理管理中心 - 提款记录</title>
+    <meta name="keywords" content="keyword ..." />
+    <meta name="Description" content="description ..." />
+    <!--<link href="favicon.ico" rel="shortcut icon" />-->
+    <link href="../css/agent/memberglobal.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script>
+ 
+</head>
+<body>
+<!--{include file="agent/top.html"}-->  
+<div id="maincontent">
+ <div id="informscroll">
+  <div id="informcontent">
+     <!--{include file="agent/inc_notice.html"}-->  
+    <div class="tel"></div>
+    </div>
+ </div>
+ <div id="listcontent">
+   <div class="inners">
+   <!--{include file="agent/left_menu.html"}-->  
+   <div id="rightcontent">
+     <div class="site"><strong>管理中心</strong></div>
+     <div class="bodycontent">
+<!--{include file="agent/accountinfo.html"}-->  
+     <div class="content">
+       <div class="title"><strong>提款记录</strong></div>
+       <div class="tablecontent">
+       <div class="table">
+
+
+       
+       
+       
+       
+        <table cellpadding="0" cellspacing="1">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>会员账号</th>
+              <th>真实姓名</th>
+              <th>金额</th>
+              <th>状态</th>
+              <th>申请时间</th> 
+            </tr>
+          </thead>
+          <tbody>
+           <!--{foreach value=data key=key from=$datas_f}-->
+             <tr>
+              <td><!--{$data[proxyuid]}--></td>
+              <td><!--{$data[username]}--></td>
+              <td><!--{$data[truename]}--></td> 
+              <td><!--{$data[cashmoney]}--></td>
+              <td><!--{ if $data[outcash] == 1}-->已发放<!--{else}-->等待审核<!--{/if}--></td>
+              <td><!--{$data[addtime]}--></td>
+   
+             </tr>
+				  <!--{/foreach}-->
+ 
+          </tbody>
+        </table>
+        <div class="page">
+         <!--{$TotalResult}-->
+                    条 每页
+                    <!--{$numPerPage}-->
+                    条 第
+                    <!--{$page}-->
+                    /
+                    <!--{$TotalPage}-->
+                    页 <a href="<!--{$firstpage}-->">[首页]</a> <a href="<!--{$perpage}-->">[上一页]</a> <a href="<!--{$nextpage}-->">[下一页]</a> <a href="<!--{$lastpage}-->">[尾页]</a>
+        
+        </div>
+       </div>
+       </div>
+     </div>
+     </div>
+   </div>
+   <div class="clear"></div>
+   </div>
+ </div>
+</div>
+<!--{include file="agent/footer.html"}-->  
+</body>
+</html>

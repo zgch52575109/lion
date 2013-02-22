@@ -1,0 +1,25 @@
+<div id="demeb" style="overflow:hidden;height:100px;">
+<div id=demeb1>
+<!--{foreach value=data key=key from=$noticear}-->
+<p><a href="member/notice.php" style=" text-decoration:none;font-size:12px; color:#FEB638;" ><!--{$data[l_body]}--></a></p>
+<!--{/foreach}-->
+</div> 
+<div id=demeb2> </div>
+</div>
+<script> 
+var speed=40 
+var demeb=document.getElementById("demeb"); 
+var demeb2=document.getElementById("demeb2"); 
+var demeb1=document.getElementById("demeb1"); 
+demeb2.innerHTML=demeb1.innerHTML 
+function Marquee(){ 
+ if(demeb2.offsetTop-demeb.scrollTop<=0) 
+  demeb.scrollTop-=demeb1.offsetHeight 
+ else{ 
+  demeb.scrollTop++ 
+ } 
+} 
+var MyMar=setInterval(Marquee,speed) 
+demeb.onmouseover=function() {clearInterval(MyMar)} 
+demeb.onmouseout=function() {MyMar=setInterval(Marquee,speed)} 
+</script>

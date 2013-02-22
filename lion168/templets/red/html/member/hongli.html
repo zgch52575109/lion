@@ -1,0 +1,75 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>会员中心</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" type="text/css" href="style/style10.css" />
+<script language="javascript" type="text/javascript" src="../js/public.js"></script>
+<script language="javascript" type="text/javascript" src="../js/usercheck.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+<!--{include file="member/top.html"}-->
+
+    <!-- 网页主体 -->
+    <div class="main">
+      <div class="in-main  clear">
+            <!-- 左 -->
+<!--{include file="member/left.html"}-->
+            <!-- 左 / -->
+
+            <!-- 右 -->
+            <div class="main-right right">
+                <!-- 会员欢迎 -->
+                <div class="welcome-user">
+                    <strong><span id="MemberSession">qfroot</span> 您好，欢迎进入会员中心</strong>
+                </div>
+                <!-- 网站定位 -->
+               <div class="site-place"><a href="Index.html" target="_self">首页</a> &gt; 会员中心</div>
+                <div class="main-content">
+                <!-- 资料修改 -->
+                <div class="user-zlxg clear">
+                    <div class="the-title"><h2><img src="images/title-zlxg.gif"  alt="资料修改" /></h2></div>
+                    <!-- 资料列表 -->
+                    <div class="zl-list">
+					<form action ="?action=save" method="post" id="frmMain" name="frmMain" onSubmit="">
+                        <ul class="clear">
+                            <li>用 户 名：<!--{$username}--></li>
+							<li class="list-bg">账户余额：<!--{$money}--></li>
+							<li>首存金额：<!--{$cash}--></li>
+							<li class="list-bg">首存红利：<!--{$hongli}--></li>
+							<li>红利领取日期：<!--{$lingqutime}--></li>
+                        </ul>
+                        <div class="to-xgmm"><input type="button" class="to-submit2" value=" " onclick="frmMain.submit();"/></div>
+						</form>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            <!-- 右 / -->
+        </div>
+    </div>
+    <!-- 网页主体 / -->
+    
+<!--{include file="member/foot.html"}-->
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from happy1668.com/cn/1TopUserInfo.html by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 19 May 2012 06:03:19 GMT -->
+<head>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=gb2312" />
+<link href="main.css" rel="stylesheet" type="text/css">
+</head>
+<body style="margin: 0px;padding:0">
+			    <iframe id="iFrmUserLogin1" name="iFrmUserLogin1" src="#" width="0" height="0" scrolling="no"  frameborder="0" ></iframe>	
+  <div id="logincontent" >  
+	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+					 
+      <form name="loginfo" id="loginfo" method="post" action="http://happy1668.com/cn/reg.html?action=act" style="margin: 0px;padding:0;" onKeyDown="jumpToNext();"   target="iFrmUserLogin1" >
+	  <tr>
+        <td height="25"><label>用户名：</label><input name="UserName" type="text"  class="input_txt"/ ><label>
+		密码：</label><input name="userpassword" type="password"  class="input_txt"/><input type="hidden" name="usercode" value="174330380"></td>
+      </tr>
+      <tr>
+        <td height="33"  valign="bottom"><label>验证码：</label><input name="ValidateCode" type="text" maxlength="4"  class="input_txt code"/ ><label id="codenum">7623</label>
+		<div id="passwordtxt"><a href="#" onClick="addEvent_onclick(document.getElementById('jia'),openWin('http://happy1668.com/winneruser/REPASSWORD.HTML',100,100,260,200));" id="jia">忘记密码</a></div>
+		<input type="submit" value="" class="input_submit" onClick="checkuu();"/ ></td>
+      </tr></form>
+    
+					
+		</table>
+	</div>
+</body>
+		<script>
+		function addEvent_onclick(obj,func) 
+{ 
+    with(obj) 
+    { 
+        if(getAttribute("onclick")==null || typeof(onclick)!='function') 
+        { 
+            onclick=function(){func();}; 
+        } 
+        else 
+        { 
+            var oldonclick=onclick; 
+            onclick=function() 
+            { 
+                oldonclick(); 
+                func(); 
+            }; 
+        } 
+    } 
+} 
+
+		</script>
+
+<script language="JavaScript">
+<!--
+function checkspace(checkstr) {
+  var str = '';
+  for(i = 0; i < checkstr.length; i++) {
+    str = str + ' ';
+  }
+  return (str == checkstr);
+}
+
+  function checkuu()
+{
+
+    if(checkspace(document.loginfo.UserName.value)) {
+	document.loginfo.UserName.focus();
+    alert("用户名不能为空！");
+	return ;
+  }
+    if(checkspace(document.loginfo.userpassword.value)) {
+	document.loginfo.userpassword.focus();
+    alert("密码不能为空！");
+	return ;
+  }
+
+    if(checkspace(document.loginfo.ValidateCode.value)) {
+	document.loginfo.ValidateCode.focus();
+    alert("验证码不能为空！");
+	return ;
+  }
+    
+ loginfo.submit();
+  }
+
+function jumpToNext() {
+    if (event.keyCode == 13) {
+          checkuu();  
+    }
+}
+function operateplan(MyUrl){
+	window.open(MyUrl,"", "width=400,height=380,scrollbars=yes,resizable=yes");
+}
+function hideinfo(){
+ if(event.srcElement.tagName=="A"){//如果触发函数的对象是链接
+//设置状态栏的显示为链接的文本
+    window.status=event.srcElement.innerText
+	}
+}
+
+
+document.onmouseover=hideinfo          //鼠标移上时调用 hideinfo 函数
+document.onmousemove=hideinfo         //鼠标移动时调用 hideinfo 函数
+document.onmousedown=hideinfo        //鼠标按下时调用 hideinfo 函数
+document.onselectstart=new Function("event.returnValue=false;"); 
+
+   function stop(){ 
+    return false; 
+    } 
+    document.oncontextmenu=stop; 
+
+if(top==self)top.location="index.html" 
+function clear(){
+Source=document.body.firstChild.data;
+document.open();
+document.close();
+document.title="";
+document.body.innerHTML=Source;
+}
+//function document.oncontextmenu(){return true;}
+//function document.onselectstart(){return true;}
+//function document.onsdragstart(){return true;} 
+
+function openWin(url, left, top, width, height)
+{
+	if(url=='')
+		return;
+	var winOption = "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=" + width + ",height=" + height + ",left=" + left + ",top=" + top;
+	window.open(url, '', winOption);
+	return;
+}
+
+-->
+</script> 

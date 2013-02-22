@@ -1,0 +1,627 @@
+
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from happy1668.com/cn/kaihu.html by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 19 May 2012 05:59:56 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>现在开户</title>
+<link type="text/css" href="class.css" rel="stylesheet" />
+
+<script charset="gb2312" language="javascript" type="text/javascript"  src="../winneruser/js/public.js"></script>
+<script src="scripts/AC_RunActiveContent-2.js" type="text/javascript"></script>
+<script type="text/javascript">
+		function switchDiv(id){
+			var theDiv = document.getElementById(id);
+			if(theDiv.style.display==''){
+				theDiv.style.display="none";
+			}else{
+				theDiv.style.display="";
+			}
+		}
+
+		//用户注册
+function Check_Reg(){
+
+	var iChars;
+
+	iChars= "~!@#$%^&*(){}:?<>,/;'[]\=`-+|";
+	if (Check_Input(frmMain.UserName,'账号',5,20,iChars) != true){
+		return false;
+	}
+
+	if (Check_Input(frmMain.rePassword,'密码',6,20,iChars) != true){
+		return false;
+	}
+
+	if (Check_Input(frmMain.Password,'重复密码',6,20,iChars) != true){
+		return false;
+	}
+	iChars= "/^\d*$/";
+	if (Check_Input(frmMain.firstCash,'开户金额',1,8,iChars) != true){
+		return false;
+	}
+
+
+if (frmMain.rePassword.value != frmMain.Password.value){
+		alert("两次密码输入不一致");
+		frmMain.Password.focus();
+		return false;
+	}
+
+	if(frmMain.TrueName.value==''){
+		window.alert("请输入真实姓名!");
+		frmMain.TrueName.focus();
+		return false;
+	}
+
+	/*if(frmMain.userTel.value==''){
+		window.alert("请输入电话!");
+		frmMain.userTel.focus();
+		return false;
+	}*/
+
+	if(!isEmail(frmMain.Email.value)) {
+		alert("电子邮件格式不正确!"); 
+		frmMain.Email.focus(); 
+		return false;
+	}
+	//判断帐户名是否纯数字或以0开头
+	if(!isNaN(frmMain.UserName.value) || frmMain.UserName.value.charAt(0)=="0"){
+		alert("用户名不能为纯数字，也不能以0开头。"); 
+		frmMain.UserName.focus(); 
+		return false;
+	}
+	frmMain.submit();
+	return true;
+	
+}
+	</script>
+</head>
+
+<body onLoad="location.hash='hello';">
+<table width="100%" height="118" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+	<td align="center" >
+	  <table width="1000" height="118" border="0" align="center" cellpadding="0" cellspacing="0" style="p">
+  <tr>
+	<td  >
+<table width="1000" height="118" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><div id="header" ><div id="header_bord">
+  <div id="top_right"><a onClick="AddFavorite('http://'+window.location.host,document.title)" href="#" onFocus="this.blur()" >点击加入收藏</a><span>语言种类:  </span><select name="here" onChange="location.href=this.options.value;">
+<option value="index.html">简体中文</option>
+<option value="http://happy1668.com/en/index.html">English</option>
+</select></div>
+  <div class="clear"></div>
+  <div id="headmid">
+      <div id="logo"></div>
+           <ul id="menu">
+           <li class="nav-1" id="active"><a href="index.html" target="_top" onFocus="this.blur()">首页</a></li>
+           <li class="nav-2"><a href="favo.html" target="_top" onFocus="this.blur()">优惠活动</a></li>
+           <li class="nav-3"><a href="aboutUs.html" target="_top" onFocus="this.blur()">公司介绍</a></li>
+           <li class="nav-4"><a href="scene.html" target="_top" onFocus="this.blur()">亲临现场</a></li>
+           <li class="nav-5"><a href="questUs.html" target="_top" onFocus="this.blur()">常见问题</a></li>
+           <li class="nav-6"><a href="contactUs.html" target="_top" onFocus="this.blur()">联系我们</a></li>
+       </ul>
+       <div id="tel"></div>
+  </div></div>
+</div></td>
+  </tr>
+</table>
+ 
+	</td>
+  </tr>
+</table>
+</td></tr></table>
+
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" id="userlogin">
+  <tr>
+    <td height="1"></td>
+  </tr>
+</table>
+
+<table width="100%" height="75" border="0" cellspacing="0" cellpadding="0" id="userlogin2">
+  <tr>
+    <td  align="center"><table width="988" height="73" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="9"></td>
+        <td width="196"><a href="http://happy1668.com/winneruser/trygame.html" target="_top" onFocus="this.blur()"><img src="images/login_image_01.jpg" width="170" height="63" border="0" /></a></td>
+        <td width="424"><iframe id="TopUserInfo1" name="TopUserInfo1" style="margin:0;padding:0 0 0 0; float:left;height:58px;width:424px;"  scrolling="No" frameborder="0"  allowtransparency="true"></iframe>
+              <script language="JavaScript" type="text/javascript">
+	                    document.getElementById("TopUserInfo1").src="1TopUserInfo.html";
+	                </script>
+        </td>
+        <td width="172"><a href="kaihu.html" target="_top" onFocus="this.blur()"><img src="images/login_image_02.gif" alt="金狮国际娱乐城开户" width="170" height="63" border="0" /></a></td>
+        <td width="15">&nbsp;</td>
+        <td width="172"><script language="JavaScript" type="text/javascript">host = window.location.host;url = window.location.href;document.write("<a href=/chat/?host="+host+"&url="+url+" target=_blank><img src=images/login_image_03.jpg border=0></a>");</script></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" id="userlogin">
+  <tr>
+    <td height="1"></td>
+  </tr>
+</table>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  height="300" >
+  <tr>
+    <td align="center"><table width="980" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><div id="content">
+    <ul>
+       <li class="lnav_1"><a href="index.html" target="_top" onFocus="this.blur()"></a></li>
+       <li class="lnav_2" id="active2"><a href="kaihu.html" target="_top" onFocus="this.blur()"></a></li>
+       <li class="lnav_3"><a href="http://happy1668.com/winneruser/trygame.html" target="_top" onFocus="this.blur()"></a></li>
+       <li class="lnav_4"><a href="favo.html" target="_top" onFocus="this.blur()"></a></li>
+       <li class="lnav_5"><a href="scene.html" target="_top" onFocus="this.blur()"></a></li>
+       <li class="lnav_6"><a href="http://happy1668.com/agent/join_case.html" target="_top" onFocus="this.blur()"></a></li>
+    </ul>
+    <div id="contentright">
+       <script type="text/javascript">
+AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0','width','727','height','275','title','金狮国际娱乐城开户动画演示','src','images/kh','quality','high','pluginspage','http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash','movie','images/kh' ); //end AC code
+</script><noscript><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="727" height="275" title="金狮国际娱乐城开户动画演示">
+         <param name="movie" value="images/kh.swf" />
+         <param name="quality" value="high" />
+         <embed src="images/kh.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="727" height="275"></embed>
+       </object>
+    </noscript></div>
+</div></td>
+  </tr>
+</table></td>
+  </tr>
+</table>
+
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" background="images/content2_bg.jpg" bgcolor="#281C1E" class="bg1" id="hello">
+  <tr>
+    <td align="center" valign="top"><table width="980" height="15" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+        <table width="980" height="400" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="238" valign="top"><table width="238" height="210" border="0" cellpadding="0" cellspacing="0" background="images/content2left_bg.jpg">
+                <tr>
+                  <td height="120" valign="bottom" class="picleft"><script language="javascript">
+//获取域名
+host = window.location.host;
+//获取页面完整地址
+url = window.location.href;
+document.write("<a href=/chat/?host="+host+"&url="+url+" target=_blank><img src=images/content2left_img1.jpg border=0></a>")
+</script></a></td>
+                </tr>
+                <tr>
+                  <td valign="top" class="picleft"><a href="setup.exe" target="_blank"><img src="images/content2left_img2.jpg" width="226" height="80" border="0" /></a></td>
+                </tr>
+            </table></td>
+            <td width="12" valign="top">&nbsp;</td>
+            <td valign="top"><table width="729" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td><img src="images/content2rh.jpg" width="729" height="11" /></td>
+              </tr>
+              <tr>
+                <td height="400" align="left" valign="top" class="content2bg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><img src="images/content2rb_top.jpg" width="729" height="13" /></td>
+                  </tr>
+
+                </table>
+                  <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td width="30%"><img src="images/content2_kaihu.jpg" width="212" height="60" /></td>
+                      <td width="70%" align="right"><a href="deposit.html" onFocus="this.blur()"></a><a href="#" onFocus="this.blur()"></a></td>
+                    </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><img src="images/content2rb_fenge.jpg" width="729" height="10" /></td>
+                    </tr>
+                  </table>
+                   <form action ="http://happy1668.com/winneruser/userReg.html" method=post id="frmMain" name="frmMain"   style="border:0;margin:0;padding:0;">
+				  <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                    <tr>
+                      <td align="left" valign="top"><p><span class="line"><img src="images/star.jpg" align="absmiddle" />填写账户名和密码</span></p>
+                        
+<p>请详细填写以下表格，带 * 项目为必填项目 <br />
+  （１）您现在注册并存款，可享受首次存款30%的优惠，最高优惠300000RMB，立即行动吧！<br />
+  （２）您在本网站游戏平台只允许注册一个游戏账号， 若发现您拥有多个游戏账号，本游戏平台有权对该您做封号处理。</p>                      </td>
+                    </tr>
+
+                    <tr>
+                      <td align="left" valign="top"><TABLE cellSpacing=1 cellPadding=4 width="600" 
+                        align=center bgColor=#4A4644 border=0>
+                          <TBODY>
+                          <TR style="DISPLAY: none">
+                            <TD width="18%" height="35" align=right bgColor=#140D0C><FONT 
+                              color=#ed4545>*</FONT> <SPAN 
+                            class=a05>开户金额：</SPAN></TD>
+                            <TD width="24%" align="center" bgColor=#201316><INPUT name=firstCash class="input_txt" 
+                              value=1001 size=16></TD>
+                            <TD width="58%" align="left" bgColor=#201316>网上申请开户最低存款金额：15 
+                              USD (100RMB)</TD>
+                          </TR>
+                          <TR>
+                            <TD height="35" align=right bgColor=#140D0C><FONT 
+                              color=#ed4545>*</FONT> <SPAN 
+                              class=a05>用 户 名：</SPAN></TD>
+                             <TD align="center" bgColor=#201316><INPUT  name=UserName class="input_txt" onblur=fnDo(document.frmMain.UserName.value)  onkeydown=if(event.keyCode==13)event.keyCode=9  onkeyup="value=value.replace(/[\W]/g,'')" size=16   onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"></TD>
+                            <TD align="left" bgColor=#201316 id=divTest>
+                              填写不能小于5位，且由英文或数字组成。</TD>
+                          </TR>
+                          <TR>
+                            <TD height="35" align=right bgColor=#140D0C><FONT 
+                              color=#ed4545>*</FONT> <SPAN 
+                            class=a05>邮　　箱：</SPAN></TD>
+                            <TD align="center" bgColor=#201316><INPUT name=Email class="input_txt" size=16></TD>
+                            <TD align="left" bgColor=#201316>推荐使用QQ邮箱，方便找回密码。</TD>
+                          </TR>
+                          <TR>
+                            <TD height="35" align=right bgColor=#140D0C><FONT 
+                              color=#ed4545>*</FONT> <SPAN 
+                            class=a05>真实姓名：</SPAN></TD>
+                            <TD align="center" bgColor=#201316><LABEL><INPUT name="TrueName" class="input_txt" onKeyUp="value=value.replace(/[^\u4E00-\u9FA5]/g,'')"  size="16" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))">
+									  
+							  <INPUT type=hidden  value="4553465" name=usercode>
+							  </LABEL></TD>
+                            <TD align="left" bgColor=#201316>请填写您的真实姓名，与提款银行卡姓名一致。</TD>
+                          </TR>
+                          <TR>
+                            <TD height="35" align=right bgColor=#140D0C><FONT 
+                              color=#ed4545>*</FONT> <SPAN 
+                            class=a05>登陆密码：</SPAN></TD>
+                            <TD align="center" bgColor=#201316><input 
+                              name=Password type=password class="input_txt" size=16 /></TD>
+                            <TD align="left" bgColor=#201316>由6-20个英文字母、数字或符号组成。</TD>
+                          </TR>
+                          <TR>
+                            <TD height="35" align=right bgColor=#140D0C><FONT 
+                              color=#ed4545>*</FONT> <SPAN 
+                            class=a05>确认密码：</SPAN></TD>
+                            <TD align="center" bgColor=#201316><input 
+                              name=rePassword type=password class="input_txt" size=16 /></TD>
+                            <TD align="left" bgColor=#201316>&nbsp;</TD>
+                          </TR>
+                          <TR>
+                            <TD height="35" align=right bgColor=#140D0C><FONT 
+                              color=#ed4545>*</FONT> <SPAN 
+                            class=a05>电　　话：</SPAN></TD>
+                            <TD align="center" bgColor=#201316><input name=userTel class="input_txt" 
+                              onkeyup="this.value=this.value.replace(/\D/g,'')" 
+                              size=16 
+                              onafterpaste="this.value=this.value.replace(/\D/g,'')" /></TD>
+                            <TD align="left" bgColor=#201316>请填写您的联系电话，以方便我们提供更好的服务。</TD>
+                          </TR>
+                          <TR>
+                            <TD height="35" align=right bgColor=#140D0C><SPAN 
+                              class=a05>来源渠道：</SPAN></TD>
+                            <TD align="center" bgColor=#201316><INPUT 
+                              name=lcurrency class="input_txt" size=16 maxLength=16></TD>
+                            <TD align="left" bgColor=#201316>&nbsp;</TD>
+                          </TR>
+                          <TR>
+                            <TD height="35" align=right bgColor=#140D0C><FONT 
+                              color=#ed4545>*</FONT> <SPAN 
+                              class=a05>验 证 码：</SPAN></TD>
+                            <TD align="center" bgColor=#201316><INPUT name=ValidateCode class="code"  size=4 onkeyup='this.value=this.value.replace(/[^0-9]\D*$/,"")'>&nbsp;&nbsp;<SPAN 
+                              style="FONT-SIZE: 14px; COLOR: #ed4545; font-stretch: extra-expanded"><B>&nbsp;1232
+					  
+							  </B></SPAN>&nbsp;</TD>
+                            <TD align="left" bgColor=#201316>请输入右侧图中的内容。
+                              <INPUT type=hidden  value=save  name=Action></TD></TR></TBODY></TABLE>
+                        <p>&nbsp;</p></td>
+                    </tr>
+                    <tr>
+                      <td align="center" valign="top"><p><input name="" type="button" onClick="Check_Reg();"  style=" background:url(images/tjsq.jpg); width:80px; height:25px; border:0"/></p>
+                      <p>&nbsp;</p></td>
+                    </tr>
+                  </table>
+                  </form>
+			      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><img src="images/content2rb_fenge.jpg" width="729" height="10" /></td>
+                    </tr>
+                  </table>
+			      <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto">
+                    <tr>
+                      <td align="left" valign="top">
+                        <p> <span class="line"><img src="images/star.jpg" align="absmiddle" />用户协议书</span></p>
+                       </td>
+                    </tr>
+                    <tr>
+                      <td align="left" valign="top"><TABLE width="93%" 
+                  border=0 align=center cellPadding=0 cellSpacing=0>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <P align=left>
+                        <TABLE class="select" cellSpacing=0 cellPadding=0 width=600 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <DIV style="OVERFLOW: auto; HEIGHT: 170px">
+                              <TABLE width="90%">
+                                <TBODY>
+                                
+                                <TR>
+                                <TD 
+                                colSpan=3>本公司是合法互联网路交易机构，现提醒有意参与本公司所有游戏之客户，应注意其国家或居住地区的相关法律规定，如有疑问，应就相关问题寻求当地法律意见。</TD></TR>
+                                <TR>
+                                <TD colSpan=3>　</TD></TR>
+                                <TR>
+                                <TD></TD>
+                                <TD colSpan=2><B>交易声明</B></TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>1.</TD>
+                                <TD 
+                                colSpan=2>如客户对本游戏有任何问题或疑问时，请立即停止游戏，并即时与你的上线代理联络跟进事件．如客户仍继续参与游戏，即表示客户了解及接受所发生的问题，本公司有权在这问题上不做出任何解释或跟进，敬请客户留意！ 
+                                </TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20 height=19>2.</TD>
+                                <TD colSpan=2 
+                                height=19>请用户确保处于稳定网络环境下进行本游戏，因网络速度问题而出现不稳定情况，客户必须理解及接受。 本公司不接受使用无线上网卡客户投诉 。</TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>3.</TD>
+                                <TD 
+                                colSpan=2>所有因网络因素引起的“投注是否成功”问题，最终结果会以本公司的资料库数据，相等于客户投注前台右下方的“记录”功能内，所显示的投注记录为准，用户不得异议。 
+                                </TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>4.</TD>
+                                <TD 
+                                colSpan=2>倘若发生不可抗拒的灾害或人为的入侵破坏行为，而导致网站故障，资料损坏，数据丢失等情况，会以本网站的最终数据为最后处理数据．为确保各方的真实利益，请各会员保留或列印投注资料，本网站才接受投诉及处理。</TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>5.</TD>
+                                <TD colSpan=2>本公司保留判定任何涉嫌以非正常方式进行投注的客户投注无效之权利 。 
+                                </TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>6.</TD>
+                                <TD colSpan=2>因人为而导致的发牌错误，如： 1) 发牌方向或次序错误。 2) 
+                                不正确之显示或结果 (此情况会发生於发牌时连发两张或以上的牌 ) 
+                                。本公司会按照正常的「牌理」和次序还原至正确的结果，最终结果将按还原至正确的结果计算。</TD></TR>
+                                <TR>
+                                <TD colSpan=3>　</TD></TR>
+                                <TR>
+                                <TD></TD>
+                                <TD colSpan=2><B>责任声明</B></TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>1.</TD>
+                                <TD colSpan=2>用户在进行游戏前应核实其所在地区进行线上游戏是否符合当地法律。 
+                                </TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20 height=19>2.</TD>
+                                <TD colSpan=2 
+                                height=19>为避免任何争议，各用户在参与本网站所有游戏过程中，或在结束参与本网站所提供的游戏前，必须检查会员帐户内的资料是否正确。 
+                                若发现有错误，请即时与所属的代理商联络。客户若不能提供充份的数据，其帐户内之一切数据或历史数据，以本公司资料库中的资料为准，用户不得异议。</TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>3.</TD>
+                                <TD 
+                                colSpan=2>本网站只向符合法定年龄的用户提供服务，用户须注意其居住地区的法律年龄限制，在不违反年龄限制之下才可使用本网站服务。 
+                                </TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>4.</TD>
+                                <TD colSpan=2>本公司将不承担任何用户因违反当地相关法律而引起之任何责任。 
+                                </TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>5.</TD>
+                                <TD 
+                                colSpan=2>任何用户在参与本公司所有游戏而引起导致违反当地法律之任何责任，本公司概不负责。 
+                                </TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>6.</TD>
+                                <TD 
+                                colSpan=2>用户有义务保障本身的用户名称和密码的隐私安全，并且不应允许任何第三方以任何形式，通过该用户名称和密码使用本网站之所有游戏，否则，一切责任需由该用户全部承担。 
+                                </TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>7.</TD>
+                                <TD 
+                                colSpan=2>安装丶使用或参与本软件所有游戏之用户，均被视为符合该用户当地之法定年龄，以及该用户完全明白并且同意本协议之内容。 
+                                </TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20 height=19>8.</TD>
+                                <TD colSpan=2 
+                                height=19>本网站有权拒绝或不接受任何用户以任何不正当方式登入或参与本网站所有游戏之权利。 
+                                各玩家请注意, 敬请各玩家以每局的真实影像的牌局结果作准, 
+                                路纸结果有时候会因为网路接收信号或各公司的数据库和伺服器维护而出现差异, 所以只供参考, 
+                                不能作准, 如有问题, 欢迎申请该局的重播。 以示公正。</TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>9.</TD>
+                                <TD 
+                                colSpan=2>因人为或系统发生不能预测因素所导致的失误，本公司管理层保留最终之决定权。 
+                                </TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>10.</TD>
+                                <TD colSpan=2>不论在任何情况下，本公司之决定权乃最终之决定权。 
+</TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>11.</TD>
+                                <TD 
+                                colSpan=2>本公司不承担所有任何明确说明或者暗示的有关於该网站或者该网站上游戏的责任，所有一切都按照现在的规范提供。此外，本公司就任何有关质量，适用性，完整性或准确性的情况不向您提供任何担保或表达任何意见。本公司会尽最大能力去提供最好的服务，但是不保证游戏偶尔出现中断，发生不可预料的错误，失误及时被纠正或者系统不受病毒和蠕虫的侵袭。</TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>12.</TD>
+                                <TD 
+                                colSpan=2>无论任何情况下，本公司不赔偿任何由於使用该网站或者该网站上游戏所造成的损失。不管该损失是特殊原因做成的，直接的，间接的（包括但不仅限于，商业利润损失，意外中断损失，丢失商业信息，或者任何其他金钱上的损失），即使本公司事先知道可能会造成这些损失。</TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>13.</TD>
+                                <TD 
+                                colSpan=2>该公司有权在任何时间随时更改本协议，而无须另行通知，并且您的任何行为或操作都将受到修正后的张贴在该网站上的协定的约束。因此，我们建议您访问该网站时，定期检查协定条款及条件。如果您继续使用本网站会被视为您同意接受协定中的任何修正。</TD></TR>
+                                <TR>
+                                <TD vAlign=top width=20>&nbsp;</TD>
+                                <TD colSpan=2>&nbsp;</TD></TR>
+                                <TR>
+                                <TD align=middle colSpan=3 height=20></TD></TR>
+                                <TR>
+                                <TD 
+                                colSpan=3>同意书内的一切条款以英文版本为依据，如对任何条文上之解释有争议，服务提供方将以英文版本作最终解释范本。</TD></TR>
+                                <TR>
+                                <TD align=middle colSpan=3 height=20></TD></TR>
+                                <TR>
+                                <TD align=middle 
+                                colSpan=3>本人清楚及同意以上所有之使用条文及细则</TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></P></TD></TR></TBODY></TABLE>
+                        <p>&nbsp;</p></td>
+                    </tr>
+                  </table>
+			      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><img src="images/content2rb_fenge.jpg" width="729" height="10" /></td>
+                    </tr>
+                  </table><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                    <tr>
+                      <td align="left" valign="top">
+                        <p> <span class="line"><img src="images/star.jpg" align="absmiddle" />支持银行</span></p>
+                       </td>
+                    </tr>
+                    <tr>
+                      <td align="left" valign="top"><TABLE cellSpacing=3 cellPadding=3 width="90%" align=center 
+border=0>
+              <TBODY>
+              <TR>
+                <TD align=middle width="25%" height=40><A 
+                  href="http://main.ips.com.cn/ckr_04.shtml" target=_blank><IMG 
+                  height=30 src="images/pay_36.gif" width=100 border=0></A></TD>
+                <TD align=middle width="25%"><A 
+                  href="http://main.ips.com.cn/ckr_03_05.shtml" 
+                  target=_blank><IMG height=30 src="images/pay_38.gif" 
+                  width=100 border=0></A></TD>
+                <TD align=middle width="25%"><A 
+                  href="http://main.ips.com.cn/ckr_03_02.shtml" 
+                  target=_blank><IMG height=30 src="images/pay_40.gif" 
+                  width=100 border=0></A></TD>
+                <TD align=middle width="25%"><A 
+                  href="http://main.ips.com.cn/ckr_03_01.shtml" 
+                  target=_blank><IMG height=30 src="images/pay_42.gif" 
+                  width=100 border=0></A></TD></TR>
+              <TR>
+                <TD align=middle height=40><A 
+                  href="http://main.ips.com.cn/ckr_03_03.shtml" 
+                  target=_blank><IMG height=30 src="images/pay_49.gif" 
+                  width=100 border=0></A></TD>
+                <TD align=middle><A 
+                  href="http://main.ips.com.cn/ckr_03_08.shtml" 
+                  target=_blank><IMG height=30 src="images/pay_51.gif" 
+                  width=100 border=0></A></TD>
+                <TD align=middle><A 
+                  href="http://main.ips.com.cn/ckr_03_13.shtml" 
+                  target=_blank><IMG height=30 src="images/pay_52.gif" 
+                  width=100 border=0></A></TD>
+                <TD align=middle><A 
+                  href="http://main.ips.com.cn/ckr_03_12.shtml" 
+                  target=_blank><IMG height=30 src="images/pay_53.gif" 
+                  width=100 border=0></A></TD></TR>
+              <TR>
+                <TD align=middle height=40><A 
+                  href="http://main.ips.com.cn/ckr_03.shtml" target=_blank><IMG 
+                  height=30 src="images/pay_58.gif" width=100 border=0></A></TD>
+                <TD align=middle><A 
+                  href="http://main.ips.com.cn/ckr_03_16.shtml" 
+                  target=_blank><IMG height=30 src="images/pay_59.gif" 
+                  width=100 border=0></A></TD>
+                <TD align=middle><A 
+                  href="http://main.ips.com.cn/ckr_03_04.shtml" 
+                  target=_blank><IMG height=30 src="images/pay_60.gif" 
+                  width=100 border=0></A></TD>
+                <TD align=middle><A 
+                  href="http://main.ips.com.cn/ckr_03_06.shtml" 
+                  target=_blank><IMG height=30 src="images/pay_65.gif" 
+                  width=100 
+      border=0></A></TD></TR></TBODY></TABLE>
+                      <p>&nbsp;</p></td>
+                    </tr>
+                  </table>
+		        </td>
+              </tr>
+              <tr>
+                <td height="35" valign="top"><img src="images/content2rf.jpg" width="729" height="19" /></td>
+              </tr>
+            </table></td>
+          </tr>
+      </table></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="images/foot_bg3.jpg" class="bor1">
+  <tr>
+    <td align="center" valign="middle" > 
+	  <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="107" align="center" background="images/foot_bg2.jpg"><div class="footercontent"><a href="kaihu.html" target="_top" onfocus="this.blur()">申请开户</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="webmap.html" target="_top" onfocus="this.blur()">网站地图</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="guestBook.html" target="_top" onfocus="this.blur()">留言反馈</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://happy1668.com/winneruser/trygame.html" target="_top" onfocus="this.blur()">申请试玩</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="duty.html" target="_top" onfocus="this.blur()">责任博彩</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://happy1668.com/agent/join_case.html" target="_top" onfocus="this.blur()">合作伙伴</a>
+            <p>copyright &copy;2010-2015 Online happyvalley. All rights reserved. 金狮国际娱乐城是第一国际集团下属公司</p>
+    </div></td>
+  </tr>
+</table>
+<script type="text/javascript" src="http://chat.53kf.com/kf.php?arg=happyv&amp;style=1"></script>
+<div style="display:none; height:0; width:0">
+<script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fcfb0aeb399baaee1eece38d8dd50178a' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript" src="../../js.tongji.linezing.com/2662266/tongji.js"></script><noscript><a href="http://www.linezing.com/"><img src="../../img.tongji.linezing.com/2662266/tongji.gif"/></a></noscript></div>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type%3dslide%26img%3d6%26uid%3d137294.html" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "../../bdimg.share.baidu.com/static/js/shell_v2a18a.js?t=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+<SCRIPT LANGUAGE="JavaScript">  
+<!--   
+function AddFavorite(sURL, sTitle) {   
+    try {   
+        window.external.addFavorite(sURL, sTitle);   
+    } catch (e) {   
+        try {   
+            window.sidebar.addPanel(sTitle, sURL, "");   
+        } catch (e) {   
+            alert("加入收藏失败，请使用Ctrl+D进行添加");   
+        }   
+    }   
+} 
+//-->  
+</SCRIPT> 
+	  </td>
+  </tr>
+</table>
+
+<div style="z-index:999;"></div>
+</body>
+
+<!-- Mirrored from happy1668.com/cn/kaihu.html by HTTrack Website Copier/3.x [XR&CO'2010], Sat, 19 May 2012 06:00:19 GMT -->
+</html>
+<script language='JavaScript' src='../Count/Count.js'></script>
+<script language="javascript">
+//会员重复判断
+xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+function fnDo(ID)
+{
+    var xmlDom = new ActiveXObject("Msxml2.DOMDocument");        
+    var strURL = "http://happy1668.com/winneruser/checkid.html?UserName=" + ID;
+       
+    xmlhttp.Open("POST",strURL , true);
+    xmlhttp.onreadystatechange = fnRun;
+    xmlhttp.Send(xmlDom);
+    divTest.innerHTML = "<font color=red>正在检测用户名！Loading…</font>"
+}
+
+
+//——————————————————–
+function fnRun()
+{
+    var state = xmlhttp.readyState;
+    var xmlDom = new ActiveXObject("Msxml2.DOMDocument");
+    if (state == 4)
+    {
+        xmlDom.loadXML(xmlhttp.responseXML.xml);
+        //alert(xmlDom.documentElement.selectSingleNode("//objXML").text)
+        var getInfo = xmlDom.documentElement.selectSingleNode("//objXML").text;
+  divTest.innerHTML = getInfo;
+  
+  if (getInfo == "<font color=#FF0000>该用户名已被注册，请重新输入！</font>")
+  {
+  alert("该用户名已被注册，请重新输入")
+  document.frmMain.UserName.value="";
+	  document.frmMain.UserName.focus();
+  return false;}
+}
+}
+</script>

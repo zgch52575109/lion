@@ -1,0 +1,178 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>银行类别管理</h2>
+            </div>
+			                        	<form method="POST" name="myform" action="">
+				<td colspan="21">
+				帐号：<input type="text" name="keyword" size="12" value="<?php echo $keyword;?>" id="keyword">
+				<input type="submit" name="Submit" align="absmiddle" value="查 询..." class="btn"></td>
+				</form>
+
+            <div class="contentbox"><form method="post" name="main_form" action="" style="margin:0px;"> 
+			
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>ID</th>
+                            <th>用户</th>
+							<th>开户银行</th>
+                            <th>银行卡号码</th>
+							<th>持卡人姓名</th>
+							<th>持卡人身份证</th>
+							<th>添加时间</th>
+							<th>操作</th>
+							<th><input name="" type="checkbox" value="" id="checkboxall" /></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$numPerPage=30;
+$page = isset($page) ? intval($page) : 1;
+$uid = isset($uid) ? intval($uid) : 0;
+if($page==0) $page=1;
+$whereStr=" where 1='1'";
+if ($uid){$whereStr.=" and b.uid ='$uid'";}
+if ($bankid){$whereStr.=" and b.bankid ='$bankid'";}
+if ($keyword){
+$whereStr.=" and m.username like '%".$keyword."%'";
+$join=" left join ek_member m on m.uid=b.uid";
+}
+$csqlStr="select count(*) as dd from `ek_member_bank` b $join $whereStr";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_member_bank.php?uid='.$uid.'&bankid='.$bankid);
+
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select b.*,m.username,t.tname from ek_member_bank b left join ek_member m on m.uid=b.uid left join ek_bank_type t on t.tid=b.bankid $whereStr order by b.addtime desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+while($row=$dsql->GetArray('class_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $row['id'];?></td>
+                            <td><?php echo $row['username'];?></td>
+							<td><?php echo $row['tname'];?></td>
+							<td><?php echo $row['cardnum'];?></td>
+							<td><?php echo $row['realname'];?></td>
+							<td><?php echo $row['idnumber'];?></td>
+							<td><?php echo isCurrentDay($row['addtime']);?></td>
+                            <td>
+                            	<a href="?action=edit&id=<?php echo $row['id'];?>" title=""><img src="img/icons/icon_edit.png" alt="Edit" /></a>
+                                <a href="?action=del&id=<?php echo $row['id'];?>" title=""><img src="img/icons/icon_delete.png" alt="Delete" /></a>
+                            </td>
+							<td><input type="checkbox" value="<?php echo $row['id'];?>" id="checkall" name="checkall[]" /></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div class="extrabottom">
+                	<ul>
+                    	<li><img src="img/icons/icon_edit.png" alt="Edit" /> 编辑</li>
+                        <li><img src="img/icons/icon_delete.png" alt="Delete" /> 删除</li>
+                    </ul>
+                    <div class="bulkactions">
+                    	<select name="action">
+                        	<option value="delall">删除选择</option>
+                        </select>
+                        <input type="submit" value="提交" class="btn" />
+                    </div>
+                </div>
+                <ul class="pagination">
+				<li class="text">&nbsp;页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> 总收录数据<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+<?php
+if($id){
+?>
+<SCRIPT src="../js/city.js" type="text/javascript"></SCRIPT>
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>编辑银行卡</h2>
+            </div>
+            <div class="contentbox">
+            	<form action="?action=save" id="frmMain" name="frmMain" method="POST">
+            		<p>
+                        <label for="grouptitle"><strong>用户名:</strong></label>
+                        <?php echo $rowp['username'];?> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>开户银行地区:</strong></label>
+                        <select style="width:80px" id="sf" onchange=changecity('') name="sf"> <option value=0>--省份--</option> <option 
+    value=北京<?php if ($rowp['sf']=='北京') echo ' selected';?>>北京</option> <option value=天津<?php if ($rowp['sf']=='天津') echo ' selected';?>>天津</option> <option 
+    value=上海<?php if ($rowp['sf']=='上海') echo ' selected';?>>上海</option> <option value=重庆<?php if ($rowp['sf']=='重庆') echo ' selected';?>>重庆</option> <option 
+    value=江苏省<?php if ($rowp['sf']=='江苏省') echo ' selected';?>>江苏省</option> <option value=广东省<?php if ($rowp['sf']=='广东省') echo ' selected';?>>广东省</option> <option 
+    value=浙江省<?php if ($rowp['sf']=='浙江省') echo ' selected';?>>浙江省</option> <option value=福建省<?php if ($rowp['sf']=='福建省') echo ' selected';?>>福建省</option> <option 
+    value=湖南省<?php if ($rowp['sf']=='湖南省') echo ' selected';?>>湖南省</option> <option value=湖北省<?php if ($rowp['sf']=='湖北省') echo ' selected';?>>湖北省</option> <option 
+    value=山东省<?php if ($rowp['sf']=='山东省') echo ' selected';?>>山东省</option> <option value=辽宁省<?php if ($rowp['sf']=='辽宁省') echo ' selected';?>>辽宁省</option> <option 
+    value=吉林省<?php if ($rowp['sf']=='吉林省') echo ' selected';?>>吉林省</option> <option value=云南省<?php if ($rowp['sf']=='云南省') echo ' selected';?>>云南省</option> <option 
+    value=四川省<?php if ($rowp['sf']=='四川省') echo ' selected';?>>四川省</option> <option value=安徽省<?php if ($rowp['sf']=='安徽省') echo ' selected';?>>安徽省</option> <option 
+    value=江西省<?php if ($rowp['sf']=='江西省') echo ' selected';?>>江西省</option> <option value=黑龙江省<?php if ($rowp['sf']=='黑龙江省') echo ' selected';?>>黑龙江省</option> <option 
+    value=河北省<?php if ($rowp['sf']=='河北省') echo ' selected';?>>河北省</option> <option value=陕西省<?php if ($rowp['sf']=='陕西省') echo ' selected';?>>陕西省</option> <option 
+    value=海南省<?php if ($rowp['sf']=='海南省') echo ' selected';?>>海南省</option> <option value=河南省<?php if ($rowp['sf']=='河南省') echo ' selected';?>>河南省</option> <option 
+    value=山西省<?php if ($rowp['sf']=='山西省') echo ' selected';?>>山西省</option> <option value=内蒙古<?php if ($rowp['sf']=='内蒙古') echo ' selected';?>>内蒙古</option> <option 
+    value=广西<?php if ($rowp['sf']=='广西') echo ' selected';?>>广西</option> <option value=贵州省<?php if ($rowp['sf']=='贵州省') echo ' selected';?>>贵州省</option> <option 
+    value=宁夏<?php if ($rowp['sf']=='宁夏') echo ' selected';?>>宁夏</option> <option value=青海省<?php if ($rowp['sf']=='青海省') echo ' selected';?>>青海省</option> <option 
+    value=新疆<?php if ($rowp['sf']=='新疆') echo ' selected';?>>新疆</option> <option value=西藏<?php if ($rowp['sf']=='西藏') echo ' selected';?>>西藏</option> <option 
+    value=甘肃省<?php if ($rowp['sf']=='甘肃省') echo ' selected';?>>甘肃省</option> <option value=台湾省<?php if ($rowp['sf']=='台湾省') echo ' selected';?>>台湾省</option> <option 
+    value=香港<?php if ($rowp['sf']=='香港') echo ' selected';?>>香港</option> <option value=澳门<?php if ($rowp['sf']=='澳门') echo ' selected';?>>澳门</option> <option 
+    value=国外<?php if ($rowp['sf']=='国外') echo ' selected';?>>国外</option></select> <select id="city" name="city" style="width:80px" > <option value=0>--城市--</option></select><script>changecity('<?php echo $row['city']?>');</script>
+	<select id="bankid" name="bankid" style="width:180px"> <option value=-1>-- 开户行 --</option>
+						<?php
+						foreach($btype as $data){
+							echo '<option value="'.$data['tid'].'"'.($rowp['bankid']==$data['tid'] ? ' selected' : '').'>'.$data['tname'].'</option>';
+						}
+						?>
+	</select> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>支行名:</strong></label>
+						<input type="text" name="zhihang" id="zhihang" class="inputbox" value="<?php echo $rowp['zhihang'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>银行卡账号:</strong></label>
+                        <input type="text" name="cardnum" id="cardnum" class="inputbox" value="<?php echo $rowp['cardnum'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>持卡人姓名:</strong></label>
+                        <input type="text" name="realname" id="realname" class="inputbox" value="<?php echo $rowp['realname'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>持卡人身份证:</strong></label>
+                        <input type="text" name="idnumber" id="idnumber" class="inputbox" value="<?php echo $rowp['idnumber'];?>" /> <br />
+                    </p>
+					<input type="hidden" name="id" value="<?php echo $id;?>">
+					<input type="submit" value="保存" class="btn" />
+                </form>
+            </div>
+</div>
+<?php
+}
+?>
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

@@ -1,0 +1,33 @@
+
+#wrapper
+{
+  width:960px;
+  margin:0 auto;
+  overflow:hidden;
+}
+
+
+/*********************************************************************
+ * General, default styles
+ *********************************************************************/
+a
+{
+  color:#095fbf;
+  text-decoration:none;
+}
+
+a:hover
+{
+  text-decoration:underline;
+}
+
+.cufon-loading h1,
+.cufon-loading h2,
+.cufon-loading h3,
+.cufon-loading h4,
+.cufon-loading h5,
+.cufon-loading h6
+{
+	visibility: hidden !important;
+}
+

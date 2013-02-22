@@ -1,0 +1,137 @@
+    <div id="rightside">
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script> 
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>财务管理</h2>
+            </div>
+            <div class="contentbox"><form method="post" name="main_form" action="" style="margin:0px;"> 
+            	<table width="100%">
+                	<thead>
+				<tr><form method="POST" name="myform" action="admin_member_incash.php">
+				<td colspan="21">
+				帐号：<input type="text" name="account" size="12" value="<?php echo $account;?>" id="account">
+				日期：<input type="text" name="begin_date" value="<?php echo $begin_date;?>" size="12" id="begin_date" onclick="return showCalendar('begin_date', 'y-m-d');" />
+      			至 <input type="text" name="end_date" size="12" value="<?php echo $end_date;?>" id="end_date" onclick="return showCalendar('end_date', 'y-m-d');" />
+
+				北京时间：<input type="checkbox" name="ctime" value="1"<?php if($ctime==1) echo ' checked';?>>
+				每页显示：<input type="text" class="inputbox" style="width:10px;" name="listpage" value="<?php if(!intval($listpage)) echo '30'; else echo $listpage;?>">
+				<input type="submit" name="Submit" align="absmiddle" value="查 询..." class="btn"></td>
+				</form>
+				</tr>
+                    	<tr>
+                            <th>姓名</th>
+							<th>帐号</th>
+							<th>VIP</th>
+							<th>注册时间</th>
+							<th>现金流入</th>
+							<th>现金流出</th>
+							<th>红利</th>
+							<th>冲正冲负</th>
+							<th>毛利</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$numPerPage = isset($listpage) ? intval($listpage) : 30;
+$page = isset($page) ? intval($page) : 1;
+$uid = isset($uid) ? intval($uid) : 0;
+$begincash = isset($begincash) ? intval($begincash) : 0;
+$endcash = isset($endcash) ? intval($endcash) : 0;
+
+if($page==0) $page=1;
+$whereStr=" where b.state='2'";
+$leftstr="";
+	if ($begin_date){
+		$begindate=strtotime($begin_date);
+		$whereStr.=" and b.addtime >='$begindate'";
+		$where.=" and lingqutime >='$begindate'";
+	}
+	if ($end_date){
+		$enddate=strtotime($end_date);
+		$whereStr.=" and b.addtime <='$enddate'";
+		$where.=" and lingqutime <='$enddate'";
+	}
+	if(trim($account)!=''){
+		$leftstr=" left join ek_member m on m.uid=b.uid";
+		$whereStr.=" and (m.username ='$account' or m.truename='$account')";
+	}
+if ($uid){$whereStr.=" and b.uid ='$uid'";}
+
+$csqlStr="select count(distinct uid) as dd from `ek_member_incash` b $leftstr $whereStr";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_finance_report.php?uid='.$uid.($listpage ? '&listpage='.$listpage : '').($begin_date ? '&begin_date='.$begin_date : '').($end_date ? '&end_date='.$end_date : '').($account ? '&account='.$account : '').($ctime ? '&ctime='.$ctime : ''));
+
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select b.*,sum(b.incash) as incash,sum(b.outcash) as outcash,sum(b.shouxufei) as shouxufei,sum(b.hongli) as hongli,f.hongli as firsthongli,f.state as fstate,sum(b.czhengfu) as czhengfu,m.username,m.truename,m.groupid,m.jointime,g.grouptitle from ek_member_incash b left join ek_member m on m.uid=b.uid  left join ek_member_firsthongli f on m.uid=f.uid left join ek_member_group g on g.groupid=m.groupid $whereStr group by b.uid order by b.addtime desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=0;
+$allliuru=$allliuchu=$allshouxufei=$allhongli=$allfirsthongli=$allczhengfu=$allmaoli='0';
+while($row=$dsql->GetArray('class_list'))
+{
+$row['hongli']=$row['hongli']+$row['shouxufei'];
+$uid=$row['uid'];
+if( $row['incash']!=0 || $row['outcash']!=0 || $row['shouxufei']!=0 || $row['hongli']!=0 || $firsthongli!=0 || $row['czhengfu']!=0){
+$fstate=$row['fstate'];
+if($fstate==0){$firsthongli=0;};
+$allliuru=$allliuru+$row['incash'];
+$allliuchu=$allliuchu+$row['outcash'];
+$allmaoli=$allmaoli+$row['incash']-$row['outcash'];
+$row['maoli']=$row['incash']-$row['outcash'];
+$allshouxufei=$allshouxufei+$row['shouxufei'];
+$allhongli=$allhongli+$row['hongli'];
+$allczhengfu=$allczhengfu+$row['czhengfu'];
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                            <td><?php echo $row['truename'];?></td>
+							<td><?php echo $row['username'];?></td>
+							<td><?php if($row['groupid']>1) echo $row['grouptitle'];?></td>
+							<td><?php echo isCurrentDay($row['jointime'],$ctime);?></td>
+							<td><?php echo $row['incash'];?></td>
+							<td><?php echo $row['outcash'];?></td>
+							<td><?php echo number_format($row['hongli'],2);?></td>
+							<td><?php echo number_format($row['czhengfu'],2);?></td>
+							<td><?php echo number_format($row['maoli'],2);?></td>
+                        </tr>
+<?php
+}
+$i++;
+}
+?>
+<tr>
+<th colspan="4" align="center">总条目：<?php echo $TotalResult;?></th><th><?php echo number_format($allliuru,2);?></th><th><?php echo number_format($allliuchu,2);?></th><th><?php echo number_format($allhongli,2);?></th><th><?php echo number_format($allczhengfu,2);?></th><th><?php echo number_format($allmaoli,2);?></th>
+</tr>
+
+                    </tbody>
+                </table>
+
+                <ul class="pagination">
+				<li class="text">&nbsp;页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> 总收录数据<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>
+<script type='text/javascript' src='scripts/main.js'></script>

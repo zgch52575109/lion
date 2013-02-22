@@ -1,0 +1,117 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>网站配置信息</h2>
+            </div>
+            <div class="contentbox">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="tableBorder">
+<form name="config_form" enctype="multipart/form-data" action="admin_config.php?dopost=save" method="post"><tr>
+<th colspan="5">基本设置</th></tr>
+<tr><td class="forumrow" align="right" width="200">网站名称：</td><td class="forumrow"><input type="text" name="edit___cfg_webname" size="20" value="<?php echo $cfg_webname;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">网站URL：</td><td class="forumrow"><input type="text" name="edit___cfg_basehost" size="20" value="<?php echo $cfg_basehost;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">网站路径：</td><td class="forumrow"><input type="text" name="edit___cfg_cmspath" size="20" value="<?php echo $cfg_cmspath;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">cookie加密码：</td><td class="forumrow"><input type="text" name="edit___cfg_cookie_encode" size="20" value="<?php echo $cfg_cookie_encode;?>" /></td></tr>
+<a name="templet">
+<tr><td class="forumrow" align="right" width="200">模版名称：</td><td class="forumrow"><input type="text" name="edit___cfg_df_style" size="20" value="<?php echo $cfg_df_style;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">模版文件夹：</td><td class="forumrow"><input type="text" name="edit___cfg_df_html" size="20" value="<?php echo $cfg_df_html;?>" /></td></tr>
+<th colspan="5" id="seo">SEO设置</th></tr>
+<tr><td class="forumrow" align="right" width="200">网站keywords：</td><td class="forumrow"><input type="text" name="edit___cfg_keywords" size="20" value="<?php echo $cfg_keywords;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">网站description：</td><td class="forumrow"><input type="text" name="edit___cfg_description" size="20" value="<?php echo $cfg_description;?>" /></td></tr>
+<th colspan="5" id="cache">优化设置</th></tr>
+<tr><td class="forumrow" align="right" width="200">缓存时间：</td><td class="forumrow"><input type="text" name="edit___cfg_cachetime" size="20" value="<?php echo $cfg_cachetime;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">是否使用缓存：</td><td class="forumrow"><input type="text" name="edit___cfg_iscache" size="20" value="<?php echo $cfg_iscache;?>" />0为不使用，其他未使用</td></tr>
+<tr><td class="forumrow" align="right" width="200">网站干扰因子：</td><td class="forumrow"><input type="text" name="edit___cfg_webhashid" size="20" value="<?php echo $cfg_webhashid;?>" />加密字符串，与网站运行无关，建议定期修改</td></tr>
+<tr><td class="forumrow" align="right" width="200">时区设置：</td><td class="forumrow"><input type="text" name="edit___cfg_cli_time" size="20" value="<?php echo $cfg_cli_time;?>" /></td></tr>
+<th colspan="5" id="upload">图片上传设置</th></tr>
+<tr><td class="forumrow" align="right" width="200">图片文件夹：</td><td class="forumrow"><input type="text" name="edit___cfg_upload_dir" size="20" value="<?php echo $cfg_upload_dir;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">上传图片大小：</td><td class="forumrow"><input type="text" name="edit___cfg_max_face" size="20" value="<?php echo $cfg_max_face;?>" />K</td></tr>
+<tr><td class="forumrow" align="right" width="200">上传图片类型：</td><td class="forumrow"><input type="text" name="edit___cfg_imgtype" size="20" value="<?php echo $cfg_imgtype;?>" /></td></tr>
+<th colspan="5" id="logo">网站logo和ico设置</th></tr>
+<tr><td class="forumrow" align="right" width="200">logo地址：</td><td class="forumrow"><input type="text" name="edit___cfg_logo" size="20" value="<?php echo $cfg_logo;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">ico地址：</td><td class="forumrow"><input type="text" name="edit___cfg_ico" size="20" value="<?php echo $cfg_ico;?>" /></td></tr>
+<th colspan="5" id="qq">在线客服代码设置</th></tr>
+<tr><td class="forumrow" align="right" width="200">在线客服代码：</td><td class="forumrow"><input type="text" name="edit___cfg_qq" size="40" value="<?php echo stripslashes($cfg_qq);?>" />可以是JS等代码</td></tr>
+<th colspan="5" id="member">会员系统设置</th></tr>
+<tr><td class="forumrow" align="right" width="200">前台是否允许会员注册：</td><td class="forumrow"><input type="text" name="edit___cfg_consumermb_allowreg" size="20" value="<?php echo $cfg_consumermb_allowreg;?>" />1为允许，0为禁止</td></tr>
+<tr><td class="forumrow" align="right" width="200">前台是否允许代理商注册：</td><td class="forumrow"><input type="text" name="edit___cfg_proxy_allowreg" size="20" value="<?php echo $cfg_proxy_allowreg;?>" />1为允许，0为禁止</td></tr>
+<tr><td class="forumrow" align="right" width="200">新注册用户默认级别：</td><td class="forumrow"><input type="text" name="edit___cfg_newusergroupid" size="20" value="<?php echo $cfg_newusergroupid;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">新注册用户默认状态：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_default_status" size="20" value="<?php echo $cfg_memeber_default_status;?>" />1为正常，0为冻结</td></tr>
+<tr><td class="forumrow" align="right" width="200">禁止注册用户名：</td><td class="forumrow"><input type="text" name="edit___cfg_mb_notallow" size="40" value="<?php echo $cfg_mb_notallow;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">用户名最小长度：</td><td class="forumrow"><input type="text" name="edit___cfg_mb_idmin" size="20" value="<?php echo $cfg_mb_idmin;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">密码最小长度：</td><td class="forumrow"><input type="text" name="edit___cfg_mb_pwdmin" size="20" value="<?php echo $cfg_mb_pwdmin;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">密码加密方式：</td><td class="forumrow"><input type="text" name="edit___cfg_mb_pwdtype" size="20" value="<?php echo $cfg_mb_pwdtype;?>" />位MD5</td></tr>
+<tr><td class="forumrow" align="right" width="200">是否使用smtp发信：</td><td class="forumrow"><input type="text" name="edit___cfg_sendmail_bysmtp" size="20" value="<?php echo $cfg_sendmail_bysmtp;?>" />0为不使用，1为使用</td></tr>
+<tr><td class="forumrow" align="right" width="200">smtp服务器：</td><td class="forumrow"><input type="text" name="edit___cfg_smtp_server" size="20" value="<?php echo $cfg_smtp_server;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">smtp信箱：</td><td class="forumrow"><input type="text" name="edit___cfg_smtp_usermail" size="20" value="<?php echo $cfg_smtp_usermail;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">smtp用户名：</td><td class="forumrow"><input type="text" name="edit___cfg_smtp_username" size="20" value="<?php echo $cfg_smtp_username;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">smtp用户密码：</td><td class="forumrow"><input type="text" name="edit___cfg_smtp_password" size="20" value="<?php echo $cfg_smtp_password;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">会员是否可以编辑银行卡：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_bank_edit" size="20" value="<?php echo $cfg_memeber_bank_edit;?>" />1为可以，0为禁止</td></tr>
+<tr><td class="forumrow" align="right" width="200">会员是否可以删除银行卡：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_bank_del" size="20" value="<?php echo $cfg_memeber_bank_del;?>" />1为可以，0为禁止</td></tr>
+<tr><td class="forumrow" align="right" width="200">会员存款时是否需要审核：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_incash_check" size="20" value="<?php echo $cfg_memeber_incash_check;?>" />1为需要，0为不需要</td></tr>
+<tr><td class="forumrow" align="right" width="200">会员最小存款金额：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_incash_min_money" size="20" value="<?php echo $cfg_memeber_incash_min_money;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">会员最大存款金额：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_incash_max_money" size="20" value="<?php echo $cfg_memeber_incash_max_money;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">会员是否可以编辑存款姓名：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_incash_edit_sender" size="20" value="<?php echo $cfg_memeber_incash_edit_sender;?>" />1为可以，0为禁止</td></tr>
+<tr><td class="forumrow" align="right" width="200">存款返还红利比例：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_incash_hongli" size="40" value="<?php echo $cfg_memeber_incash_hongli;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">存款返还最大红利：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_incash_maxhongli" size="40" value="<?php echo $cfg_memeber_incash_maxhongli;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">存款返还手续费比例：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_incash_shouxufei" size="40" value="<?php echo $cfg_memeber_incash_shouxufei;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">存款返还最大手续费：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_incash_maxshouxufei" size="40" value="<?php echo $cfg_memeber_incash_maxshouxufei;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">首存返还红利比例：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_first_hongli" size="40" value="<?php echo $cfg_memeber_first_hongli;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">首存返还最大红利：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_first_maxhongli" size="40" value="<?php echo $cfg_memeber_first_maxhongli;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">提款最小金额：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_outcash_min_money" size="20" value="<?php echo $cfg_memeber_outcash_min_money;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">提款参数j：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_outcash_j" size="20" value="<?php echo $cfg_memeber_outcash_j;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">提款参数x：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_outcash_x" size="20" value="<?php echo $cfg_memeber_outcash_x;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">提款参数y：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_outcash_y" size="20" value="<?php echo $cfg_memeber_outcash_y;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">提款未达到条件提示信息：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_outcash_noallow_str" size="20" value="<?php echo $cfg_memeber_outcash_noallow_str;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">有首存提款未达到条件提示信息：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_outcash_noallow_str2" size="20" value="<?php echo $cfg_memeber_outcash_noallow_str2;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">提款未达到需审核提示信息：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_outcash_checkout_str" size="20" value="<?php echo $cfg_memeber_outcash_checkout_str;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">首存上线分成比例：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_tuijian_fencheng" size="20" value="<?php echo $cfg_memeber_tuijian_fencheng;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">二存上线分成比例：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_tuijian_fencheng2" size="20" value="<?php echo $cfg_memeber_tuijian_fencheng2;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">三存上线分成比例：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_tuijian_fencheng3" size="20" value="<?php echo $cfg_memeber_tuijian_fencheng3;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">额度显示分页数量：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_limit_list_pagesize" size="20" value="<?php echo $cfg_memeber_limit_list_pagesize;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">拒绝订单时间：</td><td class="forumrow"><input type="text" name="edit___cfg_memeber_uncheck_time" size="20" value="<?php echo $cfg_memeber_uncheck_time;?>" />分钟</td></tr>
+<th colspan="5" id="member">API参数设置</th></tr>
+<tr><td class="forumrow" align="right" width="200">agentid：</td><td class="forumrow"><input type="text" name="edit___cfg_agentid" size="40" value="<?php echo $cfg_agentid;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">refno：</td><td class="forumrow"><input type="text" name="edit___cfg_refno" size="40" value="<?php echo $cfg_refno;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">promoid：</td><td class="forumrow"><input type="text" name="edit___cfg_promoid" size="40" value="<?php echo $cfg_promoid;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">currencyid：</td><td class="forumrow"><input type="text" name="edit___cfg_currencyid" size="40" value="<?php echo $cfg_currencyid;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">API地址：</td><td class="forumrow"><input type="text" name="edit___cfg_apiurl" size="40" value="<?php echo $cfg_apiurl;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">API登录地址：</td><td class="forumrow"><input type="text" name="edit___cfg_apiloginurl" size="40" value="<?php echo $cfg_apiloginurl;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">API_CasinoId：</td><td class="forumrow"><input type="text" name="edit___cfg_CasinoId" size="40" value="<?php echo $cfg_CasinoId;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">API_username：</td><td class="forumrow"><input type="text" name="edit___cfg_api_username" size="40" value="<?php echo $cfg_api_username;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">API_password：</td><td class="forumrow"><input type="text" name="edit___cfg_api_password" size="40" value="<?php echo $cfg_api_password;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">API获取订单URL：</td><td class="forumrow"><input type="text" name="edit___cfg_apigeturl" size="40" value="<?php echo $cfg_apigeturl;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">API获取真人视讯订单URL：</td><td class="forumrow"><input type="text" name="edit___cfg_livegame_apigeturl" size="40" value="<?php echo $cfg_livegame_apigeturl;?>" /></td></tr>
+<tr><td class="forumrow" align="right" width="200">API获取游戏记录URL：</td><td class="forumrow"><input type="text" name="edit___cfg_gamehistory_apigeturl" size="40" value="<?php echo $cfg_gamehistory_apigeturl;?>" /></td></tr>
+<th colspan="5" id="bandip">第三方支付参数设置</th></tr>
+<tr><td class="forumrow" align="right" width="200">商户证书：</td><td class="forumrow"><input type="text" name="edit___Mer_key" size="40" value="<?php echo $Mer_key;?>" /></td></tr>
+<tr>
+<td class="forumrow" align="right" width="200">商户号：</td>
+<td class="forumrow"><input type="text" name="edit___Mer_code" size="40" value="<?php echo $Mer_code;?>" /></td>
+</tr>
+<tr>
+<td class="forumrow" align="right" width="200">第三方支付网址：</td>
+<td class="forumrow"><input type="text" name="edit___Sponsored_Connectivity" size="40" value="<?php echo $Sponsored_Connectivity;?>" /></td>
+</tr>
+<tr><td class="forumrow" align="right" width="200">支付金额限制：</td><td class="forumrow"><input type="text" name="edit___Mer_Amount_cash" size="20" value="<?php echo $Mer_Amount_cash;?>" />例如：10-100</td></tr>
+<th colspan="5" id="foot">网站底部设置</th></tr>
+<tr><td class="forumrow" align="right" width="200">网站底部：</td><td class="forumrow"><textarea name="edit___cfg_foot" rows="7" cols="100"><?php echo stripslashes($cfg_foot);?></textarea></td></tr>
+<tr><td class="forumrow" align="right" width="200">分析代码嵌入：</td><td class="forumrow"><textarea name="edit___cfg_stats" rows="7" cols="100"><?php echo stripslashes($cfg_stats);?></textarea></td></tr>
+<th colspan="5" id="bandip">IP黑白名单设置</th></tr>
+<tr><td class="forumrow" align="right" width="200">前台IP白名单：</td><td class="forumrow"><textarea name="edit___cfg_ipaccess" rows="5" cols="50"><?php echo $cfg_ipaccess;?></textarea><br>只有当用户处于本列表中的 IP 地址时才可以访问本站点，列表以外的地址访问将视为 IP 被禁止，每个 IP 一行，既可输入完整地址，也可只输入 IP 开头，例如 "192.168."(不含引号) 可匹配 192.168.0.0～192.168.255.255 范围内的所有地址，留空为所有 IP 除明确禁止的以外均可访问
+</td></tr>
+<tr><td class="forumrow" align="right" width="200">前台IP黑名单：</td><td class="forumrow"><textarea name="edit___cfg_banip" rows="5" cols="50"><?php echo $cfg_banip;?></textarea><br>当用户处于本列表中的 IP 地址时不能访问本站点，每个 IP 一行，既可输入完整地址，也可只输入 IP 开头，例如 "192.168."(不含引号) 可匹配 192.168.0.0～192.168.255.255 范围内的所有地址，留空为所有 IP 均可访问</td></tr>
+<tr><td class="forumrow" align="right" width="200">后台IP白名单：</td><td class="forumrow"><textarea name="edit___cfg_admin_ipaccess" rows="5" cols="50"><?php echo $cfg_admin_ipaccess;?></textarea><br>只有当用户处于本列表中的 IP 地址时才可以访问后台，列表以外的地址访问将视为 IP 被禁止，每个 IP 一行，既可输入完整地址，也可只输入 IP 开头，例如 "192.168."(不含引号) 可匹配 192.168.0.0～192.168.255.255 范围内的所有地址，留空为所有 IP 除明确禁止的以外均可访问
+</td></tr>
+<tr><td class="forumrow" align="right" width="200">后台IP黑名单：</td><td class="forumrow"><textarea name="edit___cfg_admin_banip" rows="5" cols="50"><?php echo $cfg_admin_banip;?></textarea><br>当用户处于本列表中的 IP 地址时不能访问后台，每个 IP 一行，既可输入完整地址，也可只输入 IP 开头，例如 "192.168."(不含引号) 可匹配 192.168.0.0～192.168.255.255 范围内的所有地址，留空为所有 IP 均可访问</td></tr>
+<tr><td class="forumrow"></td><td class="forumrow"><input type="submit" name="quren" value="确认更新" /></td></tr>
+</form></table>
+            </div>
+</div>
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

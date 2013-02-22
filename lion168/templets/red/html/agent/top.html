@@ -1,0 +1,109 @@
+<div id="header_scroll">
+<div id="headercontent">
+<div id="header">
+ <h1 id="logo"><a href="index.html">金狮娱乐</a></h1>
+ <div id="logincontent">
+<!--{if $username}--> 
+ <table style="width:120xp; height:60px; margin-top:30xp;"border="0" align="right" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+ <div class="member">
+    <div class="name">欢迎&nbsp;<a href="member/datum.php"><!--{$username}--></a><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span><a class="exit" href="logout.php">&nbsp;退出</a></div>
+ 
+    <div class="link"><br><a href="cash_apply.php">申请取款&nbsp;</a><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href="information.php">&nbsp;我的账户</a></div>
+  </div>    
+    
+    </td>
+  </tr>
+</table>
+
+
+<!--{else}--> 
+   <ul class="reg">
+     <li class="li1"><a href="sign_in.html">立即注册</a></li>
+     <li class="li2"><a href="gotogame.php">免费试玩</a></li>
+   </ul>
+   <div class="split"></div>
+   <ul class="login">
+   <form name="loginfo" id="loginfo" method="post" action="login.php?action=login" style="margin: 0px;padding:0;" onKeyDown="jumpToNext();" target="_top">
+     <li><input name="username1" class="text" type="text" id="textfield1" onkeyup="value=value.replace(/[\W]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/></li>
+     <li><input name="password1" class="text psw" type="password" /></li>
+     <li><input type="text" name="ValidateCode1" id="ValidateCode1" class="text code" /><img id="vdimgck" src="/include/vdimgck.php" alt="看不清？点击更换" align="middle" style="cursor:pointer; padding-left:6px;" onclick="this.src=this.src+'?'" /></li>
+     </form>
+   </ul>
+   <ul class="btns">
+     <li><input type="button" class="loginbtn"  onclick="document.loginfo.submit()" /></li>
+     <li><a href="password_find.html">忘记密码?</a></li>
+   </ul> 
+<!--{/if}--> 
+ </div>
+</div>
+<div id="nav_scroll">
+<div id="navcontent">
+ <ul>
+   <li tabindex="0" ><a href="/index.html">首&nbsp;&nbsp;页</a></li>
+   <li tabindex="1"  ><a href="/real_person.html">真人娱乐</a></li>
+   <li tabindex="2" ><a href="/preferential.html">优惠活动</a></li>
+   <li tabindex="3" ><a href="/about_us.html">关于我们</a></li>
+   <li tabindex="4" class="current"  ><a href="/agent_joinus.php">合作加盟</a></li>
+   <li tabindex="5" ><a href="/vip/vip_club.html" target="_blank">VIP CLUB</a></li>
+   <li style="width:130px;"><a href="http://chat.53kf.com/company.php?arg=lion168&amp;style=1" target="_blank"><img src="/images/index/chat.jpg" border="0" /></a></li>
+ </ul>
+ 
+ <div class="gmt" id="time_chn">loading...</div>
+ <div class="bg"></div>
+</div>
+</div>
+<div class="header_l"></div>
+<div class="header_r"></div>
+</div>
+</div>
+<script>
+
+window.onload=function(){
+
+	function nowTime1(ev){
+
+		var Y,M,D,W,H,I,S;
+
+		function fillZero(v){
+
+			if(v<10){v='0'+v;}
+
+			return v;
+
+		}
+
+		(function(){
+
+			var d=new Date();
+
+			Y=fillZero(d.getFullYear());
+
+			M=fillZero(d.getMonth()+1);
+
+			D=fillZero(d.getDate());
+
+			
+
+			H=fillZero(d.getHours());
+
+			I=fillZero(d.getMinutes());
+
+			S=fillZero(d.getSeconds());
+
+			ev.innerHTML= D + '/' + M + '/' + Y + '  '+H+':'+I+':'+S+' (GMT+8)';
+
+			//每秒更新时间
+
+			setTimeout(arguments.callee,1000);
+
+		})();
+
+	}
+
+ nowTime1(document.getElementById('time_chn'));
+
+}
+
+</script> 

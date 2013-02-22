@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <title>最新活动 - 金狮娱乐</title>
+    <meta name="keywords" content="keyword ..." />
+    <meta name="Description" content="description ..." />
+    <!--<link href="favicon.ico" rel="shortcut icon" />-->
+    <link href="../css/index/global.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--{include file="index/top.html"}-->
+
+<div id="maincontent">
+ <div id="informscroll">
+  <div id="informcontent">
+    <!--{include file="index/inc_notice.html"}-->
+    <div class="tel"></div>
+    </div>
+ </div>
+ <div id="listcontent">
+   <div class="inners">
+    <!--{include file="index/left_menu.html"}--> 
+   <div id="rightcontent">
+     <div class="site"><a href="preferential.html">优惠活动</a><span>&gt;</span>最新活动</div>
+     <ul class="list">
+       <li>
+         <div class="img"><img src="images/active/sm.jpg" alt="" title="" /></div>
+         <dl>
+           <dt><a href="#"></a></dt>
+           <dd>30%首次存款优惠活动，最高金额可达88888元，需要滚动15倍。（活动有效期限：2012年5月1日-2012年6月30日）</dd>
+           <dd><div class="more"><a href="#">阅读更多&gt;&gt;</a></div></dd>
+         </dl>
+         <div class="clear"></div>
+       </li>
+       <li>
+         <div class="img"><a href="activities_lc.php"><img src="images/active/5.jpg" alt="" title="" /></a></div>
+         <dl>
+           <dt><a href="activities_lc.php">送粮草，闯五关</a></dt>
+           <dd>在6.1-6.30，您可以在金狮国际申请闯关优惠，每关优惠红利10%-30%不等，除第一关流水需达15倍外，其余四关12倍流水即可。</dd>
+           <dd><div class="more"><a href="activities_lc.php">阅读更多&gt;&gt;</a></div></dd>
+         </dl>
+         <div class="clear"></div>
+       </li>
+       <li>
+         <div class="img"><a href="activities_sm.php"><img src="images/active/sm.jpg" alt="" title="" /></a></div>
+         <dl>
+           <dt><a href="activities_sm.php">金狮有你狮妹相随</a></dt>
+           <dd>金狮国际将抽取3名幸运玩家前往菲律宾ResortWorld进行3天2夜的美女伴游。抽奖资格要求：在5月15日至6月10日累计存款10天（每次最低1888元），并且累计有效投注额达到18,888元，即可在论坛贴内报名参与抽奖。</dd>
+           <dd><div class="more"><a href="activities_sm.php">阅读更多&gt;&gt;</a></div></dd>
+         </dl>
+         <div class="clear"></div>
+       </li>
+    
+     </ul>
+   </div>
+   <div class="clear"></div>
+   </div>
+ </div>
+</div>
+<!--{include file="index/footer.html"}--> 
+ <script type="text/javascript">				
+ $(function(){
+   //$(".leftcontent dl dd").hide();
+   $(".leftcontent dl dt").click(function(){
+   $(".leftcontent dl dd").not($(this).next()).hide();
+   $(this).next().slideToggle(500); 
+    });
+ });
+ </script>  
+</body>
+</html>

@@ -1,0 +1,36 @@
+    <div id="rightside">
+    
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script>
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>添加推广账户</h2>
+            </div>
+            <div class="contentbox">
+            	<form method="post" action="?action=save">
+            		<p>
+                        <label for="textfield"><strong>名称:</strong></label>
+                        <input type="text" id="pname" name="pname" value="<?php echo $row['pname']?>" class="inputbox" />
+                    </p>
+            		<p>
+                        <label for="textfield"><strong>推广ID:</strong></label>
+                        <input type="text" id="phttp" name="phttp" value="<?php echo $row['phttp']?>" class="inputbox" />
+                    </p>
+           		  <p>
+                        <label for="textfield"><strong>推广网站:</strong></label>
+                        <input type="text" id="purl" name="purl" value="<?php echo $row['purl']?>" class="inputbox" />
+                    </p>
+           		  <input type="hidden" name="id" value="<?php echo $row['id'];?>">
+                <input type="submit" value="Submit" class="btn" />
+				</form>
+            </div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

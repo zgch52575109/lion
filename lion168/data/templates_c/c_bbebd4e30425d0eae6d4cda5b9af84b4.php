@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登陆</title>
+<link type="text/css" href="css/login.css" rel="stylesheet">
+<script language="javascript" type="text/javascript"  src="js/common.js"></script>
+<script language="javascript" type="text/javascript"  src="js/main.js"></script>
+<script language="javascript" type="text/javascript"  src="js/public.js"></script>
+<script language="javascript" type="text/javascript"  src="js/usercheck.js"></script>
+<script language="javascript" src="js/qq.js"></script>
+<script language="javascript" src="js/date.js"></script>
+<style type="text/css">
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+.left{float:left; width:168px;height:437px;}
+.left td{ padding-left:16px;}
+.right{ float:left; height:437px; width:427px;}
+</style>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+</head>
+<body onload="MM_preloadImages('images/AAE5.gif')">
+<div style="background:url(images/kkji.gif) no-repeat; width:610px; height:455px; padding-top:18px">
+<div class="left">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  height="426">
+  <tr>
+    <td><img src="images/v02_08.gif" width="140" height="40" /></td>
+  </tr>
+  <tr>
+    <td height="19">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="12"><img src="images/client_25.gif" width="51" height="12" /></td>
+  </tr>
+  <tr>
+    <td height="81"><img src="images/client_26.gif" width="89" height="72" /></td>
+  </tr>
+  <tr>
+    <td><img src="images/client_34.gif" width="140" height="68" /></td>
+  </tr>
+  <tr>
+    <td><img src="images/v02_13-38.gif" width="140" height="39" /></td>
+  </tr>
+  <tr>
+    <td><img src="images/client_43.gif" width="51" height="12" /></td>
+  </tr>
+  <tr>
+    <td><img src="images/client_46.gif" width="99" height="37" /></td>
+  </tr>
+  <tr>
+    <td><img src="images/client_49.gif" width="99" height="36" /></td>
+  </tr>
+</table>
+
+</div>
+<div class="right">
+<div style="width:100%; height:20px;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <td width="4%">&nbsp;</td>
+    <td width="19%" style="background:url(images/client_11.gif) no-repeat">&nbsp;</td>
+    <td width="4%">&nbsp;</td>
+    <td width="6%"><img src="images/v02_14.gif" width="23" height="20" /></td>
+    <td width="18%"><img src="images/client_15.gif" width="78" height="20" /></td>
+    <td width="18%"><img src="images/client_15.gif" width="78" height="20" /></td>
+    <td width="19%"><img src="images/client_15.gif" width="78" height="20" /></td>
+    <td width="6%"><img src="images/client_21.gif" width="23" height="20" /></td>
+    <td width="6%">&nbsp;</td>
+  </tr>
+</table>
+
+</div>
+<div style="margin-top:60px;width:380px;;height:121px;text-align:center">
+  <?php if ($this->_vars['loginuid']): ?>
+	欢迎您，<?php echo $this->_vars['loginname']; ?>
+<br>
+	
+	<a href="/<?php session_start();echo $_SESSION['isMemberOrProxy'];?>/index.php"><?php session_start();echo $_SESSION['isnametext'];?>中心</a> | <a href="/<?php session_start();echo $_SESSION['isMemberOrProxy'];?>/logout.php">退出登录</a></td>
+	<?php else: ?>
+<form action="login.php?action=login" method=post id="frmLogin" name="frmLogin"  onSubmit="" style="border:0;margin:0 0 0 50px; padding:0;" target="_blank">
+                  <table width="355" border="0" cellspacing="0" cellpadding="0" height="121">
+                    <tr>
+                      <td width="66%" background="images/client_30.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0" height="100">
+                        <tr>
+                          <td rowspan="3"><img src="images/client_29.gif" width="79" height="121" /></td>
+                          <td  height="49"><span class="line_2">
+                            <input name="username" type="text" style="height:19px; font-size:16px; padding-top:3px; padding-left:3px;" size="16" border="0" onkeyup="value=value.replace(/[\W]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+                          </span></td>
+                          </tr>
+                        <tr>
+                          <td height="20"><span class="line_2">
+                            <input name="password" type="password" style="height:19px; font-size:16px; padding-top:3px; padding-left:3px;" size="16" border="0"/>
+                          </span></td>
+                          </tr>
+                        <tr>
+                          <td>
+                            <input name="ValidateCode" type="text" style="height:19px; font-size:16px; padding-top:3px;" size="8" onkeyup='this.value=this.value.replace(/[^0-9a-zA-Z]\D*$/,"")'/>
+                          <img id="vdimgck" src="/include/vdimgck.php" alt="看不清？点击更换" align="absmiddle" style="cursor:pointer" onclick="this.src=this.src+'?'" /></td>
+                          </tr>
+                        </table></td>
+                      <td width="34%">
+                        <a href="#" onClick="Check_Login()" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','images/AAE5.gif',1)"><img src="images/client_32.gif" width="92" height="121" border="0" /></a></td>
+                    </tr>
+                    </table>
+                 </form>
+	<?php endif; ?>
+</div>
+<div style="height:17px; background:url(images/client_39.gif) no-repeat center; width:100%; margin-top:20px;"></div>
+<div style=" width:100%; height:130px">
+
+<marquee scrollAmount="1.5" direction=up width=330 height="100%" onmouseover=stop() onmouseout=start()> 
+<?php if (count((array)$this->_vars['noticear'])): foreach ((array)$this->_vars['noticear'] as $this->_vars['key'] => $this->_vars['data']): ?>
+<a href="member/notice.php" style=" text-decoration:none;font-size:12px; color: #000;" ><?php echo $this->_vars['data']['l_body']; ?>
+</a><br><br>
+<?php endforeach; endif; ?>
+</marquee>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

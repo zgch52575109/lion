@@ -1,0 +1,299 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin:0px;
+	padding:0px;
+}
+
+.content{
+	width:auto;
+	height:auto;
+	margin:auto;
+	background-image:url(images/index_bg_2.gif);
+	text-decoration:none;
+	}
+
+.header{
+	width:1400px;
+	height:251px;
+	margin:0 auto;
+	}
+
+.header_1{
+	float:left;
+	width:183px;
+	height:251px;
+	background-image:url(images/vip_01.gif);
+	}
+
+.header_logo{
+	float:left;
+	width:371px;
+	height:251px;
+	background-image:url(images/vip_02.gif);
+	}
+
+.header_3{
+	float:left;
+	width:846px;
+	height:251px;
+	background-image:url(images/vip_03.gif);
+	}
+
+.container{
+	height:650px;
+	width:1400px;
+	margin:0 auto;
+	}
+  
+.left_bg{
+	float:left;
+	height:650px;
+	width:182px;
+	background-image:url(images/vip_04.gif);
+	}
+  
+.main{
+	float:left;
+	height:650px;
+	width:1037px;
+	background-color:#000;
+	}
+
+.vip_top{
+	width:1037px;
+	height:78px;
+	}
+
+.vip_swf1{
+    float:left;
+	width:125px;
+	height:78px;
+	background-image:url(images/vip_v05_14.gif);
+	}
+	
+.vip_swf1_1{
+    float:left;
+	width:125px;
+	height:78px;
+	background-image:url(images/vip_v05_06.gif);
+		}
+	
+.vip_bian1{
+	float:left;
+	width:784px;
+	height:25px;
+	background-image:url(images/vip_v05_06-06.gif);
+	}
+
+.vip_swf2{
+	float:right;
+	width:128px;
+	height:78px;
+	background-image:url(images/vip_v05_06-07.gif);
+	}
+
+.vip_swf2_2{
+	float:right;
+	width:128px;
+	height:78px;
+	background-image:url(images/vip_37.gif);
+	}
+
+.vip_bian2{
+	float:left;
+	width:784px;
+	height:36px;
+	margin-top:42px;
+	background-image:url(images/vip_38.gif);
+	}
+
+
+.vip_center{
+	width:1037px;
+	height:494px;
+	}
+
+.vip_bian3{
+	width:18px;
+	height:494px;
+	float:left;
+	background-image:url(images/vip_v05_09.gif);
+	}
+
+.vip_nav{
+	height:494px;
+	width:192px;
+	float:left;
+	margin-left:30px;
+	}
+
+/* IE6 */ 
+*html .vip_nav{ 
+    height:494px;
+	width:192px;
+	float:left;
+	margin-left:20px;
+} 
+/* IE7 */ 
+*+html .vip_nav{ 
+
+}
+
+.vip_nav_bottom{
+	width:192px;
+	height:31px;
+	margin-top:27px;
+	}
+
+.vip_line{
+	float:left;
+	width:21px;
+	height:396px;
+	margin-left:16px;
+	margin-top:45px;
+	background-image:url(images/vip_18.gif);
+	}
+
+.vip_content{
+	width:742px;
+	height:494px;
+	float:left
+	}
+
+.vip_img{
+	width:643px;
+	height:291px;
+	margin:80px auto auto auto;
+	}
+
+.vip_banner{
+	width:668px;
+	height:242px;
+	margin:0 auto;
+	}
+
+.vip_text1{
+   width:638px;
+   height:200px;
+   overflow:scroll;
+   margin:20px auto auto auto;
+   overflow:scroll;
+   overflow-x:hidden;
+   font-size:12px;
+   color:#CCC;
+   line-height:20px;
+   padding-right:20px;
+   padding-left:10px;
+   overflow:auto;
+	}
+
+.vip_banner2{
+	float:right;
+	width:321px;
+	height:473px;
+	margin-right:46px;
+	}
+
+/* IE6 */ 
+*html .vip_banner2{ 
+    float:right;
+	width:321px;
+	height:473px;
+	margin-right:16px;
+} 
+/* IE7 */ 
+*+html .vip_banner2{ 
+
+}
+
+.vip_text2{
+	float:right;
+	width:330px;
+	height:462px;
+	overflow:scroll;
+	margin:auto 5px auto auto;
+	overflow:scroll;
+	overflow-x:hidden;
+	font-size:12px;
+	color:#CCC;
+	line-height:20px;
+	padding-right:20px;
+	overflow:auto;
+	}
+
+
+/* IE6 */ 
+*html .vip_text2{ 
+   float:right;
+   width:330px;
+   height:462px;
+   overflow:scroll;
+   margin:auto 10px auto auto;
+   overflow:scroll;
+   overflow-x:hidden;
+   font-size:12px;
+   color:#CCC;
+   line-height:20px;
+   padding-right:20px;
+   overflow:auto;
+} 
+/* IE7 */ 
+*+html .vip_text2{ 
+
+}
+
+.right_text_title{
+	font-size:12px;
+	font-weight:bold;
+	color:#F3C32C;
+	}
+
+.vip_bian4{
+	float:right;
+	width:18px;
+	height:494px;
+	background-image:url(images/vip_15.gif);
+	}
+
+
+.vip_bottom{
+	width:1037px;
+	height:78px;
+	}   
+
+.footer{
+	float:left;
+	width:1112px;
+	height:auto;
+	padding-top:20px;
+	}
+ 
+.footer_outside{
+	height:82px;
+	width:1400px;
+	margin:0 auto;
+	background-image:url(images/vip_39.gif)
+	}
+	
+.right_bg{
+	float:right;
+	height:650px;
+	width:181px;
+	background-image:url(images/vip_v05_08.gif);
+	}
+
+.copy_right{
+	width:500px;
+	height:50px;
+	margin:0 auto;
+	padding-top:10px;
+	}
+
+.copy_right_a{
+	font-size:12px;
+	margin-top:10px;
+	line-height:20px;
+	color:#999;	
+	}

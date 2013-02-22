@@ -1,0 +1,89 @@
+/* CSS Document */
+*{margin:0px; padding:0px}
+body,html{font-family:"宋体",Arial; width:100%; height:100%; background-color:#23181b; font-size:12px;color:#545454;SCROLLBAR-FACE-COLOR: #76595B; SCROLLBAR-HIGHLIGHT-COLOR: #76595B; SCROLLBAR-SHADOW-COLOR: #76595B; SCROLLBAR-3DLIGHT-COLOR: #291A1D; SCROLLBAR-ARROW-COLOR: #291A1D; SCROLLBAR-TRACK-COLOR: #291A1D; SCROLLBAR-DARKSHADOW-COLOR: #76595B}
+img{border:none;}
+a,a:link,a:visited,a:active{ color:#9B9B9B; text-decoration:none; font-size:12px;}
+a:hover{ text-decoration:none; color:#E8A065; font-size:12px;}
+
+
+#header{ width:1000px; height:118px; margin:0 auto; font-size:12px; background:url(../images/header_bg.jpg) no-repeat;}
+#header_bord{ width:1000px; height:118px; margin:0 auto; font-size:12px; } 
+#top_right{float:right; height:28px; width:auto; margin-top:5px; margin-right:7px;color:#9d9395;}
+#top_right a{margin-right:20px; color:#9d9395;}
+#top_right a:hover{text-decoration:none;}
+#top_right select{ background:#000000; border:#514f4f 1px solid; width:auto; text-align:center; font-size:12px;color:#9d9395;}
+
+#logo{width:258px; height:84px; background:url(../images/logo.jpg) no-repeat;background-color:#333;float:left;}
+
+#tel{background:url(../images/tel.png) no-repeat;_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/tel.png';);width:179px; height:82px;  float:left;}
+
+
+#menu{background:url(../images/zidaohang.jpg) 0 3px no-repeat; height:49px; width:563px; margin-top:21px;float:left;}
+#menu li{font-family:"微软雅黑", Geneva, sans-serif; color:#ffffff; font-size:14px;line-height:36px; line-height:38px;float:left; list-style:none;text-align:center;width:70px; height:49px;}
+#menu li a{font-family:"微软雅黑"; display:block; color:#FFF; text-decoration:none; font-size:14px;line-height:36px; line-height:38px;}
+#menu .nav-1{ margin-left:28px; _margin-left:14px;}
+#menu .nav-2{width:85px;}
+#menu .nav-3{width:89px;}
+#menu .nav-4{width:90px;}
+#menu .nav-5{width:88px;}
+#menu .nav-6{width:89px;}
+#menu .nav-1 a:hover{background:url(../images/nav-70-1.jpg) no-repeat;}
+#menu .nav-2 a:hover{background:url(../images/zhen-02.jpg) no-repeat;}
+#menu .nav-3 a:hover{background:url(../images/zhen-03.jpg) no-repeat;}
+#menu .nav-4 a:hover{background:url(../images/zhen-04.jpg) no-repeat;}
+#menu .nav-5 a:hover{background:url(../images/zhen-05.jpg) no-repeat;}
+#menu .nav-6 a:hover{background:url(../images/zhen-06.jpg) no-repeat;}
+#menu #active{background:url(../images/nav-70-1.jpg) no-repeat;}
+#menu #active2{background:url(../images/zhen-02.jpg) no-repeat;}
+#menu #active a:hover{}
+
+
+#userlogin{width:100%; height:33px; border:#3f3436 1px solid; border-left:none; border-right:none; color:#999999}
+
+#userlogincontent{width:100%; margin:0 auto;}
+#loginimg{background:url(../images/loginmen.jpg); width:178px; height:33px;float:left;}
+#logincontent{float:left; height:auto; margin-top:5px; width:auto;}
+#logincontent label{float:left;padding-top:4px; color:#867070;}
+#logincontent input{float:left; color:#FFF; margin: 0 3px;}
+#logincontent .input_txt{background:url(../images/userinput.jpg) no-repeat; border:none; height:23px; width:140px;padding:0px 8px; line-height:23px; font-size:14px;}
+#logincontent .code{background:url(../images/userinput2.jpg) no-repeat;width:53px; text-align:center;}
+#logincontent .input_submit{background:url(../images/login.jpg) no-repeat; border:none; height:21px; width:150px; }
+#logincontent .registration{background:url(../images/register.jpg); margin-left:10px}
+#logincontent #codenum{font-family:Arial; font-size:14px; color:#837f7f; margin: 0 10px 0 6px;}
+#logincontent div{float:left; margin-left:5px;}
+#logincontent #passwordtxt{line-height:28px; height:28px;margin-left:16px;margin-right:10px;font-family:"宋体",Arial}
+#logincontent #passwordtxt a{color:#867070;text-decoration:underline; display:block;}
+#logincontent #passwordtxt a:hover{color:#E8A065; text-decoration:underline;}
+
+
+#gonggao{width:1200px;height:329px; margin:0 auto;}
+#gonggaoflash{width:731px; height:328px; /*background:url(../images/flash.jpg);*/ float:left; margin-left:0px; margin-top:-318px;_margin-top:-320px; _margin-left:359px;}
+#gonggaocontent{width:466px; height:318px; float:left; background:url(../images/gonggao.jpg) no-repeat; margin-left:625px;_margin-left:272px;}
+#gonggaocontent p{ color:#867070; width:200px; float:right; line-height:20px; height:200px; margin-left:5px; margin-top:110px; text-align:left}
+#gonggao .ggtable{position:relative; right:0; top:0;}
+
+
+#fourimages{width:100%; height:104px; border-left:none; border-right:none; position:absolute; top:480px; }
+
+
+
+#content{ width:100%; height:271px; border:#412e32 1px solid; border-left:none; border-right:none; position:absolute; top:584px; background:#281c1e}
+#contentbg{width:1404px; height:271px;position:absolute; left:50%; top:-1px; margin-left:-702px; background:url(../images/content_bg.jpg) 0px 0px no-repeat;}
+#contentbody{width:1000px; height:271px; margin:0 auto;}
+#contentbody .contentimage{background:url(../images/imagebg.png); width:248px; height:243px; margin-top:20px; float:left;_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/imagebg.png');}
+#contentbody .contentimage .images{margin-top:17px; margin-left:20px; border:#3b3835 1px solid;}
+#contentbody #contentimageID{margin-left:8px;_margin-left:4px;}
+#contentbody .contentimage .imagesn{margin-top:2px; margin-left:20px;}
+#contentbody .contentimage p{margin-top:0px;_margin-top:0px; margin-left:0px; width:73px; height:21px;}
+.contentimage a{position: relative; left:150px; top:10px;}
+
+
+
+
+#footer{background-color:#21181b; width:100%; height:107px; position:absolute; top:857px;}
+#footerbg{ width:1404px;height:107px; background:url(../images/foot_bg.jpg); position:absolute; left:50%; margin-left:-702px;}
+#footercontent{width:auto;text-align:center; margin-top:25px; color:#999; position:relative; left:3px;}
+#footercontent a:link,a:visited,a:active{margin:0 auto; color:#999999; text-decoration:none; font-size:12px; }
+#footercontent a:hover{ text-decoration:none; color:#E8A065; font-size:12px;}
+#footercontent p{ font-family:Arial; color:#4b3d3f;  margin-top:10px;}
+.clear{clear:both;}

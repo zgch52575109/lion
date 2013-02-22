@@ -1,0 +1,125 @@
+    <div id="rightside">
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>投注纪录</h2>
+            </div>
+            <div class="contentbox"><form method="post" name="main_form" action="" style="margin:0px;"> 
+            	<table width="100%">
+                	<thead>
+                    	
+				<tr><form method="POST" name="myform" action="admin_member.php">
+				<td colspan="21">
+				帐号：
+				<input type="text" name="username" size="12" value="<?php echo $username;?>" id="username" />
+				日期：<input type="text" name="begin_date" value="<?php echo $begin_date;?>" size="12" id="begin_date" onclick="return showCalendar('begin_date', 'y-m-d');" />
+      			至 <input type="text" name="end_date" size="12" value="<?php echo $end_date;?>" id="end_date" onclick="return showCalendar('end_date', 'y-m-d');" />
+				每页显示：
+				<input type="text" class="inputbox" style="width:10px;" name="listpage" value="<?php if(!intval($listpage)) echo '30'; else echo $listpage;?>">
+				<input type="submit" name="Submit" align="absmiddle" value="查 询..." class="btn"></td>
+				</form>
+				</tr>
+						<tr>
+							<th>用户ID</th>
+							<th>用户名</th>
+							<th>真实姓名</th>
+							<th>真人以往有效</th>
+							<th>真人今日有效</th>
+							<th>真人以往总</th>
+							<th>真人今日总</th>
+							<th>以往总</th>
+							<th>今日总</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+//$numPerPage=30;
+$page = isset($page) ? intval($page) : 1;
+$numPerPage = isset($listpage) ? intval($listpage) : 30;
+	if($page==0) $page=1;
+	$whereStr=" where allmoney > 0";
+	if ($username){
+	$whereStr.=" and username like'$username'";
+	}
+	if ($begin_date){
+		$begindate=strtotime($begin_date)-8*3600;
+		$date.=" and addtime >='$begindate'";
+	}
+	if ($end_date){
+		$enddate=strtotime($end_date)-8*3600;
+		$date.=" and addtime <='$enddate'";
+	}
+$csqlStr="select count(*)as dd from ek_member $whereStr";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_BettingRecord.php?1=1'.($listpage ? '&listpage='.$listpage : '').($begin_date ? '&begin_date='.$begin_date : '').($end_date ? '&end_date='.$end_date : ''));
+
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select username,truename,uid from ek_member $whereStr order by uid desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+while($row=$dsql->GetArray('class_list'))
+{
+$rowq = $dsql->GetOne("select todayStakeAmount as tsa,todayLiveGameTotalAmount as tlgt,todayLiveGameExcludeEvenandTieAmount as tlgeet from ek_now_live_game_bet where uid='$row[uid]'");
+$rows = $dsql->GetOne("select sum(StakedAmount) as sa,sum(LiveGameTotalAmount) as lgt,sum(LiveGameExcludeEvenandTieAmount) as lgeet from ek_live_game_bet where uid='$row[uid]' $date ");
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $row['uid'];?></td>
+							<td><a href="admin_member.php?action=view&id=<?php echo $row['uid'];?>"><?php echo $row['username'];?></a></td>
+							<td><?php echo $row['truename'];?></td>
+							<td><?php echo number_format($rows['lgeet'],2);?></td>
+							<td><?php echo number_format($rowq['tlgeet'],2);?></td>
+							<td><?php echo number_format($rows['lgt'],2);?></td>
+							<td><?php echo number_format($rowq['tlgeet'],2);?></td>
+							<td><?php echo number_format($rows['sa'],2);?></td>
+							<td><?php echo number_format($rowq['tlgeet'],2);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+<!--<tr>
+<th colspan="3" align="center">本页总结</th>
+<th><?php// echo number_format($sumLiveGameTotalAmount,2);?></th>
+</tr>-->
+
+                    </tbody>
+                </table>
+                <div class="extrabottom">
+                </div>
+                <ul class="pagination">
+				<li class="text">&nbsp;页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> <?php if($begin_date || $end_date) echo '<font color=#ff0000>'.$begin_date.'</font>到<font color=#ff0000>'.$end_date.'</font>时间段内 '; if($havemoney) echo ' <font color=#ff0000>有游戏</font> ';?>会员共有<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>
+<script type='text/javascript' src='scripts/main.js'></script>
+			<script type="text/javascript" language="javascript">
+
+			function showmanageform(tid){
+				$$('form_checkall').style.display = tid == 'checkall' ? '' : 'none';
+				$$('form_czhengfuall').style.display = tid == 'czhengfuall' ? '' : 'none';
+			}
+			</script>

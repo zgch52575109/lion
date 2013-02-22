@@ -1,0 +1,372 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户信息详情</h2>
+            </div>
+            <div class="contentbox" >
+            	
+            <div style="width:auto; height:auto;">
+            <div style="width:606px; height: auto; float:left;  margin-right:12px; margin-bottom:auto; background:url(../images/user_management_03.gif) no-repeat left top;">
+            
+            <table width="606" border="1" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0" style="font-size:12px; margin-top:37PX;">
+      <tr>
+        <td width="85" align="right" bgcolor="#F0EFE1" style=" padding-left:10px;"><strong>登陆名:</strong></td>
+        <td width="200" align="center"><?php echo $row['username'];?></td>
+        <td width="89" align="right" bgcolor="#F0EFE1" style=" padding-left:10px;"><strong>会员级别:</strong></td>
+        <td width="209" align="center"><?php echo $row['grouptitle'];?></td>
+      </tr>
+      <tr>
+        <td width="85" align="right" bgcolor="#F0EFE1"  style=" padding-left:10px;"><strong>真实姓名:</strong></td>
+        <td width="200" align="center"><?php echo $row['truename'];?></td>
+        <td width="89" align="right" bgcolor="#F0EFE1" style=" padding-left:10px;"><strong>电话:</strong></td>
+        <td align="center"><?php echo $row['phone'];?></td>
+      </tr>
+      <tr>
+        <td width="85" align="right" bgcolor="#F0EFE1"  style=" padding-left:10px;"><strong>性别:</strong></td>
+        <td width="200" align="center"><?php if($row['gender']==1) echo "男"; elseif($row['gender']==0) echo "女";?></td>
+        <td width="89" align="right" bgcolor="#F0EFE1" style=" padding-left:10px;"><strong>邮箱:</strong></td>
+        <td align="center"><?php echo $row['email'];?></td>
+      </tr>
+      <tr>
+        <td width="85" align="right" bgcolor="#F0EFE1"  style=" padding-left:10px;"><strong>注册日期:</strong></td>
+        <td width="200" align="center"><?php echo isCurrentDay($row['jointime']);?></td>
+        <td width="89" align="right" bgcolor="#F0EFE1" style=" padding-left:10px;"><strong>活跃指数:</strong></td>
+        <td align="center"><?php echo $row['active'];?></td>
+      </tr>
+      <tr>
+        <td width="85" align="right" bgcolor="#F0EFE1"  style=" padding-left:10px;"><strong>出生日期:</strong></td>
+        <td width="200" align="center"><?php echo $row['birthyear'];?>年<?php echo $row['birthmonth'];?>月<?php echo $row['birthday'];?>日</td>
+        <td width="89" align="right" bgcolor="#F0EFE1" style=" padding-left:10px;"><strong>联系QQ:</strong></td>
+        <td align="center"><?php echo $row['qq'];?></td>
+      </tr>
+    </table>
+
+            </div>
+            <div style="width:606px; height:auto; float:left; background:url(../images/user_management_05.gif) no-repeat;">
+           <table width="606" border="1" bordercolor="#CCCCCC" cellpadding="0" cellspacing="0" style="font-size:12px; margin-top:37PX;">
+      <tr>
+        <td width="93" align="right" bgcolor="#F0EFE1" style=" padding-left:10px;"><strong>总投注:</strong></td>
+        <td width="196" align="center"><?php echo $StakedAmount;?>元</td>
+        <td width="133" align="right" bgcolor="#F0EFE1"><span style=" padding-left:10px;"><strong>每天取款次数:</strong></span></td>
+        <td width="174" align="center"><strong><?php echo $row['dayoutcashnum'];?></strong></td>
+        </tr>
+      <tr>
+        <td width="93" align="right" bgcolor="#F0EFE1"  style=" padding-left:10px;"><strong>真人视讯投注:</strong></td>
+        <td width="196" align="center"><?php echo $LiveGameExcludeEvenandTieAmount;?>元</td>
+        <td width="133" align="right" bgcolor="#F0EFE1"><span style=" padding-left:10px;"><strong>最多可绑银行卡:</strong></span></td>
+        <td width="174" align="center"><?php echo $row['bankmaxnum'];?></td>
+        </tr>
+      <tr>
+        <td width="93" align="right" bgcolor="#F0EFE1"  style=" padding-left:10px;"><strong>今日投注额:</strong></td>
+        <td width="196" align="center"><?php echo $row['todayLiveGameExcludeEvenandTieAmount'];?>元
+        <td width="133" align="right" bgcolor="#F0EFE1"><span style=" padding-left:10px;"><strong>取款审核额度:</strong></span>                
+        <td width="174" align="center"><?php echo $row['checkoutmoney'];?>                
+      </tr>
+      <tr>
+        <td width="93" align="right" bgcolor="#F0EFE1"  style=" padding-left:10px;"><strong>当前余额:</strong></td>
+        <td width="196" align="center"><?php echo $row['money'];?>元 </td>
+        <td width="133" align="right" bgcolor="#F0EFE1"><span style=" padding-left:10px;"><strong>每次最多取款金额:</strong></span></td>
+        <td width="174" align="center"><?php echo $row['maxoutmoney'];?></td>
+        </tr>
+      <tr>
+        <td width="93" align="right" bgcolor="#F0EFE1"  style=" padding-left:10px;"><strong>游戏端额度:</strong></td>
+        <td width="196" align="center"><?php echo $row['gamemoney'];?>元</td>
+        <td width="133" align="right" bgcolor="#F0EFE1"><span style=" padding-left:10px;"><strong>所属代理:</strong></span></td>
+        <td width="174" align="center"><?php echo $row['pusm'];?></td>
+        </tr>
+      <tr>
+        <td align="right" bgcolor="#F0EFE1"  style=" padding-left:10px;"><strong>银行卡:</strong></td>
+        <td colspan="3" align="center"><?php echo $row['bankinfo'];?></td>
+        </tr>
+           </table>   
+            </div>
+            </div>
+</div>
+</div>
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer; clear:left;" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史邮箱</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>邮箱</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_history_email where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['email'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史QQ</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>QQ</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_history_qq where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['qq'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史电话</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>电话</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_history_phone where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['phone'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史真实名</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>真实名</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_history_truename where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['truename'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史密码</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>密码</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_history_password where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['password'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史银行信息</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>银行</th>
+							<th>名字</th>
+							<th>卡号</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select b.*,bt.tname from ek_member_history_bank b left join ek_bank_type bt on bt.tid=b.bankid where b.uid='$id' order by b.id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['tname'];?></td>
+							<td><?php echo $row['realname'];?></td>
+							<td><?php echo $row['cardnum'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史登录信息</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>IP</th>
+							<th>登录时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_login_log where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+			 <?php
+			$ip = $row['ip'];
+			$QQWry = new QQWry;
+			$ifErr = $QQWry->QQWry($ip);
+			?>
+
+                            <td><a  title="<?php echo mb_convert_encoding("$QQWry->Country$QQWry->Local\n", "UTF-8", "GBK");?>"><?php echo $row['ip'];?></a></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

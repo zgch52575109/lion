@@ -1,0 +1,151 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>收款银行卡管理</h2>
+            </div>
+            <div class="contentbox"><form method="post" name="main_form" action="" style="margin:0px;"> 
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>ID</th>
+							<th>名称</th>
+                            <th>银行卡号码</th>
+							<th>收款人姓名</th>
+							<th>开户网点</th>
+							<th>状态</th>
+							<th>操作</th>
+							<th><input name="" type="checkbox" value="" id="checkboxall" /></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$numPerPage=30;
+$page = isset($page) ? intval($page) : 1;
+if($page==0) $page=1;
+$csqlStr="select count(*) as dd from `ek_receive_bank` b";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_receive_bank.php?uid='.$uid.'&bankid='.$bankid);
+
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select b.* from ek_receive_bank b order by b.torder asc,b.id desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+while($row=$dsql->GetArray('class_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $row['id'];?></td>
+							<td><?php echo $row['subject'];?></td>
+							<td><?php echo $row['cardnum'];?></td>
+							<td><?php echo $row['realname'];?></td>
+							<td><?php echo $row['bank'];?></td>
+							<td><?php if($row['used']) echo '可用'; else echo '停用';?></td>
+                            <td>
+                            	<a href="?action=edit&id=<?php echo $row['id'];?>#divdata" title=""><img src="img/icons/icon_edit.png" alt="Edit" /></a>
+                                <a href="?action=del&id=<?php echo $row['id'];?>" title=""><img src="img/icons/icon_delete.png" alt="Delete" /></a>
+                            </td>
+							<td><input type="checkbox" value="<?php echo $row['id'];?>" id="checkall" name="checkall[]" /></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div class="extrabottom">
+                	<ul>
+                    	<li><img src="img/icons/icon_edit.png" alt="Edit" /> 编辑</li>
+                        <li><img src="img/icons/icon_delete.png" alt="Delete" /> 删除</li>
+                    </ul>
+                    <div class="bulkactions">
+                    	<select name="action">
+                        	<option value="delall">删除选择</option>
+                        </select>
+                        <input type="submit" value="提交" class="btn" />
+                    </div>
+                </div>
+                <ul class="pagination">
+				<li class="text">&nbsp;页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> 总收录数据<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+
+<div class="contentcontainer" id="divdata">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2><?php if($id){ echo '编辑';} else { echo '添加';}?>银行卡</h2>
+            </div>
+            <div class="contentbox">
+            	<form action="?action=save" id="frmMain" name="frmMain" method="POST">
+            		<p>
+                        <label for="grouptitle"><strong>名称:</strong></label>
+						<input type="text" name="subject" id="subject" class="inputbox" value="<?php echo $rowp['subject'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>状态:</strong></label>
+						<input type="radio" name="used" value="1"<?php if($rowp['used']) echo ' checked="checked"';?> /> 启用<input type="radio" name="used" value="0"<?php if($rowp['used']==0) echo ' checked="checked"';?> /> 停用 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>图片:</strong></label>
+						<input type="text" name="image" id="image" class="inputbox" value="<?php echo $rowp['image'];?>" /> <input type="button" class="btn"  style="margin-top:-40px;" name="Previewer" value="预览" onclick=" $('#payment_config_preview').show();  $('#payment_onfig_preview_src').src = $('#image').val(); " /><span id="payment_config_preview" style="display:none;"><br><img id="payment_onfig_preview_src" src="<?php echo $rowp['img'];?>" alt="<?php echo $rowp['subject'];?>" border="0" /></span><br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>银行卡号码:</strong></label>
+                        <input type="text" name="cardnum" id="cardnum" class="inputbox" value="<?php echo $rowp['cardnum'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>收款人姓名:</strong></label>
+                        <input type="text" name="realname" id="realname" class="inputbox" value="<?php echo $rowp['realname'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>开户网点:</strong></label>
+                        <input type="text" name="bank" id="bank" class="inputbox" value="<?php echo $rowp['bank'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>要显示在用户组:</strong></label>
+                        <select name="groupid"><option value="">选择用户组</option>
+						<?php 
+						$dsql->SetQuery("select * from ek_member_group order by groupid asc");
+						$dsql->Execute('al');
+						while($rowg=$dsql->GetArray('al')){
+						if($rowg['groupid']==$rowp['groupid']){
+							echo '<option value="'.$rowg['groupid'].'" selected>'.$rowg['grouptitle'].'</option>';
+						}else{
+							echo '<option value="'.$rowg['groupid'].'">'.$rowg['grouptitle'].'</option>';
+						}
+						}
+						?>
+						</select> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>序号:</strong></label>
+                        <input type="text" name="torder" id="torder" class="inputbox" style="width:50px" value="<?php echo $rowp['torder'];?>" /> <br />
+                    </p>
+					<input type="hidden" name="id" value="<?php echo $id;?>">
+					<input type="submit" value="保存" class="btn" />
+                </form>
+            </div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

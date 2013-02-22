@@ -1,0 +1,133 @@
+	<div id="leftside">
+    	<div class="user">
+        	<img src="img/avatar.png" width="44" height="44" class="hoverimg" alt="Avatar" />
+            <p><?php
+				$rank=$cuserLogin->getUserRank();
+			  	$row=$dsql->GetOne("Select typename from `ek_admintype` where rank='$rank'");
+			  	echo $row['typename'];
+			  	?>:<?php $id=$cuserLogin->getUserID(); echo  $cuserLogin->getUserName();
+                
+                ?></p>
+			<p></p>
+            <p class="userbtn"><a href="password.php?id=<?php echo $id; ?>" title="">更改密码</a></p>
+            <p class="userbtn"><a href="exit.php" title="">退出</a></p>
+            <p class="userbtn"><a href="login.php" title="">切换账号</a></p>
+        </div>
+
+        
+        <ul id="nav">
+        	<li>
+                <ul class="navigation">
+                    <li class="heading selected">便捷工具</li>
+                    <li><a href="admin_flow.php" title="">流量统计</a></li>
+                    <li><a href="admin_member_stats.php" title="">会员统计</a></li>
+					<li><a href="admin_member_first_stats.php" title="">会员首存统计</a></li>
+                </ul>
+            </li>
+			<li>
+				<ul class="navigation">
+					<li class="heading selected">管理菜单 Sec Menu</li>
+				</ul>
+			</li>
+            <li>
+                <a class="collapsed heading">会员管理</a>
+                 <ul class="navigation">
+					<li><a href="admin_member.php" title="会员列表">会员列表</a></li>
+					<li><a href="admin_member_gamemoney.php" title="会员游戏端余额">会员游戏端余额</a></li>
+                    <li><a href="admin_member_cash_log.php" title="资金记录">资金记录</a></li>
+                    <li><a href="admin_gamehistory_Today.php" title="今日游戏记录">今日游戏记录</a></li>
+                    <li><a href="admin_gamehistory.php" title="历史游戏记录">历史游戏记录</a></li>
+                   <!-- <li><a href="admin_regularchips.php" title="现金码">现金码</a></li>-->
+                    <li><a href="admin_BettingRecord.php" title="投注额纪录">投注额纪录</a></li>
+					<li><a href="admin_member_group.php" title="会员级别管理">会员级别管理</a></li>
+					<li><a href="admin_member_active.php" title="会员活跃度">会员活跃度</a></li>
+					<li><a href="admin_member.php?type=vip" title="VIP">VIP</a></li>
+					<li><a href="admin_member.php?action=rank&list=week" title="金狮榜周排行">金狮榜周排行</a></li>
+					<li><a href="admin_member.php?action=rank&list=month" title="金狮榜月排行">金狮榜月排行</a></li>
+					<li><a href="admin_member.php?action=rank&list=season" title="金狮榜季排行">金狮榜季排行</a></li>
+					<li><a href="admin_member.php?action=rank&list=year" title="金狮榜年排行">金狮榜年排行</a></li>
+                </ul>
+          </li>    
+			<li><a class="collapsed heading">资金管理</a>
+                <ul class="navigation">
+                    <li><a href="admin_member_incash.php?list=new" title="全部新单处理" class="likelogin">全部新单处理</a></li>
+                    <li><a href="admin_member_incash.php?stype=1" title="存款处理">存款处理</a></li>
+                    <li><a href="admin_member_incash.php?stype=2" title="取款处理">取款处理</a></li>
+					<li><a href="admin_member_limit.php" title="手工额度处理">手工额度处理</a></li>
+					<li><a href="admin_member_incash.php" title="资金记录查询">资金记录查询</a></li>
+					<li><a href="admin_member_hongli.php" title="红利记录查询">红利记录查询</a></li>
+					<li><a href="admin_finance_report.php" title="财务管理">财务管理</a></li>
+					<li><a href="admin_memeber_incash_stats.php" title="统计报表">统计报表</a></li>
+					<li><a href="admin_limit_operation.php" title="用户额度操作">用户额度操作</a></li>
+					<li><a href="admin_bank_type.php" title="用户绑定银行卡类别管理">用户绑定银行卡类别管理</a></li>
+					<li><a href="admin_member_bank.php" title="用户绑定银行卡管理">用户绑定银行卡管理</a></li>
+					<li><a href="admin_receive_bank.php" title="收款银行卡管理">收款银行卡管理</a></li>
+					<li><a href="admin_payment.php" title="网银接口管理">网银接口管理</a></li>
+					<li><a href="admin_deposit.php" title="手工提交存款单">手工提交存款单</a></li>
+					<li><a href="admin_withdrawals.php" title="手工提交取款单">手工提交取款单</a></li>
+                    <li><a href="admin_week.php" title="周周返水">周周返水</a></li>
+                </ul>
+
+           <li> <a class="collapsed heading">代理管理</a>
+                <ul class="navigation">
+                    <li><a href="admin_proxy.php" title="代理账户管理" class="likelogin">代理账户管理</a></li>
+                    <li><a href="admin_proxy.php?action=add" title="添加代理账户">添加代理账户</a></li>
+                    <li><a href="admin_proxy_money.php" title="未资金发放">未资金发放</a></li>
+                    <li><a href="admin_proxy_report.php" title="已处理资金">已处理资金</a></li>
+					<li><a href="admin_proxy_deposit.php" title="手工添加代理取款单">手工添加代理取款单</a></li>
+				  <li><a href="admin_proxy_feedback.php" title="问题留言">问题留言</a></li>
+                    <li><a href="admin_proxy_stats.php" title="统计报表">统计报表</a></li>
+                </ul>
+          </li>  
+           <li> <a class="collapsed heading">好友推荐</a>
+              <ul class="navigation">
+                    <li><a href="admin_member_promotion.php" title="推荐账户管理" class="likelogin">推荐账户管理</a></li>
+                    <li><a href="admin_member_promotion_stats.php" title="统计报表">统计报表</a></li>
+                </ul>
+          </li> 
+           <li> <a class="collapsed heading">推广管理</a>
+                <ul class="navigation">
+                    <li><a href="admin_member_test.php" title="试玩统计" class="likelogin">试玩统计</a></li>
+                    <li><a href="admin_member_popularize.php" title="推广统计" class="likelogin">推广统计</a></li>
+                    <li><a href="admin_popularize.php?action=add" title="添加推广账户" class="likelogin">添加推广账户</a></li>
+                    <li><a href="admin_popularize.php" title="推广账户管理" class="likelogin">推广账户管理</a></li>
+                    <li><a href="admin_member_popularize_stats.php" title="统计报表">统计报表</a></li>
+                </ul>
+          </li> 
+			<li><a class="collapsed heading">优惠管理</a>
+                <ul class="navigation">
+                    <li><a href="admin_preferential.php?action=add" title="添加优惠" class="likelogin">添加优惠</a></li>
+					<li><a href="admin_preferential.php" title="管理优惠">管理优惠</a></li>
+                    <li><a href="admin_awards.php?action=add" title="添加获奖信息" class="likelogin">添加获奖信息</a></li>
+					<li><a href="admin_awards.php" title="管理获奖信息">管理获奖信息</a></li>
+					<li><a href="admin_member_promotions.php" title="手动会员优惠发放">手动会员优惠发放</a></li>
+					<li><a href="admin_member_promotions_add.php" title="添加手动优惠类型">添加手动优惠类型</a></li>
+                </ul>
+            </li>             
+          <li><a class="collapsed heading">网站前台管理</a>
+            <ul class="navigation">
+				  <li><a href="admin_notice.php" title="运营公告" class="likelogin">运营公告</a></li>
+				  <li><a href="admin_news.php" title="最新消息">最新消息</a></li>
+				  <li><a href="admin_feedback.php" title="问题留言">问题留言</a></li>
+				  <li><a href="admin_config.php" title="网站参数设置">网站参数设置</a></li>
+				  <li><a href="admin_config.php#seo" title="SEO优化设置">SEO优化设置</a></li>
+				  <li><a href="admin_config.php#qq" title="在线客服">在线客服</a></li>
+                  <li><a href="admin_config.php#templet" title="网站风格">网站风格</a></li>
+                  <li><a href="admin_config.php#logo" title="Logo及ico替换">Logo及ico替换</a></li>
+                  <li><a href="admin_config.php#upload" title="图片及FL上传设置">图片及FL上传设置</a></li>
+				  <li><a href="admin_config.php#foot" title="底部信息设置">底部信息设置</a></li>
+            </ul>
+            </li>  
+          <li><a class="collapsed heading">网站后台管理</a>
+            <ul class="navigation">
+				  <li><a href="admin_webmaster.php" title="管理人员管理" class="likelogin">管理人员管理</a></li>
+				  <li><a href="admin_group.php" title="管理权限分配">管理权限分配</a></li>          
+				  <li><a href="admin_laiyuan.php" title="来源统计">来源统计</a></li>
+				  <li><a href="admin_config.php#bandip" title="IP黑白名单">IP黑白名单</a></li>
+             
+            </ul>
+            </li>
+            </li>          
+        </ul>
+    </div>
+	

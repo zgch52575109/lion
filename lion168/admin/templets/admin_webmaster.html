@@ -1,0 +1,226 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>会员级别管理</h2>
+            </div>
+            <div class="contentbox">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>ID</th>
+                            <th>用户名</th>
+                            <th>最近登录时间</th>
+							<th>最近登陆IP</th>
+							<th>管理员级别</th>
+							<th>单次额度</th>
+							<th>每日额度</th>
+							<th>今日额度</th>
+							<th>最后操作时间</th>
+							<th>操作记录</th>
+							<th>状态</th>
+							<th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$numPerPage=30;
+$page = isset($page) ? intval($page) : 1;
+if($page==0) $page=1;
+if(empty($rank))
+{
+	$rank = '';
+}
+else
+{
+	$rank = " where CONCAT(groupid)='$rank' ";
+}
+$csqlStr="select count(*) as dd from `ek_admin` $rank";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_webmaster.php');
+
+$dsql->SetQuery("select rank,typename From `ek_admintype` ");
+$dsql->Execute();
+while($row = $dsql->GetObject())
+{
+	$adminRanks[$row->rank] = $row->typename;
+}
+
+$sqlStr="select * from `ek_admin` $rank order by logintime desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('manager_list');
+while($row=$dsql->GetObject('manager_list'))
+{
+$aid=$row->id;
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+      <TD><input type="checkbox" value="<?php echo $aid;?>" name="e_id[]" class="checkbox" /><?php echo $aid;?></TD>
+      <TD><?php echo $row->name;?></TD>
+      <TD><?php echo isCurrentDay($row->logintime);?>&nbsp;</TD>
+      <TD><?php echo $row->loginip;?>&nbsp;</TD>
+      <TD><?php echo GetUserType($row->groupid);?></TD>
+	  <TD><?php echo number_format($row->singleamount,2);?>&nbsp;</TD>
+	  <TD><?php echo number_format($row->amount,2);?>&nbsp;</TD>
+	  <TD><?php echo number_format($row->todayamount,2);?>&nbsp;</TD>
+	  <TD><?php echo isCurrentDay($row->last_operation_time);;?>&nbsp;</TD>
+	  <TD><a href="?action=log&id=<?php echo $aid;?>" title="">查看记录</a></TD>
+      <TD><?php echo getManagerState($row->state);?></TD>
+                            <td>
+                            	<a href="?action=edit&id=<?php echo $aid;?>" title=""><img src="img/icons/icon_edit.png" alt="Edit" /></a>
+                                <a href="?action=del&id=<?php echo $aid;?>" title=""><img src="img/icons/icon_delete.png" alt="Delete" /></a>
+                            </td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div class="extrabottom">
+                	<ul>
+                    	<li><img src="img/icons/icon_edit.png" alt="Edit" /> 编辑</li>
+                        <li><img src="img/icons/icon_delete.png" alt="Delete" /> 删除</li>
+                    </ul>
+                </div>
+                <ul class="pagination">
+				<li class="text">&nbsp;页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> 总收录数据<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2><?php if($id){ echo '编辑';} else { echo '添加';}?>用户组</h2>
+            </div>
+            <div class="contentbox">
+<?php
+if($action=="edit"){
+$row = $dsql->GetOne("Select * From `ek_admin` where id='$id'");
+?>
+<form action="?action=save&id=<?php echo $id;?>" method="post" name="editmanager" >
+<table cellpadding="2" cellspacing="1" border="0" width="95%" class="tableBorder" align=center>
+
+    <TR>
+      <TD vAlign=center width="20%" >用户名：</TD>
+      <TD ><input type="text" size="30" name="username" value="<?php echo $row['name'];?>"/><span id="checkmanagername" style="color:#FF0000"><font color="red">＊</font></span></TD>
+    </TR>
+    <TR>
+      <TD >密码：</TD>
+      <TD ><input type="password" size="30" name="pwd"   value="" /><font color="red">＊</font></TD>
+    </TR>
+   
+   <TR>
+      <TD >密码确认：</TD>
+      <TD ><input type="password" size="30" name="pwd2" value="" /><font color="red">＊</font></TD>
+    </TR>
+    <TR>
+      <TD >管理员级别：</TD>
+      <TD >			    <select name='groupid' style='width:200px'>
+			  	<?php
+			  	
+			  	$dsql->SetQuery("Select * from `ek_admintype` order by rank asc");
+			  	$dsql->Execute("ut");
+			  	while($myrow = $dsql->GetObject("ut"))
+			  	{
+			  		if($row['groupid']==$myrow->rank) echo "<option value='".$myrow->rank."' selected='1'>".$myrow->typename."</option>\r\n";
+			  		else echo "<option value='".$myrow->rank."'>".$myrow->typename."</option>\r\n";
+			  	}
+			  	?>
+			  </select> <font color="red">＊</font>
+			    &nbsp;
+			    【<a href='admin_group.php'><u>用户组设定</u></a>】</TD>
+    </TR>
+    <TR>
+      <TD >单次操作额度：</TD>
+      <TD ><input type="type" size="10" name="singleamount" value="<?php echo $row['singleamount'];?>" /> 元<font color="red">＊</font></TD>
+    </TR>
+    <TR>
+      <TD >每日操作额度：</TD>
+      <TD ><input type="type" size="10" name="amount" value="<?php echo $row['amount'];?>" /> 元<font color="red">＊</font></TD>
+    </TR>
+     <TR>
+      <TD >是否锁定</TD>
+      <TD ><input type="radio" class="radio" size="20" name="state"  value="1"<?php if($row['state']==1) echo "checked";?>/>激活&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="radio" size="20" name="state" value="0"<?php if($row['state']==0) echo "checked";?>/>锁定<font color="red">＊</font></TD>
+    </TR>
+    <TR align="center"  >
+    <TD align="left" ></TD>
+      <TD align="left" ><input type="submit" value="修改管理员" name="v_eidtsubmit" class="rb1" id="eidtsubmit" />
+      &nbsp;<input type="button" value="返   回"  class="rb1" onClick="javascript:history.go(-1)" /></TD>
+    </TR>
+</td></tr></table>
+</form>
+<?php
+}else{
+?>
+<form action="?action=add" method="post" >
+<table cellpadding="2" cellspacing="1" border="0" width="95%" class="tableBorder" align=center>
+    <TR>
+      <TD vAlign=center width="20%" >用户名：</TD>
+      <TD ><input type="text" size="30" name="username" id="username" /><span id="checkmanagername" style="color:#FF0000"><font color="red">＊</font></span></TD>
+    </TR>
+    <TR>
+      <TD >密码：</TD>
+      <TD ><input type="password" size="30" name="pwd" /><font color="red">＊</font></TD>
+    </TR>
+   
+   <TR>
+      <TD >密码确认：</TD>
+      <TD ><input type="password" size="30" name="pwd2" /><font color="red">＊</font></TD>
+    </TR>
+    <TR>
+      <TD >管理员级别：</TD>
+      <TD >			    <select name='groupid' style='width:200px'>
+			  	<?php
+			  	
+			  	$dsql->SetQuery("Select * from `ek_admintype` order by rank asc");
+			  	$dsql->Execute("ut");
+			  	while($myrow = $dsql->GetObject("ut"))
+			  	{
+			  		echo "<option value='".$myrow->rank."'>".$myrow->typename."</option>\r\n";
+			  	}
+			  	?>
+			  </select> <font color="red">＊</font>
+			    &nbsp;
+			    【<a href='admin_group.php'><u>用户组设定</u></a>】</TD>
+    </TR>
+    <TR>
+      <TD >单次操作额度：</TD>
+      <TD ><input type="type" size="10" name="singleamount" /> 元<font color="red">＊</font></TD>
+    </TR>
+    <TR>
+      <TD >每日操作额度：</TD>
+      <TD ><input type="type" size="10" name="amount" /> 元<font color="red">＊</font></TD>
+    </TR>
+    
+    <TR align="center"  >
+    <TD align="left" ></TD>
+      <TD align="left" ><input type="submit" value="添加管理员" class="rb1" />
+      &nbsp;<input type="button" value="返   回"  class="rb1" onClick="javascript:history.go(-1)" /></TD>
+    </TR>
+</td></tr></table>
+</form>
+<?php
+}
+?>
+            </div>
+</div>
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

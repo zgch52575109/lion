@@ -1,0 +1,49 @@
+    <div id="rightside">
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>会员管理</h2>
+            </div>
+            <div class="contentbox">
+			<form method="post" name="main_form1" action=""> 
+<input name="getTodayGetBetdetails" type="submit" value="实时更新今日游戏记录" style="margin-bottom:20px; margin-top:20px;" />
+<br /></form>
+			<form method="post" name="main_form2" action=""> 
+<input name="getYestodayGetBetdetails" type="submit" value="实时昨天更新游戏记录"  style="margin-bottom:20px;"/>
+<br /></form>
+			<form method="post" name="main_form3" action=""> 
+<input name="AllRegularChips" type="submit" value="更新全部现金码"  style="margin-bottom:20px;"/>
+<br /></form>
+			<form method="post" name="main_form4" action=""> 
+<input name="WeeklyRegularChips" type="submit" value="更新上周现金码"  style="margin-bottom:20px;"/>
+<br /></form>
+			<form method="post" name="main_form5" action=""> 
+<input name="ThisWeekRegularChips" type="submit" value="更新本周现金码"  style="margin-bottom:20px;"/>
+<br /></form>
+			<form method="post" name="main_form6" action=""> 
+<input name="todayRegularChips" type="submit" value="更新今天现金码" style="margin-bottom:20px;" />
+</form>			</div>
+            </div>
+                <div style="clear: both;"></div>
+            
+			</div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>
+<script type='text/javascript' src='scripts/main.js'></script>
+			<script type="text/javascript" language="javascript">
+
+			function showmanageform(tid){
+				$$('form_checkall').style.display = tid == 'checkall' ? '' : 'none';
+				$$('form_czhengfuall').style.display = tid == 'czhengfuall' ? '' : 'none';
+			}
+			</script>

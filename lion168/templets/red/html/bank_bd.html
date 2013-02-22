@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人中心</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+<link type="text/css" rel="stylesheet" href="css.css" >
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+<style type="text/css">
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
+</head>
+
+<!--{include file="member/top.html"}-->
+  <div class="content">
+<div  class="left"></div>
+<div  class="m">
+<div  class="top">
+<ul>
+<li style="margin-right:1px;"><a href="index.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','images/wdqbbb.png',1)"><img src="images/wdqbbb.png" name="Image14" width="84" height="31" border="0" id="Image14" /></a></li>
+<li><a href="latest_preferential.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','images/yhbb.png',1)"><img src="images/yhaa.png" name="Image15" width="84" height="31" border="0" id="Image15" /></a></li>
+<li><a href="deposit_remit.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','images/cqkbb.png',1)"><img src="images/cqkaa.png" name="Image16" width="84" height="31" border="0" id="Image16" /></a></li>
+<li><a href="feedback.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','images/wtfkbb.png',1)"><img src="images/wtfkaa.png" name="Image17" width="84" height="31" border="0" id="Image17" /></a></li>
+</ul>
+</div>
+<div class="wdqb">
+<div style="height:23px; border-bottom:#FEB638 solid 1px">
+<ul>
+<li style="background-color:#F60;"><a href="index.php"><strong style="color:#000">返回个人中心</strong></a></li>
+<li><a href="limit_operation.php">额度操作</a></li>
+<li><a href="cash_system.php">现金系统</a></li>
+<li  style="margin-left:1px; background-color: #FEB638;"><a href="bank_bd.php">绑定银行</a></li>
+</ul>
+</div>
+<div class="nl">
+<div class="nltop"><strong>银行卡资料</strong> （请输入您要绑定的银行卡信息；一旦绑定，所有提款将自动汇至此银行卡）</div>
+<div class="nlcon">
+<table border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC" width="100%" style="font-size:12px"><TBODY>
+
+  <tr>
+    <td width="42" height="37" align="center" bgcolor="#000000" style="color:#FEB638; text-align:center">序号</td>
+    <td width="162" align="center" bgcolor="#000000">开户行名称</td>
+    <td width="232" align="center" bgcolor="#000000">银行卡号码</td>
+    <td width="155" align="center" bgcolor="#000000">持卡人姓名</td>
+    <td width="232" align="center" bgcolor="#000000">持卡人身份证</td>
+	<!--{if $isedit || $isdel}--><td width="132" align="center" bgcolor="#000000">操作</td><!--{/if}-->
+  </tr>
+
+<!--{foreach value=data key=key from=$datas}-->
+  <tr style="color:#000">
+    <td height="37" align="center" bgcolor="#000000" style="color:#FEB638; text-align:center"><!--{$data[i]}--></td>
+    <td height="37" align="center" bgcolor="#FFFFFF"><!--{$data[tname]}--></td>
+    <td height="37" align="center" bgcolor="#FFFFFF"><!--{$data[cardnum]}--></td>
+    <td height="37" align="center" bgcolor="#FFFFFF"><!--{$data[realname]}--></td>
+    <td height="37" align="center" bgcolor="#FFFFFF"><!--{$data[idnumber]}--></td>
+	<!--{if $isedit || $isdel}--><td height="37" align="center" bgcolor="#FFFFFF"><!--{if $isedit}--><a href="?action=edit&id=<!--{$data[id]}-->">修改</a> <!--{/if}--><!--{if $isdel}--><a href="?action=del&id=<!--{$data[id]}-->">删除</a><!--{/if}--></td><!--{/if}-->
+  </tr>
+<!--{/foreach}-->
+
+  <tr>
+    <td align="center" colspan="6" bgcolor="#FEB638" style=" color:#000;">共<!--{$TotalResult}-->条 每页<!--{$numPerPage}-->条 第<!--{$page}-->/<!--{$TotalPage}-->页  <a href="<!--{$firstpage}-->">[首页]</a> <a href="<!--{$perpage}-->">[上一页]</a> <a href="<!--{$nextpage}-->">[下一页]</a> <a href="<!--{$lastpage}-->">[尾页]</a></td>
+    </tr>
+    </TBODY>
+</table>
+<input name="增加银行卡" type="button"  style="height:30px; width:100px; background-color: #FEB638; margin:10px auto; float:right;" onclick="location.href='?action=add'" value="增加银行卡"/>
+</div>
+<DIV class="nlbottom">说明： <br />
+1、银行卡绑定主要用于会员提款使用，一个会员可以绑定多张银行卡。 <br />
+2、请注意一旦绑定银行卡，不能修改，删除，请认真核对填写。 <br />
+3、会员提现时请选择需要提现到已绑定的银行卡，并仔细核对。 <br />
+</DIV>
+</div>
+
+</div>
+</div>
+<div style="display:block; float:left; width:201px; height:692px; background-image:url(images/04.gif)"></div>
+
+  <!-- end .content --></div>
+<!--{include file="member/foot.html"}-->
+</body>
+</html>

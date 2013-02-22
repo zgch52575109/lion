@@ -1,0 +1,123 @@
+    <div id="rightside">
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script>
+
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>网站来源管理</h2>
+            </div>
+            <div class="contentbox">
+            	<table width="100%">
+                	<thead>
+<form method="POST" name="myform" action="">
+				<td colspan="21">
+IP：
+<input type="text" name="USERIP" size="12" value="<?php echo $USERIP;?>" id="USERIP" />
+				注册日期：<input type="text" name="begin_date" value="<?php echo $begin_date;?>" size="12" id="begin_date" onclick="return showCalendar('begin_date', 'y-m-d');" />
+      			至 <input type="text" name="end_date" size="12" value="<?php echo $end_date;?>" id="end_date" onclick="return showCalendar('end_date', 'y-m-d');" />
+				<input type="submit" name="Submit" align="absmiddle" value="查 询..." class="btn">
+				</td>
+				</form>
+<form method="post" name="main_form" action="" style="margin:0px;"> 
+				<tr>
+                        	<th>ID</th>
+                            <th>访问页面</th>
+							<th>来源地址</th>
+							<th>来源IP</th>
+							<th>访问时间</th>
+							<th>操作</th>
+							<th><input name="" type="checkbox" value="" id="checkboxall" /></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$numPerPage=30;
+$page = isset($page) ? intval($page) : 1;
+$uid = isset($uid) ? intval($uid) : 0;
+if($page==0) $page=1;
+$whereStr=" where 1='1'";
+if($USERIP){
+$whereStr.=" and l_fromip='$USERIP' ";
+}
+if($begin_date){
+$begin_date=strtotime($begin_date);
+$whereStr.=" and l_addtime>=$begin_date ";
+}
+if($end_date){
+$end_date=strtotime($end_date);
+$whereStr.=" and l_addtime<=$end_date ";
+}
+$csqlStr="select count(*) as dd from `ek_laiyuan` b $whereStr";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_laiyuan.php?uid='.$uid.($USERIP ? '&USERIP='.$USERIP : '').($begin_date ? '&begin_date='.$begin_date : '').($end_date ? '&end_date='.$end_date : ''));
+
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select b.* from ek_laiyuan b $whereStr order by b.l_addtime desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+while($row=$dsql->GetArray('class_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $row['l_id'];?></td>
+                            <td><?php echo $row['l_url'];?></td>
+							<td><?php echo $row['l_fromurl'];?></td>
+			 <?php
+			$ip = $row['l_fromip'];
+			$QQWry = new QQWry;
+			$ifErr = $QQWry->QQWry($ip);
+			?>
+
+							<td><a  title="<?php echo mb_convert_encoding("$QQWry->Country$QQWry->Local\n", "UTF-8", "GBK");?>"><?php echo $row['l_fromip'];?></a></td>
+							<td><?php echo isCurrentDay($row['l_addtime']);?></td>
+                            <td>
+                                <a href="?action=del&id=<?php echo $row['l_id'];?>" title=""><img src="img/icons/icon_delete.png" alt="Delete" /></a>
+                            </td>
+							<td><input type="checkbox" value="<?php echo $row['l_id'];?>" id="checkall" name="checkall[]" /></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div class="extrabottom">
+                	<ul>
+                        <li><img src="img/icons/icon_delete.png" alt="Delete" /> 删除</li>
+                    </ul>
+                    <div class="bulkactions">
+                    	<select name="action">
+                        	<option value="delall">删除选择</option>
+                        </select>
+                        <input type="submit" value="提交" class="btn" />
+                    </div>
+                </div>
+                <ul class="pagination">
+				<li class="text">&nbsp;页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> 总收录数据<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

@@ -1,0 +1,51 @@
+    <div id="rightside">
+        
+         <!-- Graphs Box Start -->
+        <div class="contentcontainer" id="graphs">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>会员统计</h2>
+            </div>
+            <div class="contentbox" id="graphs-1">
+					<table style="display: none;" class="area">
+                        <caption> 新注册会员数量</caption>
+                        <thead>
+                            <tr>
+                                <td></td>
+								<?php for($i=1;$i<=12;$i++){echo '<th scope="col">'.sadate('M',mktime(0,0,0,$i,1,$y)).'</th>';}?>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><?php echo $y?></th>
+                                <?php
+								for($i=1;$i<=12;$i++){
+								$totalday  = sadate('t',mktime(0,0,0,$i,1,$y));
+								$begin_date=$y.'-'.$i.'-1';
+								$end_date=$y.'-'.$i.'-'.$totalday;
+								$countnum=getmembercount($begin_date,$end_date);
+									echo '<td>'.$countnum.'</td>';
+								}?>
+                            </tr>
+	                            <tr>
+                                <th scope="row"><?php echo $lastyear?></th>
+                                <?php
+								for($i=1;$i<=12;$i++){
+								$totalday  = sadate('t',mktime(0,0,0,$i,1,$lastyear));
+								$begin_date=$lastyear.'-'.$i.'-1';
+								$end_date=$lastyear.'-'.$i.'-'.$totalday;
+								$countnum=getmembercount($begin_date,$end_date);
+									echo '<td>'.$countnum.'</td>';
+								}?>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+  
+        </div>
+        <!-- Graphs Box End -->
+   
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

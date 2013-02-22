@@ -1,0 +1,91 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>管理员操作记录管理</h2>
+            </div>
+            <div class="contentbox"><form method="post" name="main_form" action="" style="margin:0px;"> 
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>ID</th>
+							<th>订单号</th>
+                            <th>操作人</th>
+							<th>类型</th>
+                            <th>选项</th>
+							<th>金额</th>
+							<th>操作选项</th>
+							<th>操作备注</th>
+							<th>操作时间</th>
+							<th><input name="" type="checkbox" value="" id="checkboxall" /></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$numPerPage=30;
+$page = isset($page) ? intval($page) : 1;
+$uid = isset($uid) ? intval($uid) : 0;
+if($page==0) $page=1;
+$whereStr=" where 1='1'";
+
+if ($id){$whereStr.=" and m.mid ='$id'";}
+$csqlStr="select count(*) as dd from `ek_admincheck_log` m $whereStr";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_proxy.php?groupid='.$groupid.'&bankid='.$bankid);
+
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select m.*,g.name from ek_admincheck_log m left join ek_admin g on g.id=m.mid $whereStr order by m.id desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+while($row=$dsql->GetArray('class_list'))
+{
+if($row['topuid']){
+	$rows = $dsql->GetOne("select username,truename from ek_proxy where uid='$row[topuid]'");
+	$row['topuname']=$rows['username'];
+}
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $row['id'];?></td>
+							<td><?php echo $row['orderid'];?></td>
+                            <td><a href="admin_webmaset.php?action=edit&id=<?php echo $row['mid'];?>"><?php echo $row['name'];?></a></td>
+							<td><?php if($row['type']==2) echo '会员取款'; elseif($row['type']==1) echo '会员存款'; elseif($row['type']==3) echo '订单充正负'; elseif($row['type']==3) echo '会员充正负';?></td>
+							<td><?php if($row['checktype']==2) echo '通过审核'; elseif($row['checktype']==1) echo '拒绝审核'; elseif($row['checktype']==3) echo '操作拒绝'; elseif($row['checktype']==4) echo '操作通过'; else echo '冲正冲负';?></td>
+							<td><?php echo $row['cash'];?></td>
+							<td><?php echo $row['checkxuanxiang'];?></td>
+							<td><?php echo $row['checknote'];?></td>
+							<td><?php echo isCurrentDay($row['addtime']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+
+                <ul class="pagination">
+				<li class="text">&nbsp;页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> 总收录数据<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

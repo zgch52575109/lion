@@ -1,0 +1,49 @@
+<div id="rightside">
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>周周返水</h2>
+            </div>
+            <div class="contentbox"> 
+            	<table width="100%">
+                	<thead>
+                    	
+				<tr>
+                <form method="POST" name="myform" action="admin_week.php?action=add">
+				<td colspan="21">
+                          <input type="submit" name="Submit" align="absmiddle" value="生成本周返水" class="btn"></td>
+				</form>
+				</tr>
+                <tr>
+        </tbody>
+                </table>
+
+
+ 
+                <div style="clear: both;"></div>
+ 
+			</div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>
+<script type='text/javascript' src='scripts/main.js'></script>
+			<script type="text/javascript" language="javascript">
+
+			function showmanageform(tid){
+				$$('form_checkall').style.display = tid == 'checkall' ? '' : 'none';
+				$$('form_czhengfuall').style.display = tid == 'czhengfuall' ? '' : 'none';
+			}
+			</script>
+  <?php
+
+
+?>

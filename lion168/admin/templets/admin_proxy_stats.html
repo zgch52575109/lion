@@ -1,0 +1,99 @@
+    <div id="rightside">
+        
+         <!-- Graphs Box Start -->
+        <div class="contentcontainer" id="graphs">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>推广统计</h2>
+            </div>
+            <div class="contentbox" id="graphs-1">
+					<table style="display: none;" class="bar">
+                        <caption> 概况</caption>
+                       <thead>
+                            <tr>
+                                <td></td>
+								<?php
+                                $csqlStr="select username from `ek_proxy`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+								while($rs=mysql_fetch_array($query)){
+echo '<th scope="col">'.$rs['username'].'</th>';}?>
+                            </tr>
+                        </thead>
+                        <tbody>
+							<tr>
+                                <th scope="row">开户</th>
+                                <?php
+                                $csqlStr="select uid from `ek_proxy`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+								while($rs=mysql_fetch_array($query)){
+                                $uid=$rs[uid];
+								$countnum=getinproxycountfirstmoney(1,$uid);
+									echo '<td>'.$countnum.'</td>';
+								}?>
+                            </tr>
+	                            <tr>
+                                <th scope="row">注册</th>
+                                <?php
+                                $csqlStr="select uid from `ek_proxy`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+                                while($rs=mysql_fetch_array($query)){
+                                $uid=$rs[uid];
+								$countnum=getinproxycount(2,$uid);
+									echo '<td>'.$countnum.'</td>';
+								}?>
+                            </tr>
+                        </tbody>
+                    </table>
+					</div>
+            <div class="contentbox" id="graphs-1">
+					<table style="display: none;" class="bar">
+                        <caption><?php echo date("Y-m"); 
+ ?>概况</caption>
+                       <thead>
+                            <tr>
+                                <td></td>
+								<?php
+                                $csqlStr="select username from `ek_proxy`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+								while($rs=mysql_fetch_array($query)){
+echo '<th scope="col">'.$rs[username].'</th>';}?>
+                            </tr>
+                        </thead>
+                        <tbody>
+							<tr>
+                                <th scope="row">开户</th>
+                                <?php
+                                $csqlStr="select uid from `ek_proxy`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+								while($rs=mysql_fetch_array($query)){
+                                $uid=$rs[uid];
+              					$begin_date=strtotime(date("Y-m").'-01'); 
+                                $countnum=getinproxycountdayfirstmoney(1,$uid,$begin_date);
+									echo '<td>'.$countnum.'</td>';
+								}?>
+                            </tr>
+	                            <tr>
+                                <th scope="row">注册</th>
+                                <?php
+                                
+                                
+                                $csqlStr="select uid from `ek_proxy`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+                                while($rs=mysql_fetch_array($query)){
+                                $uid=$rs[uid];
+              					$begin_date=strtotime(date("Y-m").'-01'); 
+                                $countnum=getinproxycountday(2,$uid,$begin_date);
+									echo '<td>'.$countnum.'</td>';
+								}?>
+                            </tr>
+                        </tbody>
+                    </table>
+					</div>
+            
+        </div>
+        <!-- Graphs Box End -->
+   
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

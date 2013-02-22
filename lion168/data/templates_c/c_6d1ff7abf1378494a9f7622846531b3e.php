@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>关于我们</title>
+<meta name="keywords" content="<?php echo $this->_vars['cfg_keywords']; ?>
+" />
+<meta name="description" content="<?php echo $this->_vars['cfg_description']; ?>
+" />
+<link type="text/css" href="css/responsibility.css" rel="stylesheet">
+<script language="javascript" src="js/date.js"></script>
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+</script>
+</head>
+
+<body>
+<?php echo $this->_fetch_compile("top.html"); ?>   
+   <div class="neirong" style="/* [disabled]margin-bottom:410px; */">
+     <div class="preferential_center_right">
+       <div class="title2"><img src="images/footer_about_us.gif" width="78" height="19" /></div>
+   <div class="line_1"></div>
+   <DIV align=left class="w_1">
+
+   <div align="left">
+   <div class="center_1">
+   <div class="center_1_left"></div>
+   <div class="center_1_right">金狮国际娱乐城是注册于菲律宾的网上博彩公司。成立至今，金狮国际不仅为客户提供各种真人视讯类博彩以及多元化网上娱乐，更承诺配备最优质的投注方法，并辅以最先进的网络技术支持，献上最佳的客户服务和最便捷的收支途径。金狮国际致力于为广大客户提供丰富精彩的线上博彩活动，使您获得舒适的线上娱乐体验，开心赢利，快乐消费。</div>
+   </div>
+   <div class="center_2">金狮国际娱乐城的永久官方网站为www.lion168.com。金狮国际所有的产品皆由菲律宾政府第一卡格杨经济特区(FCLRC)* 授权和监管。金狮国际娱乐城本着安全、快捷、诚信的经营理念，致力于为顾客提供最优质的服务。</div>
+   <div class="center_3" style="height:3px;"></div>
+   <div class="center_4">
+   <div class="center_4_left">
+   <div class="w_2">
+    金狮国际娱乐城使用GoDaddy.com Turbo SSL证书** 确保为客户的游戏通讯提供可靠的安全及保障。在保障客户资金安全的同时，我们一样重视客户的隐私安全，让顾客放心博彩，轻松娱乐。
+   </div></div>
+   <div class="center_4_center">
+   <div class="w_2">我们的财务工作人员将在最短的时间内为您办理存取款业务，客服工作人员将7X24小时在线，随时解答您在游戏中遇到的问题。同时我们也专门为您开通了7X24小时客服热线，你也可以随时致电我们，将您的建议随时传递给我们。</div>
+   </div>
+   <div class="center_4_right">
+   <div class="w_2">金狮国际娱乐城作为专业的网络博彩游戏运营商，我们将为客户提供最及时、最安全、最准确的数据，我们同时也接受菲律宾第一卡格杨经济特区(FIRST CAGAYAN)和广大用户的监督，用最诚挚的态度换取您对我们持久的信任。</div>
+   </div>
+   </div>
+   <div class="center_5" style="height:3px;"></div>
+   <div class="center_6"><br />注：<br /><br />
+&nbsp;&nbsp;* FCLRC ('First Cagayan Leisure and Resort Corporation')，是一家位于Cagayan特别经济区和自由口岸 (CSEZFP) 的机构，并且是互动游戏的授权者及管理者。CSEZFP通常也简称为CEZA, 是被菲律宾政府唯一承认并批准的国际性互动游戏经济区。为了确保游戏操作平台对客户是公正及安全的CEZA 和FCLRC要求他们执照的拥有者使用经过批准的供应商的软件。</div>
+   <div class="center_7">
+   <div class="center_7_left"><img src="images/responsibility_21.gif" width="157" height="73" style=" margin-left:45px;" /></div>
+   <div class="center_7_right">** SSL证书通过在客户端浏览器和Web服务器之间建立一条SSL安全通道Secure socket layer. SSL证书全协议是由Netscape Communication公司设计开发。该安全协议主要用来提供对用户和服务器的认证；对传送的数据进行加密和隐藏；确保数据在传送中不被改变，即数据的完整性，现已成为该领域中全球化的标准。</div>
+   </div>
+   </div>
+</DIV>
+ </div>
+   </div>
+<?php echo $this->_fetch_compile("foot.html"); ?>
+</body>
+
+</html>

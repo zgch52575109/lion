@@ -1,0 +1,157 @@
+    <div id="rightside">
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>游戏纪录</h2>
+            </div>
+            <div class="contentbox"><form method="post" name="main_form" action="" style="margin:0px;"> 
+            	<table width="100%">
+                	<thead>
+                    	
+				<tr><form method="POST" name="myform" action="admin_member.php">
+				<td colspan="21">
+				帐号：
+				<input type="text" name="UserName" size="12" value="<?php echo $UserName;?>" id="UserName" />
+				日期：<input type="text" name="begin_date" value="<?php echo $begin_date;?>" size="12" id="begin_date" onclick="return showCalendar('begin_date', 'y-m-d');" />
+      			至 <input type="text" name="end_date" size="12" value="<?php echo $end_date;?>" id="end_date" onclick="return showCalendar('end_date', 'y-m-d');" />
+				注单号：
+				<input type="text" name="BetId" size="12" value="<?php echo $BetId;?>" id="BetId" />
+				游戏局号：
+				<input type="text" name="GameId" size="12" value="<?php echo $GameId;?>" id="GameId" />
+				游戏种类：
+				<input type="text" name="GameType1" size="12" value="<?php echo $GameType1;?>" id="GameId" />
+				游戏种类：<select size="1" name="GameType">
+					<option value="0">所有种类</option>
+					<option value="Baccarat">Baccarat</option>
+					<option value="Blackjack">Blackjack</option>
+					<option value="DragonTiger">DragonTiger</option>
+					<option value="Roulette">Roulette</option>
+					<option value="Sic Bo">Sic Bo</option>
+				</select>
+				<br />
+				每页显示：
+				<input type="text" class="inputbox" style="width:10px;" name="listpage" value="<?php if(!intval($listpage)) echo '30'; else echo $listpage;?>">
+								<input type="submit" name="Submit" align="absmiddle" value="查 询..." class="btn"></td>
+				</form>
+				</tr>
+                <tr>
+                        	<th>用户名</th>
+                            <th>游戏开始时间</th>
+							<th>游戏结束时间</th>
+                            <th>注单号</th>
+							<th>游戏局号</th>
+							<th>投注额</th>
+							<th>派彩</th>
+							<th>币种</th>
+							<th>游戏种类</th>
+							<th>下注项</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+//$numPerPage=30;
+$page = isset($page) ? intval($page) : 1;
+$numPerPage = isset($listpage) ? intval($listpage) : 30;
+$uid = isset($uid) ? intval($uid) : 0;
+if($page==0) $page=1;
+$whereStr=" where 1='1'";
+if ($UserName){$whereStr.=" and m.UserName like'$UserName'";}
+if ($BetId){$whereStr.=" and m.BetId ='$BetId'";}
+if ($GameId){$whereStr.=" and m.GameId like '$GameId'";}
+if ($GameType){$whereStr.=" and m.GameType = '$GameType'";}
+if ($GameType1){$whereStr.=" and m.GameType = '$GameType1'";}
+if ($type=='vip'){$whereStr.=" and m.groupid >'1'";}
+	if ($begin_date){
+		$begindate=strtotime($begin_date);
+		$whereStr.=" and m.BetEndDate >='$begindate'";
+	}
+	if ($end_date){
+		$enddate=strtotime($end_date);
+		$whereStr.=" and m.BetEndDate <='$enddate'";
+	}
+	if($havemoney){
+		$whereStr.=" and m.firstmoney>0";
+	}
+$csqlStr="select count(*)as dd from (select * from gamehistory.gamehistory_today union all select * from gamehistory.gamehistory_all_excltoday) m $whereStr";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_gamehistory.php?action=today'.($UserName ? '&UserName='.$UserName : '').($BetId ? '&BetId='.$BetId : '').($GameId ? '&GameId='.$GameId : '').($GameType ? '&GameType='.$GameType : '').($GameType1 ? '&GameType1='.$GameType1 : '').($listpage ? '&listpage='.$listpage : '').($begin_date ? '&begin_date='.$begin_date : '').($end_date ? '&end_date='.$end_date : ''));
+
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select * from (select * from gamehistory.gamehistory_today union all select * from gamehistory.gamehistory_all_excltoday) m $whereStr order by BetStartDate desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+while($row=$dsql->GetArray('class_list'))
+{
+$allBetAmount=$allBetAmount+$row['BetAmount'];
+$allPayout=$allPayout+$row['Payout'];
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $row['UserName'];?></td>
+                            <td><?php echo isCurrentDay($row['BetStartDate'],$ctime);?></td>
+							<td><?php echo isCurrentDay($row['BetEndDate'],$ctime);?></td>
+							<td><?php echo $row['BetId'];?></td>
+							<td><?php echo $row['GameId'];?></td>
+							<td><?php echo $row['BetAmount'];?></td>
+							<td><?php echo $row['Payout'];?></td>
+							<td><?php echo $row['Currency'];?></td>
+							<td><?php echo $row['GameType'];?></td>
+							<td><?php echo $row['BetSpot'];?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+<tr>
+<th colspan="5" align="center">本页总结</th>
+<th><?php echo number_format($allBetAmount,2);?></th>
+<th><?php echo number_format($allPayout,2);?></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+
+                    </tbody>
+                </table>
+                <div class="extrabottom">
+                	<ul>
+                    	<li><img src="img/icons/icon_edit.png" alt="Edit" /> 编辑</li>
+                        <li><img src="img/icons/icon_delete.png" alt="Delete" /> 删除</li>
+                    </ul>
+                </div>
+                <ul class="pagination">
+				<li class="text">&nbsp;页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> <?php if($begin_date || $end_date) echo '<font color=#ff0000>'.$begin_date.'</font>到<font color=#ff0000>'.$end_date.'</font>时间段内 '; if($havemoney) echo ' <font color=#ff0000>有游戏</font> ';?>会员共有<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>
+<script type='text/javascript' src='scripts/main.js'></script>
+			<script type="text/javascript" language="javascript">
+
+			function showmanageform(tid){
+				$$('form_checkall').style.display = tid == 'checkall' ? '' : 'none';
+				$$('form_czhengfuall').style.display = tid == 'czhengfuall' ? '' : 'none';
+			}
+			</script>

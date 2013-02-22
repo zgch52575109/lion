@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <title>联系我们 - 金狮娱乐</title>
+    <meta name="keywords" content="keyword ..." />
+    <meta name="Description" content="description ..." />
+    <!--<link href="favicon.ico" rel="shortcut icon" />-->
+    <link href="../css/index/global.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+ <?php echo $this->_fetch_compile("index/top.html"); ?>  
+ 
+<div id="maincontent">
+ <div id="informscroll">
+  <div id="informcontent">
+    <?php echo $this->_fetch_compile("index/inc_notice.html"); ?>
+    <div class="tel"></div>
+    </div>
+ </div>
+ <div id="listcontent">
+   <div class="inners">
+    <?php echo $this->_fetch_compile("index/left_menu.html"); ?> 
+   <div id="rightcontent">
+     <div class="site"><a href="about_us.html">关于我们</a><span>&gt;</span>联系我们</div>
+     
+<table width="680" border="0" align="center" cellpadding="0" cellspacing="0" style="margin:20px; line-height:20px;">
+  <tr>
+    <td align="left" valign="middle">
+    
+ <p>客户服务：电子邮箱cs@lion168.com<br />我们的客服专员将会在24小时内帮助您解决遇到的各种问题，请发邮件到以上电子信箱。</p><br /><br />
+ <p>客服400电话：4006454688、 4006796680</p><br /><br />
+ <p>合作加盟QQ：1937470419&nbsp;&nbsp;&nbsp;&nbsp;合作加盟400电话：4006721688</p>
+    
+    </td>
+  </tr>
+</table>
+
+ 
+         
+   </div>
+   <div class="clear"></div>
+   </div>
+ </div>
+</div>
+<?php echo $this->_fetch_compile("index/footer.html"); ?> 
+ <script type="text/javascript">				
+ $(function(){
+   //$(".leftcontent dl dd").hide();
+   $(".leftcontent dl dt").click(function(){
+   $(".leftcontent dl dd").not($(this).next()).hide();
+   $(this).next().slideToggle(500); 
+    });
+ });
+ </script>  
+</body>
+</html>

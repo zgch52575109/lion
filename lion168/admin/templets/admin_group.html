@@ -1,0 +1,56 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>后台管理组管理</h2><span style="float:right;margin-right:15px; margin-top:-15px;"><a href="?action=add">添加管理组</a></span>
+            </div>
+            <div class="contentbox">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>Rank</th>
+                            <th>组名</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_admintype order by rank desc";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+while($row=$dsql->GetArray('class_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $row['rank'];?></td>
+                            <td><?php echo $row['typename'];?></td>
+                            <td>
+                            	<a href="?action=edit&rank=<?php echo $row['rank'];?>" title=""><img src="img/icons/icon_edit.png" alt="Edit" /></a>
+                                <a href="?action=del&rank=<?php echo $row['rank'];?>" title=""><img src="img/icons/icon_delete.png" alt="Delete" /></a>
+                            </td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div class="extrabottom">
+                	<ul>
+                    	<li><img src="img/icons/icon_edit.png" alt="Edit" /> 编辑</li>
+                        <li><img src="img/icons/icon_delete.png" alt="Delete" /> 删除</li>
+                    </ul>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

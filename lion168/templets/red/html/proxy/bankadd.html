@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>代理中心</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+<link type="text/css" rel="stylesheet" href="css.css" >
+<script language="javascript" type="text/javascript" src="../js/public.js"></script>
+<SCRIPT src="../js/city.js" type=text/javascript></SCRIPT>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+<style type="text/css">
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
+</head>
+<!--{include file="proxy/top.html"}-->
+
+<div class="content">
+  <div  class="left"></div>
+  <div  class="m">
+  <div  class="top"></div>
+    <div class="top2"></div>
+    <div class="c">
+      <div class="l">
+     <!--Left middle content--> 
+        <!--{include file="proxy/member_left.html"}-->
+                <div  id="link"> <a href="information.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','images/grzlb.gif',1)"> <img src="images/grzlb.gif" name="Image18" width="138" height="36" border="0" id="Image18" /> </a> </div>
+        <div id="link"> <a href="news.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','images/zxxxb.gif',1)"> <img src="images/zxxx.gif" name="Image15" width="138" height="36" border="0" id="Image15" /> </a> </div>
+        <div id="link"> <a href="join_in.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image20','','images/jmhyb.gif',1)"><img src="images/jmhy.gif" name="Image20" width="138" height="36" border="0" id="Image20" /></a> </div>
+        <div id="link"> <a href="profit.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image24','','images/lrfcb.gif',1)"><img src="images/lrfc.gif" name="Image24" width="138" height="36" border="0" id="Image24" /></a> </div>
+        <div id="link"> <a href="proxy_join_in.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','images/dali_29.gif',1)"><img src="images/dali_27.gif" name="Image5" width="142" height="36" border="0" id="Image5" /></a></div>
+	 <!--Left middle content--> 
+        
+      </div>
+      <div id="content">       
+        <div class="con">
+          <div style="height:23px;">
+            <ul>
+                <li><a href="information.php">基本信息</a></li>
+                <li><a href="Password.php">密码更改</a></li>
+				
+				<li><a href="bank_bd.php">绑定银行</a></li>
+            </ul>
+          </div>
+          <div class="nr">
+            <div class="nrbanner"><strong>银行卡资料</strong> （请输入您要绑定的银行卡信息；一旦绑定，所有提款将自动汇至此银行卡）</div>
+            <div class="nlcon">
+            <form action ="?action=save" method="post" id="frmMain" name="frmMain"  onSubmit="" style="border:0;margin:0px;padding-left:0px;">
+            <table border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC" style="font-size:12px">
+              <TBODY>
+                <tr>
+                  <td bgcolor="#ffffff" height=35><div align="right" style="color:#000">银行卡开户银行名称：</div></td>
+                  <td bgcolor="#ffffff" align="left"><table width="600" height="28" border="0" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td width="520"><select style="width:80" id=sf onchange=changecity('') name=sf>
+                              <option value=0>--省份--</option>
+                              <option 
+    value=北京<!--{if $sf=='北京'}--> selected
+                              <!--{/if}-->
+                              >北京</option>
+                              <option value=天津<!--{if $sf=='天津'}--> selected
+                              <!--{/if}-->
+                              >天津</option>
+                              <option 
+    value=上海<!--{if $sf=='上海'}--> selected
+                              <!--{/if}-->
+                              >上海</option>
+                              <option value=重庆<!--{if $sf=='重庆'}--> selected
+                              <!--{/if}-->
+                              >重庆</option>
+                              <option 
+    value=江苏省<!--{if $sf=='江苏省'}--> selected
+                              <!--{/if}-->
+                              >江苏省</option>
+                              <option value=广东省<!--{if $sf=='广东省'}--> selected
+                              <!--{/if}-->
+                              >广东省</option>
+                              <option 
+    value=浙江省<!--{if $sf=='浙江省'}--> selected
+                              <!--{/if}-->
+                              >浙江省</option>
+                              <option value=福建省<!--{if $sf=='福建省'}--> selected
+                              <!--{/if}-->
+                              >福建省</option>
+                              <option 
+    value=湖南省<!--{if $sf=='湖南省'}--> selected
+                              <!--{/if}-->
+                              >湖南省</option>
+                              <option value=湖北省<!--{if $sf=='湖北省'}--> selected
+                              <!--{/if}-->
+                              >湖北省</option>
+                              <option 
+    value=山东省<!--{if $sf=='山东省'}--> selected
+                              <!--{/if}-->
+                              >山东省</option>
+                              <option value=辽宁省<!--{if $sf=='辽宁省'}--> selected
+                              <!--{/if}-->
+                              >辽宁省</option>
+                              <option 
+    value=吉林省<!--{if $sf=='吉林省'}--> selected
+                              <!--{/if}-->
+                              >吉林省</option>
+                              <option value=云南省<!--{if $sf=='云南省'}--> selected
+                              <!--{/if}-->
+                              >云南省</option>
+                              <option 
+    value=四川省<!--{if $sf=='四川省'}--> selected
+                              <!--{/if}-->
+                              >四川省</option>
+                              <option value=安徽省<!--{if $sf=='安徽省'}--> selected
+                              <!--{/if}-->
+                              >安徽省</option>
+                              <option 
+    value=江西省<!--{if $sf=='江西省'}--> selected
+                              <!--{/if}-->
+                              >江西省</option>
+                              <option value=黑龙江省<!--{if $sf=='黑龙江省'}--> selected
+                              <!--{/if}-->
+                              >黑龙江省</option>
+                              <option 
+    value=河北省<!--{if $sf=='河北省'}--> selected
+                              <!--{/if}-->
+                              >河北省</option>
+                              <option value=陕西省<!--{if $sf=='陕西省'}--> selected
+                              <!--{/if}-->
+                              >陕西省</option>
+                              <option 
+    value=海南省<!--{if $sf=='海南省'}--> selected
+                              <!--{/if}-->
+                              >海南省</option>
+                              <option value=河南省<!--{if $sf=='河南省'}--> selected
+                              <!--{/if}-->
+                              >河南省</option>
+                              <option 
+    value=山西省<!--{if $sf=='山西省'}--> selected
+                              <!--{/if}-->
+                              >山西省</option>
+                              <option value=内蒙古<!--{if $sf=='内蒙古'}--> selected
+                              <!--{/if}-->
+                              >内蒙古</option>
+                              <option 
+    value=广西<!--{if $sf=='广西'}--> selected
+                              <!--{/if}-->
+                              >广西</option>
+                              <option value=贵州省<!--{if $sf=='贵州省'}--> selected
+                              <!--{/if}-->
+                              >贵州省</option>
+                              <option 
+    value=宁夏<!--{if $sf=='宁夏'}--> selected
+                              <!--{/if}-->
+                              >宁夏</option>
+                              <option value=青海省<!--{if $sf=='青海省'}--> selected
+                              <!--{/if}-->
+                              >青海省</option>
+                              <option 
+    value=新疆<!--{if $sf=='新疆'}--> selected
+                              <!--{/if}-->
+                              >新疆</option>
+                              <option value=西藏<!--{if $sf=='西藏'}--> selected
+                              <!--{/if}-->
+                              >西藏</option>
+                              <option 
+    value=甘肃省<!--{if $sf=='甘肃省'}--> selected
+                              <!--{/if}-->
+                              >甘肃省</option>
+                              <option value=台湾省<!--{if $sf=='台湾省'}--> selected
+                              <!--{/if}-->
+                              >台湾省</option>
+                              <option 
+    value=香港<!--{if $sf=='香港'}--> selected
+                              <!--{/if}-->
+                              >香港</option>
+                              <option value=澳门<!--{if $sf=='澳门'}--> selected
+                              <!--{/if}-->
+                              >澳门</option>
+                              <option 
+    value=国外<!--{if $sf=='国外'}--> selected
+                              <!--{/if}-->
+                              >国外</option>
+                            </select>
+                            <select id=city name=city style="width:80" >
+                              <option value=0>--城市--</option>
+                            </select>
+                            <select id=bankid name=bankid style="width:180">
+                              <option value=-1>-- 开户行 --</option>
+                              <!--{foreach value=data key=key from=$banktype}-->
+                              <option value='<!--{$data[tid]}-->'
+                              <!--{if $data[tid]==$bankid}-->
+                               selected
+                              <!--{/if}-->
+                              >
+                              <!--{$data[tname]}-->
+                              </option>
+                              <!--{/foreach}-->
+                            </select>
+                            <input width="100" id=zhihang maxLength=128 size=15 name=zhihang value="<!--{$zhihang}-->" />
+                            <span style="color:#000">*支行</span></td>
+                        </tr>
+                      </tbody>
+                    </table></td>
+                </tr>
+                <script>changecity('<!--{$city}-->');</script>
+                <tr>
+                  <td bgcolor="#ffffff" height=28><div align="right" style="color:#000">新银行卡账号：</div></td>
+                  <td bgcolor="#ffffff" align="left"><table border="0" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <th><input name="cardnum" id=cardnum value="<!--{$cardnum}-->" class="form" size="14" style="width: 200px;" type="text" maxLength=32></th>
+                        </tr>
+                      </tbody>
+                    </table></td>
+                </tr>
+                <tr>
+                  <td bgcolor="#ffffff" height=28><div align="right" style="color:#000">确认新银行卡账号：</div></td>
+                  <td bgcolor="#ffffff" align="left"><table border="0" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <th><input name="cardnum1" id=cardnum1 value="<!--{$cardnum}-->" class="form" size="14" style="width: 200px;" type="text" onblur=verify() maxLength=32></th>
+                        </tr>
+                      </tbody>
+                    </table></td>
+                </tr>
+                <tr>
+                  <td colspan="2" height="28" bgcolor="#000000"><div> 持卡人信息 （用于核对绑定银行卡信息）</div></td>
+                </tr>
+                <tr>
+                  <td bgcolor="#ffffff" height=28><div align="right" style="color:#000">真实姓名：</div></td>
+                  <td bgcolor="#ffffff" align="left"><table border="0" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <th></th>
+                          <td><input name="realname" id="realname" class="form" size="14" style="width: 200px;" type="text" value="<!--{if $id}--><!--{$realname}--><!--{else}--><!--{$truename}--><!--{/if}-->"></td>
+                        </tr>
+                      </tbody>
+                    </table></td>
+                </tr>
+                <tr>
+                  <td bgcolor="#ffffff" height=28><div align="right" style="color:#000">身份证号：</div></td>
+                  <td bgcolor="#ffffff" align="left"><table border="0" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td><input name="idnumber" class="form" size="18" style="width: 200px;" type="text" value="<!--{$idnumber}-->"></td>
+                          <td style="color:#000">&nbsp;&nbsp;（可不填） </td>
+                        </tr>
+                      </tbody>
+                    </table></td>
+                </tr>
+              </TBODY>
+            </table>
+            <input type="hidden" name="id" value="<!--{$id}-->">
+            <input type="hidden" name="action" value="save">
+            <div style="text-align:center; margin-top:10px;"><img src="images/qr.png" width="97" height="29" onclick="check();" /></div>
+          </form>
+        	</div>
+          </div>
+        </div>
+      </div>
+	  <div style=" clear:left; background-image:url(images/42.png);  height:5px; margin-top:4px; "></div>
+    </div>
+  
+   
+  </div>
+  <div style="display:block; float:left; width:201px; height:692px; background-image:url(images/04.gif)"></div>
+  <!-- end .content -->
+</div>
+<!--{include file="proxy/foot.html"}-->
+</body></html>
+<script type="text/javascript">
+function check(){
+var idcardnum = /(^\d{15}$)|(^\d{17}([0-9]|X)$)/;//身份证验证
+var matchehtml=/<(.*)>.*<\/\1>|<(.*)\/>/;//验证是否含有HTML标签
+var name = /^\S{2,}$/;//真实姓名验证
+var bankname = /^[_]*$/;//验证开户行，不能有下划线
+
+//验证有没有选省份
+if(document.frmMain.sf.value!=null){
+var province = document.frmMain.sf.value;
+if(province=="0"){
+alert("请选择省份");
+return false;
+}}
+
+if(document.frmMain.zhihang.value!=null){
+if( document.frmMain.zhihang.value==""){
+document.frmMain.zhihang.focus();
+alert("请填写支行名称！");
+return false;
+}}
+
+//验证有没有选城市
+if(document.frmMain.city.value!=null){
+var city = document.frmMain.city.value;
+if(city=="0"){
+alert("请选择城市");
+return false;
+}}
+
+var bank = document.frmMain.bankid.value;
+if(bank=="" ||bank=="-1"){
+	alert("请选择开户行！");
+		return false;
+}
+var bankleaft=document.frmMain.zhihang.value;
+if(bankleaft.length>0)
+{
+  if (matchehtml.exec(bankleaft)) {
+	alert("支行不能含有HTML标签！");
+	return false;
+ }
+}
+var cardnum = document.frmMain.cardnum.value;
+var cardnum1 = document.frmMain.cardnum1.value;
+if(cardnum.length<15||cardnum1<15){
+alert("银行卡号码格式不对！");
+return false;
+}
+if(cardnum!=cardnum1){
+alert("两次输入银行卡号码不一致！");
+return false;
+}
+if (matchehtml.exec(cardnum)) {
+	alert("银行卡号不能含有HTML标签！");
+	return false;
+ }
+
+var realname=document.getElementById("realname").value;
+if (realname.length>8) {
+		alert("持卡人姓名过长！"+realname);
+		return false;
+}
+if (matchehtml.exec(realname)) {
+	alert("持卡人姓名不能含有HTML标签！");
+	return false;
+ }
+
+/*if(document.frmMain.idnumber.value!=null){*/
+var idnumber=document.frmMain.idnumber.value;
+
+if(idnumber!=null && idnumber!=""){
+	if (!idcardnum.exec(idnumber)) {
+			alert("身份证格式不正确！");
+			return false;
+	}
+}
+
+	document.frmMain.submit();
+	return true;
+}
+
+
+
+function verify(){
+	var cardnum = document.frmMain.cardnum.value;
+	var cardnum1 = document.frmMain.cardnum1.value;
+	if(cardnum!=cardnum1){
+		alert("两次输入银行卡号码不一致");
+	}
+}
+
+</script>

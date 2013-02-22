@@ -1,0 +1,58 @@
+    <div id="rightside">
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/2.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>手工提交优惠单</h2>
+            </div>
+            <div class="contentbox">
+            	<form action="?action=save" id="frmMain" name="frmMain" method="POST">
+            		<p>
+                        <label for="grouptitle"><strong>用户名:</strong> </label>
+						<input type="text" name="account" id="account" class="inputbox" value="" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>手动会员优惠发放:</strong></label> <select name='type'>
+			  	<?php
+			  	$dsql->SetQuery("Select * from ek_member_promotions where states=1 and uid!=1 and uid!=2 and uid!=11 and uid!=0  order by id desc");
+			  	$dsql->Execute("ut");
+			  	while($myrow = $dsql->GetObject("ut"))
+			  	{
+			  		echo "<option value='".$myrow->uid."'>".$myrow->name."</option>\r\n";
+			  	}
+			  	?>
+				
+
+			  </select> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>优惠金额:</strong></label>
+						<input type="text" name="cash" id="cash" class="inputbox" style="width:50px" />元 <br />
+                    </p>
+            		<!--<p>
+                        <label for="grouptitle"><strong>优惠人姓名:</strong></label>
+						<input type="text" name="sender" id="sender" class="inputbox" style="width:50px" />不填写将使用用户的真实姓名 <br />
+                    </p>-->
+
+            			<p>
+                        <label for="grouptitle"><strong>是否审核:</strong></label>
+						<input type="checkbox" name="check" id="check" value="1" />选中直接通过审核 <br />
+                    </p>
+
+            		<p>
+
+                    </p>
+					<input type="submit" value="保存" class="btn" />
+                </form>
+            </div>
+</div>
+
+
+
+
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

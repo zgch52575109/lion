@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>注册</title>
+<meta name="keywords" content="<!--{$cfg_keywords}-->" />
+<meta name="description" content="<!--{$cfg_description}-->" />
+<link type="text/css" href="css/agent_on.css" rel="stylesheet">
+<script language="javascript" src="js/date.js"></script>
+<script language="javascript" type="text/javascript" src="/js/public.js"></script>
+<script language="javascript" type="text/javascript" src="/js/usercheck.js"></script>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+</head>
+
+<body onload="MM_preloadImages('images/A5-C.gif')">
+<!--{include file="top.html"}-->
+   <div class="neirong">
+   <div class="sign_in_left">
+   <div class="left_top"></div>
+   <div class="left_center"></div>
+   <div class="left_bottom"></div>
+   </div>
+   <div class="sign_in_center">
+   <div class="center_top"></div>
+   <div class="center_center">
+   <div class="center_1">
+  <form name="frmMain" method="post" action="">
+<table width="543"  border="0" cellspacing="0" style="color:#DB631D; text-align:right; margin-top:20px; line-height:17px;">
+  <tr>
+    <td width="76" height="30">账号 ：</td>
+    <td height="30" colspan="2" align="left" valign="middle"><label for="textfield4"></label>
+      <input type="text" name="UserName" id="UserName" /></td>
+    <td width="270" height="30" align="left"  style="font-size:11px;">* 填写不能超过5位，且有英文(a-z)、数字(0-9)组成</td>
+  </tr>
+  <tr>
+    <td width="76" height="30">密码 ：</td>
+    <td height="30" colspan="2" align="left" valign="middle"><label for="textfield5"></label>
+      <input type="password" name="Password" id="Password" /></td>
+    <td width="270" height="30" align="left" style="font-size:11px;">* 请输入6-16位密码</td>
+  </tr>
+  <tr>
+    <td height="30">确认密码 ：</td>
+    <td height="30" colspan="2" align="left" valign="middle"><label for="textfield5"></label>
+      <input type="password" name="cfPassWord" id="cfPassWord" />
+</td>
+    <td width="270" height="30" align="left" style="font-size:11px;">* 请确认密码</td>
+  </tr>
+  <tr>
+    <td height="30">验证码 ：</td>
+    <td width="79" height="30" align="left" valign="middle" style="font-size:11px;"><label for="textfield13"></label>
+      <input type="text" name="ValidateCode" id="ValidateCode"  style="width:60px;" /></td>
+    <td width="110" height="30" align="left" valign="middle" style="font-size:11px;"><img id="vdimgck" src="/include/vdimgck.php" alt="看不清？点击更换" align="absmiddle" style="cursor:pointer" onclick="this.src=this.src+'?'" /></td>
+    <td width="270" height="30" align="left" style="font-size:11px;">* 请填写验证码</td>
+  </tr>
+  <tr>
+    <td height="30">联系人 ：</td>
+    <td height="30" colspan="2" align="left" valign="middle"><label for="textfield9"></label>
+      <input type="text" name="TrueName" id="TrueName" /></td>
+    <td width="270" height="30" align="left" style="font-size:11px;">* </td>
+  </tr>
+  <tr>
+    <td height="30">联系电话 ：</td>
+    <td height="30" colspan="2" align="left" valign="middle"><label for="textfield10"></label>
+      <input type="text" name="userTel" id="userTel" /></td>
+    <td width="270" height="30" align="left" style="font-size:11px;">*</td>
+  </tr>
+  <tr>
+    <td height="30">邮箱地址 ：</td>
+    <td height="30" colspan="2" align="left" valign="middle"><label for="textfield8"></label><input type="text" name="email" id="email" /></td>
+    <td width="270" height="30" align="left" style="font-size:11px;">* 请填写真实Email，保证信件发送到您的邮箱</td>
+  </tr>
+  <tr>
+    <td height="30">QQ号 ：</td>
+    <td height="30" colspan="2" align="left" valign="middle"><label for="textfield11"></label>
+      <input type="text" name="qq" id="qq" /></td>
+    <td width="270" height="30" align="left" style="font-size:11px;">*</td>
+  </tr>
+  <tr>
+    <td height="30">代理地区 ：</td>
+    <td height="30" colspan="2" align="left" valign="middle"><label for="textfield12"></label>
+      <input type="text" name="diqu" id="diqu" /></td>
+    <td width="270" height="30" align="left" style="font-size:11px;">* 请填写您所在的代理地区。</td>
+  </tr>
+  <tr>
+    <td height="30">详细说明 ：</td>
+    <td height="250" colspan="3" align="left" valign="middle" style="font-size:11px;"><label for="textarea"></label>
+      <textarea name="intro" id="textarea" cols="45" rows="5" style="margin-left:10px; height:200px; width:400px;"></textarea></td>
+    </tr>
+  <tr>
+    <td height="30">&nbsp;</td>
+    <td height="30" colspan="3" align="left" valign="middle"><input name="agree" type="checkbox" value="1" style="width:20px;" />我已届满合法博彩年龄﹐且同意"加盟方案"、<a style="text-decoration:none;" href="#">"加盟协议"</a>。</td>
+    </tr>
+</table>
+<input type="hidden"  name="action" value="save">
+</form>
+  <a href="#" onClick="Check_Reg1()" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','images/A5-C.gif',1)"><img src="images/49E7.gif" name="Image9" width="160" height="63" style="margin-top:10px;" border="0" id="Image9" /></a></div>
+   <div class="center_2">
+   
+   </div>
+   
+   </div>
+   <div class="center_bottom"></div>
+   </div>
+   <div class="sign_in_right">
+   <div class="right_top"></div>
+   <div class="right_center"></div>
+   <div class="right_bottom"></div>
+   </div>
+   </div>
+<!--{include file="foot.html"}-->
+</body>
+
+</html>

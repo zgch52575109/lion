@@ -1,0 +1,113 @@
+p,li,ul,dt,dl,dd,a,blockquote,body,h1,h2,h3,h4,h5,h6{padding:0px; margin:0px; text-decoration:none; font-size:12px;list-style-type:none;font-family:'宋体'; color:#484848;}
+a,span,label,b{ font-size:12px;}
+a{ text-decoration:none;}
+ul,li{text-decoration:none; list-style-type:none;}
+img{ border:0px; vertical-align:bottom;}
+input{ outline:none;}
+.clear{ clear:both;}
+.none{ display:none;}
+a:hover{ color:#D98E11; text-decoration:underline;}
+/*
+.png{_behavior:url(pic/iepngfix.htc); }
+.img_png{opacity:0.60;filter:Alpha(Opacity=60);background:url(../pic/friend_flow_bg2.png) no-repeat!important;background-image:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='pic/friend_flow_bg2.png',sizingMethod='image');}
+*/
+body{ background:url(../../images/member/bg.jpg) repeat-x 0px 0px #000000;}
+#headerscroll{ height:96px; }
+#header{ height:74px; overflow:hidden; width:960px; margin:0px auto;}
+#logo{ float:left; margin:10px 0px 0px 0px; float:left; display:inline; width:150px; height:55px; background:url(../../images/member/logo.jpg) no-repeat 0px 0px;}
+#logo a{display:block; height:55px; text-indent:-99999px;}
+#header .member{ text-align:right; padding:3px 0px 0px 0px; float:right; line-height:22px;}
+#header .name a{ color:White;}
+#header .name .exit{color:#A08033;}
+#header .name span{ padding:0px 5px;}
+#header .link{}
+#header .link span{ padding:0px 5px;}
+#header .link a{ color:#A08033;}
+#header .rmb{}
+#header .rmb span{ color:White;}
+#navcontent{ width:960px; margin:0px auto; height:22px; line-height:20px;}
+#navcontent ul{ float:right;}
+#navcontent li{ float:left; padding:0px 5px; color:White;}
+#navcontent a{ color:White;}
+#maincontent{ border-bottom:solid 5px #790800; width:940px; padding:10px; margin:10px auto; background-color:White; overflow:hidden;}
+#maincontent .title{ padding:0px 0px 8px 10px; font-size:16px; color:Black; font-weight:bold; font-family:'微软雅黑';}
+#maincontent .title p{ line-height:22px; }
+#leftcontent{ float:left; width:180px;}
+#leftcontent li a{ text-decoration:none; padding:0px 10px;  display:block; height:28px; line-height:28px; border-bottom:dotted 1px #DDD;}
+#leftcontent li a:hover,#leftcontent li .current{ background-color:#A50B01;color:White;}
+
+#rightcontent{ float:right; overflow:hidden; width:740px;}
+#rightcontent .tip{ line-height:22px; background-color:#F0F0F0; padding:8px 12px;}
+#rightcontent .tip dt{ font-weight:bold;}
+#rightcontent .list{ padding:0px 0px 10px 0px;}
+#rightcontent .list .l{ line-height:20px; float:left; width:120px;}
+#rightcontent .list .l p{ line-height:19px;}
+#rightcontent .list .l b{}
+#rightcontent .list .l span{ color:Red;}
+#rightcontent .list .r{ float:right; width:620px;}
+#rightcontent .list .select{border:1px solid #BBBBBB;color:#000000;font-size:12px;font-weight:normal;line-height:15px;padding:3px;}
+#rightcontent .list .text{ width:150px; border:1px solid #BBBBBB;color:#000000;font-size:12px;font-weight:normal;line-height:15px; padding:3px;}
+#rightcontent .list .rmb{ width:30px; text-align:center;}
+#rightcontent .list li{ padding:0px 0px 15px 0px;}
+#rightcontent .btndiv{_behavior:url(../../css/member/csshover3.htc); margin:20px 0px 15px 0px; float:left; height:25px; padding:0px 0px 0px 20px; background:url(../pic/form-button-left.jpg) no-repeat 0px 0px;}
+#rightcontent .btndiv .submit{
+	cursor:pointer;
+	color:White;
+	height:25px;
+	border:0px;
+	padding:00px 20px 0px 20px;
+	background-image: url(../../images/member/form-button-right.jpg);
+	background-repeat: repeat-x;
+	background-position: right 0px;
+}
+#rightcontent .btndiv:hover{ background-position:0px -26px;}
+#rightcontent .btndiv:hover .submit{background-position:right -26px;}
+#rightcontent .p{ line-height:20px;}
+#rightcontent .dl{ padding:10px 0px 10px 0px; line-height:22px;}
+#rightcontent .dl dt{ font-weight:bold; color:#530500; font-size:14px;}
+#rightcontent .dl dd{ padding:10px 15px;}
+#rightcontent .dl ul{ padding-left:20px; }
+#rightcontent .dl li{ line-height:25px;  list-style-type:decimal;}
+#accountcontent{}
+#accountcontent .l{ padding:10px 15px; float:left; display:inline-block; width:548px; background-color:#D5D8E1;}
+#accountcontent .l .d{ padding:0px 0px 5px 0px;}
+#accountcontent .l .d dt{ padding:0px 0px 10px 0px; font-size:16px; color:#4B4E51;}
+#accountcontent .l .d dd{}
+#accountcontent .l .d p{ line-height:22px;}
+#accountcontent .l .d p a{ color:#359DD7;}
+#accountcontent .l .account{ line-height:25px; padding:0px 0px 5px 0px; font-size:20px;}
+#accountcontent .l .account span{ color:Black; padding:0px 0px 0px 50px; font-size:20px; font-weight:bold;}
+#accountcontent .l .accountlist{ background-color:#BEC0CC; padding:12px 12px;}
+#accountcontent .l .accountlist .dl1{ padding:0px 0px 5px 0px;}
+#accountcontent .l .accountlist .dl1 dt{ color:#4B4E51; font-size:16px; line-height:20px;}
+#accountcontent .l .accountlist .dl1 dd{  color:#4B4E51;line-height:22px;}
+#accountcontent .l .alist{ display:inline-block; }
+#accountcontent .l .alist li{  margin:5px 0px 0px 0px; background-color:#E6E9F2; padding:12px 15px;}
+#accountcontent .l .alist dl{ width:495px; display:inline-block; line-height:22px;}
+#accountcontent .l .alist dt{ height:28px; overflow:hidden; line-height:28px; color:#5C5D61; font-size:18px;}
+#accountcontent .l .alist dt span{ color:Black; font-size:18px; float:right; display:block; width:200px;}
+#accountcontent .l .alist dd{ line-height:20px; padding:5px 0px 5px 0px;}
+#accountcontent .l .alist dd a{ color:#359DD7;}
+#accountcontent .r{ float:right; width:354px;}
+#accountcontent .r .content{ padding:6px 15px 15px 15px; display:inline-block; background-color:#D5D8E1;}
+#accountcontent .r h3{  height:25px; overflow:hidden; padding:0px 0px 5px 0px; font-size:16px; color:#4B4E51; font-weight:normal; line-height:25px;}
+#accountcontent .r .contentbottom{ margin:5px 0px 0px 0px; padding:10px 15px 15px 15px;}
+#accountcontent .r .ul{ display:inline-block; width:304px; padding:0px 10px 10px 10px; background-color:#BEC0CC;}
+#accountcontent .r .ul li{ line-height:30px; margin:10px 0px 0px 0px; padding:0px 10px; height:30px; background-color:#E6E9F2;}
+#accountcontent .r .ul a{ display:block;font-size:16px; }
+#accountcontent .r .form{background-color:#BEC0CC; padding:10px;}
+#accountcontent .r .form .text{}
+#accountcontent .r .form .select{}
+#accountcontent .r .form li{ padding:4px 0px 4px 0px; font-size:16px;  line-height:32px;}
+#accountcontent .r .form li b{ display:block; font-size:16px; font-weight:normal; line-height:30px;}
+#accountcontent .r .form li .select{ font-size:14px; padding:5px 0px; border: 1px solid #BABABA; width:305px;}
+#accountcontent .r .form li .text{ float:right;  border: 1px solid #BABABA; padding: 5px;width: 140px; height:20px; line-height:20px;}
+#accountcontent .r .form .btnli{ height:25px;}
+#accountcontent .r .form .btnli .btndiv{_behavior:url(../../css/member/csshover3.htc);  float:right; height:25px; padding:0px 0px 0px 20px; background:url(../../images/member/form-button-left.jpg) no-repeat 0px 0px;}
+#accountcontent .r .form .btnli .btndiv .submit{ cursor:pointer; color:White; height:25px; border:0px; padding:0px 20px 0px 0px; background:url(../../images/member/form-button-right.jpg) no-repeat right 0px;}
+#accountcontent .r .form .btnli .btndiv:hover{ background-position:0px -26px;}
+#accountcontent .r .form .btnli .btndiv:hover .submit{background-position:right -26px;}
+
+#footer{ background-color:#797979; color:White; height:30px; line-height:30px; text-align:center;}
+#footer span{  font-family:Arial; color:White;}
+#footer a{ color:#4E0705;}

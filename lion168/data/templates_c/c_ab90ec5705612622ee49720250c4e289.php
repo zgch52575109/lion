@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <title>博彩责任 - 金狮娱乐</title>
+    <meta name="keywords" content="keyword ..." />
+    <meta name="Description" content="description ..." />
+    <!--<link href="favicon.ico" rel="shortcut icon" />-->
+    <link href="../css/index/global.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+ <?php echo $this->_fetch_compile("index/top.html"); ?>  
+ 
+<div id="maincontent">
+ <div id="informscroll">
+  <div id="informcontent">
+    <?php echo $this->_fetch_compile("index/inc_notice.html"); ?>
+    <div class="tel"></div>
+    </div>
+ </div>
+ <div id="listcontent">
+   <div class="inners">
+    <?php echo $this->_fetch_compile("index/left_menu.html"); ?> 
+   <div id="rightcontent">
+     <div class="site"><a href="about_us.html">关于我们</a><span>&gt;</span>博彩责任</div>
+
+ <table width="680" border="0" align="center" cellpadding="0" cellspacing="0" style="margin:20px; line-height:20px;">
+  <tr>
+    <td align="left" valign="middle">
+<span class="right_text_title">博彩调查问卷</span><br /><br />
+<p>博乐正在积极努力为玩家提供一个优质的娱乐平台。这些问题设置的目的在于，我们已经设置升级了多项安全设施来确保我们游戏的公平公正。我们鼓励客户通过回答我们的问卷来了解客户对博彩的危害问题的状况:</p>
+
+<br />
+•	您会因为躲避工作和学习来进行赌博吗？<br /> 
+•	您会因为无聊或者不开心来进行赌博吗？ <br />
+•	您在注金投注完时，是否感觉钱已经丢掉或者说要尽快的再次下注？<br /> 
+•	您会一直赌博直到您的钱都输完吗？<br /> 
+•	您是否有说谎言借钱，甚至盗窃来进行博彩？<br /> 
+•	您是否刻意隐瞒过您在博彩中会费的时间和资金吗？ <br />
+•	您是否不愿意花费您的赌金在其他方面呢？ <br />
+•	您是否已经对家人，朋友和爱好失去了兴趣？ <br />
+•	加入您的注金全部投注完，您是否会感到尽快赢回您输掉的资金？<br /> 
+<p><span class="right_text_title">如果您的大部分答案选择为"是"，您可能已经沉迷于赌博，我们建议您:</span></p>
+•	把博彩当做一种娱乐休闲项目 <br /> 
+•	避免连续的损失 <br /> 
+•	对博彩有自己的认识<br />  
+•	合理安排自己在博彩中的时间和精力 <br /> <br /> 
+
+<p><span class="right_text_title">您也能往GamCare的网址www.gamcare.org.uk查寻更多关于赌博问题的解决以开导方式。</span></p> <br /><br />
+<p><span class="right_text_title">自我隔离:</span></p> 
+<br />对于一些客户希望暂时远离博彩，我们将提供一个自我排除的功能，您可以申请六个月到五年的账户关闭。请点击网页中的"联系我们"，我们的客服人员会为您带来更多资讯。<br /><br />
+
+<span class="right_text_title">年龄限制:</span><br /><br />
+18岁以下的人群是禁止赌博的，博乐将保有对顾客所提供年龄信息证明的查询，如有发现年龄证明与客户所提供的不符，我们将关闭客户的账号以及冻结所剩余的资金。由于各地的法令条款不同，因此我们建议客户在进行博彩游戏前，翻阅当地法律进行查询。 
+<br /><br />
+金狮国际建议禁止您开设多重账号，匿名用户名，以及密码的滥用。<br /><br />
+<span class="right_text_title">家长的监控:</span><br /><br />
+有来自很多父母以及监护人要求对网络进行过滤，我们推荐一下网站:<br /><br />
+•	Net Nanny 软件能保护孩子远离不适当网站: www.netnanny.com<br /> 
+•	CYBERsitter 将允许父母设置隔离的网站: www.cybersitter.com<br /> 
+
+      
+    
+    </td>
+  </tr>
+</table>
+
+
+   </div>
+   <div class="clear"></div>
+   </div>
+ </div>
+</div>
+<?php echo $this->_fetch_compile("index/footer.html"); ?> 
+ <script type="text/javascript">				
+ $(function(){
+   //$(".leftcontent dl dd").hide();
+   $(".leftcontent dl dt").click(function(){
+   $(".leftcontent dl dd").not($(this).next()).hide();
+   $(this).next().slideToggle(500); 
+    });
+ });
+ </script>  
+</body>
+</html>

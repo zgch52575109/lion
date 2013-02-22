@@ -1,0 +1,23 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户活跃度</h2>
+            </div>
+            <div class="contentbox">
+            	<form action="?action=save" id="frmMain" name="frmMain" method="POST">
+           		  <p>
+                  <label for="grouptitle"><strong>用户活跃度设定:</strong></label>
+						<input type="text" name="active" id="active" class="inputbox" style="width:50px;" value="<?php echo $row['active'];?>"/>
+						*活跃度是指用户在一个月内投注次数 （输入数字即可）</p>
+<input type="submit" value="保存" class="btn" />
+					<input type="hidden" name="id" value="<?php echo $row['id'];?>" />
+                </form>
+            </div>
+</div>
+<div id="footer">
+   	  &copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

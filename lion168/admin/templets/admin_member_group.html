@@ -1,0 +1,127 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>会员级别管理</h2>
+            </div>
+            <div class="contentbox">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>ID</th>
+                            <th>组名</th>
+							<th>存款金额区间</th>
+							<th>投资金额区间</th>
+							<th>可绑银行卡</th>
+							<th>单日取款</th>
+							<th>每次取款最高限额</th>
+							<th>取款审核额度</th>
+							<th>反水比例</th>
+							<th>最多反水</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_group order by groupid asc";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+while($row=$dsql->GetArray('class_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $row['groupid'];?></td>
+                            <td><?php echo $row['grouptitle'];?></td>
+							<td><?php echo $row['cashhigher'];?> ~ <?php echo $row['cashlower'];?></td>
+							<td><?php echo $row['creditshigher'];?> ~ <?php echo $row['creditslower'];?></td>
+							<td><?php echo $row['bankmaxnum'];?></td>
+							<td><?php echo $row['dayoutcashnum'];?></td>
+							<td><?php echo $row['maxoutmoney'];?>元</td>
+							<td><?php echo $row['checkoutmoney'];?>元</td>
+							<td><?php echo $row['fanshui'];?></td>
+							<td><?php echo $row['maxfanshui'];?>元</td>
+                            <td>
+                            	<a href="?action=edit&id=<?php echo $row['groupid'];?>" title=""><img src="img/icons/icon_edit.png" alt="Edit" /></a>
+                                <a href="?action=del&id=<?php echo $row['groupid'];?>" title=""><img src="img/icons/icon_delete.png" alt="Delete" /></a>
+                            </td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div class="extrabottom">
+                	<ul>
+                    	<li><img src="img/icons/icon_edit.png" alt="Edit" /> 编辑</li>
+                        <li><img src="img/icons/icon_delete.png" alt="Delete" /> 删除</li>
+                    </ul>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2><?php if($id){ echo '编辑';} else { echo '添加';}?>用户组</h2>
+            </div>
+            <div class="contentbox">
+            	<form action="?action=save" method="POST">
+            		<p>
+                        <label for="grouptitle"><strong>组名:</strong></label>
+                        <input type="text" name="grouptitle" id="grouptitle" class="inputbox" value="<?php echo $rowp['grouptitle'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>存款金额区间:</strong></label>
+                        <input type="text" name="cashhigher" id="cashhigher" class="inputbox" style="width:80px;" value="<?php echo $rowp['cashhigher'];?>" /> ~ <input type="text" name="cashlower" id="cashlower" class="inputbox" style="width:80px;" value="<?php echo $rowp['cashlower'];?>" /> 请严格填写，不要和其他用户组的设置冲突，不如会导致前台用户混乱<br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>投注金额区间:</strong></label>
+                        <input type="text" name="creditshigher" id="creditshigher" class="inputbox" style="width:80px;" value="<?php echo $rowp['creditshigher'];?>" /> ~ <input type="text" name="creditslower" id="creditslower" class="inputbox" style="width:80px;" value="<?php echo $rowp['creditslower'];?>" /> 请严格填写，不要和其他用户组的设置冲突，不如会导致前台用户混乱<br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>可绑银行卡数量:</strong></label>
+                        <input type="text" name="bankmaxnum" id="bankmaxnum" class="inputbox" style="width:80px;" value="<?php echo $rowp['bankmaxnum'];?>" /> 填写数字<br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>单日取款次数:</strong></label>
+                        <input type="text" name="dayoutcashnum" id="dayoutcashnum" class="inputbox" style="width:80px;" value="<?php echo $rowp['dayoutcashnum'];?>" /> 填写数字<br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>每次取款最高限额:</strong></label>
+                        <input type="text" name="maxoutmoney" id="maxoutmoney" class="inputbox" style="width:80px;" value="<?php echo $rowp['maxoutmoney'];?>" /> 元<br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>取款审核额度:</strong></label>
+                        <input type="text" name="checkoutmoney" id="checkoutmoney" class="inputbox" style="width:80px;" value="<?php echo $rowp['checkoutmoney'];?>" /> 元<br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>反水比例:</strong></label>
+                        <input type="text" name="fanshui" id="fanshui" class="inputbox" style="width:80px;" value="<?php echo $rowp['fanshui'];?>" /><br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>最多反水:</strong></label>
+                        <input type="text" name="maxfanshui" id="maxfanshui" class="inputbox" style="width:80px;" value="<?php echo $rowp['maxfanshui'];?>" /> 元<br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>上一级最低存款额度:</strong></label>
+                        <input type="text" name="lastcashhigher" id="lastcashhigher" class="inputbox" style="width:80px;" value="<?php echo $rowp['lastcashhigher'];?>" /> 元<br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>上一级最低投注额度:</strong></label>
+                        <input type="text" name="lastcreditshigher" id="lastcreditshigher" class="inputbox" style="width:80px;" value="<?php echo $rowp['lastcreditshigher'];?>" /> 元<br />
+                    </p>
+					<input type="hidden" name="id" value="<?php echo $id;?>">
+					<input type="submit" value="保存" class="btn" />
+                </form>
+            </div>
+</div>
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

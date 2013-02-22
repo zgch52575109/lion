@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人中心</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+<link type="text/css" rel="stylesheet" href="css.css" >
+<script language="javascript" type="text/javascript" src="../js/public.js"></script>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+</head>
+<!--{include file="member/top.html"}-->
+  <div class="content">
+<div  class="left"></div>
+<div  class="m">
+<div  class="top">
+<ul>
+<li style="margin-right:1px;"><a href="index.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','images/wdqbbb.png',1)"><img src="images/wdqbbb.png" name="Image14" width="84" height="31" border="0" id="Image14" /></a></li>
+<li><a href="latest_preferential.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','images/yhbb.png',1)"><img src="images/yhaa.png" name="Image15" width="84" height="31" border="0" id="Image15" /></a></li>
+<li><a href="deposit_remit.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','images/cqkbb.png',1)"><img src="images/cqkaa.png" name="Image16" width="84" height="31" border="0" id="Image16" /></a></li>
+<li><a href="feedback.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','images/wtfkbb.png',1)"><img src="images/wtfkaa.png" name="Image17" width="84" height="31" border="0" id="Image17" /></a></li>
+</ul>
+</div>
+<div class="top2"></div>
+<div class="c">
+<div class="l">
+<!--{include file="member/member_left.html"}-->
+<div  id="link"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','images/grzlbb.png',1)"><img src="images/grzlbb.png" name="Image12" width="142" height="37" border="0" id="Image12" /></a></div>
+<div id="link"><a href="limit_operation.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','images/cwglbb.png',1)"><img src="images/cwglaa.png" name="Image11" width="142" height="37" border="0" id="Image11" /></a></div>
+<div id="link"><a href="recommend.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image13','','images/hytjbb.png',1)"><img src="images/hytjaa.png" name="Image13" width="142" height="37" border="0" id="Image13" /></a></div>
+</div>
+
+<div id="content">
+<!--{include file="member/topnews.html"}-->
+<div class="con" style="_padding:13px 18px 12px 18px;">
+<div style="height:23px;">
+<ul>
+<li style="margin:0; background-color:#FEB638"><a href="#">基本信息</a></li>
+<li><a href="Password.php">密码更改</a></li>
+</ul>
+</div>
+<div class="nr">
+<div class="nrbanner" >
+<strong>
+设置个人安全资料（用于绑定银行卡和申请提款）</strong>
+</div>
+<div class="qt">
+<form action ="" method="post" id="frmMain" name="frmMain" onSubmit="">
+<table border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC" style="font-size:12px">
+  <tr>
+    <td width="89" height="38" bgcolor="#000000" align="center" style="font-size:12px; color:#FEB638; padding-left:10px; padding-right:10px; line-height:20px;">取款人姓名：</td>
+    <td width="189" bgcolor="#FFFFFF"><span class="STYLE1">
+      <label for="textfield"></label>
+      <input name="truename" type="text" id="textfield" value="<!--{$truename}-->" readonly size="20" />
+    </span></td>
+    <td width="317" align="left" bgcolor="#000000" style="font-size:12px; color:#FEB638; padding-left:10px; padding-right:10px; line-height:20px;">*改名请绑定银行卡，如果银行卡已经绑定，请联系客服</td>
+  </tr>
+  <tr>
+    <td width="89" height="38" bgcolor="#000000" align="center" style="font-size:12px; color:#FEB638; padding-left:10px; padding-right:10px; line-height:20px;">安全邮箱：</td>
+    <td width="189" bgcolor="#FFFFFF"><span class="STYLE1">
+      <input name="email" type="text" id="email" value="<!--{$email}-->" size="20" />
+    </span></td>
+    <td width="317" align="left" bgcolor="#000000" style="font-size:12px; color:#FEB638; padding-left:10px; padding-right:10px; line-height:18px;">*用于找回密码以及在特殊情况下，作为与用户联系的唯方式。</td>
+  </tr>
+  <tr>
+    <td width="89" height="38" bgcolor="#000000" align="center" style="font-size:12px; color:#FEB638; padding-left:10px; padding-right:10px; line-height:20px;">QQ号码：</td>
+    <td width="189" bgcolor="#FFFFFF"><span class="STYLE1">
+      <input name="qq" type="text" id="qq" value="<!--{$qq}-->" size="20" />
+    </span></td>
+    <td width="317" rowspan="2" align="left" bgcolor="#000000" style="font-size:12px; color:#FEB638; padding-left:10px; padding-right:10px; line-height:20px;">*可修改。</td>
+  </tr>
+  <tr>
+    <td width="89" height="38" bgcolor="#000000" align="center" style="font-size:12px; color:#FEB638; padding-left:10px; padding-right:10px; line-height:20px;">手机号码：</td>
+    <td width="189" bgcolor="#FFFFFF"><span class="STYLE1">
+      <input name="phone" type="text" id="phone" value="<!--{$phone}-->" size="20" />
+    </span></td>
+  </tr>
+  <tr>
+    <td height="60" colspan="3" bgcolor="#FF9900" align="left" style="font-size:12px; line-height:20px; padding-left:10px; padding-right:10px; ">温情提醒：为了避免非法人士通过绑定银行卡窃取您的账户资金，设置的取款人姓名必须与绑定的银行卡开户人姓名一致，并且只设置一次，如需修改，必须联系客服。</td>
+  </tr>
+</table>
+<input type="hidden" name="action" value="save">
+<div style="text-align:center; margin-top:10px;"><img src="images/qr.png" width="97" height="29" onclick="Check_modify();" /></div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--{include file="member/left.html"}-->
+
+  <div style=" clear:left; background-image:url(images/42.png);  height:5px; margin-top:4px;margin-top:-6px!important; "></div>
+</div>
+<div style="display:block; float:left; width:201px; height:692px; background-image:url(images/04.gif)"></div>
+  <!-- end .content --></div>
+<!--{include file="member/foot.html"}-->
+</body>
+</html>
+<script type="text/javascript">
+function Check_modify(){
+	if(document.frmMain.phone.value==''){
+		window.alert("请输入电话!");
+		document.frmMain.phone.focus();
+		return false;
+	}
+
+	if(!isEmail(document.frmMain.email.value)) {
+		alert("电子邮件格式不正确!"); 
+		document.frmMain.email.focus(); 
+		return false;
+	}
+	document.frmMain.submit();
+	return true;
+}
+</script>

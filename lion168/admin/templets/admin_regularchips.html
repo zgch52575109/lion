@@ -1,0 +1,135 @@
+    <div id="rightside">
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>现金码纪录</h2>
+            </div>
+            <div class="contentbox"><form method="post" name="main_form" action="" style="margin:0px;"> 
+            	<table width="100%">
+                	<thead>
+                    	
+				<tr><form method="POST" name="myform" action="admin_member.php">
+				<td colspan="21">
+帐号：
+<input type="text" name="username" size="12" value="<?php echo $username;?>" id="username" />
+每页显示：
+<input type="text" class="inputbox" style="width:10px;" name="listpage" value="<?php if(!intval($listpage)) echo '30'; else echo $listpage;?>">
+				<input type="submit" name="Submit" align="absmiddle" value="查 询..." class="btn"></td>
+				</form>
+				</tr>
+                <tr>
+							<th>用户ID</th>
+							<th>用户名</th>
+							<th>真实姓名</th>
+							<th>今日现金码</th>
+							<th>本周现金码</th>
+							<th>上周现金码</th>
+							<th>总现金码</th>
+							<th>今日投注额</th>
+							<th>本周投注额</th>
+							<th>上周投注额</th>
+							<th>总投注额</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+//$numPerPage=30;
+$page = isset($page) ? intval($page) : 1;
+$numPerPage = isset($listpage) ? intval($listpage) : 30;
+$uid = isset($uid) ? intval($uid) : 0;
+if($page==0) $page=1;
+$whereStr=" where 1='1'";
+if ($username){$whereStr.=" and e.username like'$username'";}
+$csqlStr="select count(*)as dd from regularchips_today m left join ek_member as e  on e.uid=m.uid $whereStr";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_regularchips.php?'.($username ? '&username='.$username : ''));
+
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select m.*,t.WeeklyRegularChips as thisweek,t.ThisweekBetAmount as thisweekBetAmount,a.AllBetAmount as AllBetAmount,w.*,a.AllRegularChips,e.username,e.truename from regularchips_today m left join ek_member as e  on e.uid=m.uid left join regularchips_thisweek as t on t.uid=m.uid left join regularchips_weekly as w  on m.uid=w.uid left join regularchips_all as a on a.uid=m.uid $whereStr order by AllRegularChips desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+while($row=$dsql->GetArray('class_list'))
+{
+$row['thisweek']=$row['thisweek']+$row['TodayRegularChips'];
+$row['AllRegularChips']=$row['AllRegularChips']+$row['TodayRegularChips'];
+$row['thisweekBetAmount']=$row['thisweekBetAmount']+$row['TodayBetAmount'];
+$row['AllBetAmount']=$row['AllBetAmount']+$row['TodayBetAmount'];
+$ALLTodayRegularChips=$ALLTodayRegularChips+$row['TodayRegularChips'];
+$ALLthisweek=$ALLthisweek+$row['thisweek'];
+$ALLWeeklyRegularChips=$ALLWeeklyRegularChips+$row['WeeklyRegularChips'];
+$ALLAllRegularChips=$ALLAllRegularChips+$row['AllRegularChips'];
+$ALLTodayBetAmount=$ALLTodayBetAmount+$row['TodayBetAmount'];
+$ALLthisweekBetAmount=$ALLthisweekBetAmount+$row['thisweekBetAmount'];
+$ALLWeeklyBetAmount=$ALLWeeklyBetAmount+$row['WeeklyBetAmount'];
+$ALLAllBetAmount=$ALLAllBetAmount+$row['AllBetAmount'];
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $row['uid'];?></td>
+							<td><a href="admin_member.php?action=view&id=<?php echo $row['uid'];?>"><?php echo $row['username'];?></a></td>
+							<td><?php echo $row['truename'];?></td>
+							<td><?php echo number_format($row['TodayRegularChips'],2);?></td>
+							<td><?php echo number_format($row['thisweek'],2);?></td>
+							<td><?php echo number_format($row['WeeklyRegularChips'],2);?></td>
+							<td><?php echo number_format($row['AllRegularChips'],2);?></td>
+							<td><?php echo number_format($row['TodayBetAmount'],2);?></td>
+							<td><?php echo number_format($row['thisweekBetAmount'],2);?></td>
+							<td><?php echo number_format($row['WeeklyBetAmount'],2);?></td>
+							<td><?php echo number_format($row['AllBetAmount'],2);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+<tr>
+<th colspan="3" align="center">本页总结</th>
+<th><?php echo number_format($ALLTodayRegularChips,2);?></th>
+<th><?php echo number_format($ALLthisweek,2);?></th>
+<th><?php echo number_format($ALLWeeklyRegularChips,2);?></th>
+<th><?php echo number_format($ALLAllRegularChips,2);?></th>
+<th><?php echo number_format($ALLTodayBetAmount,2);?></th>
+<th><?php echo number_format($ALLthisweekBetAmount,2);?></th>
+<th><?php echo number_format($ALLWeeklyBetAmount,2);?></th>
+<th><?php echo number_format($ALLAllBetAmount,2);?></th>
+</tr>
+
+                    </tbody>
+                </table>
+                <div class="extrabottom">
+                </div>
+                <ul class="pagination">
+				<li class="text">&nbsp;页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> <?php if($begin_date || $end_date) echo '<font color=#ff0000>'.$begin_date.'</font>到<font color=#ff0000>'.$end_date.'</font>时间段内 '; if($havemoney) echo ' <font color=#ff0000>有游戏</font> ';?>会员共有<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>
+<script type='text/javascript' src='scripts/main.js'></script>
+			<script type="text/javascript" language="javascript">
+
+			function showmanageform(tid){
+				$$('form_checkall').style.display = tid == 'checkall' ? '' : 'none';
+				$$('form_czhengfuall').style.display = tid == 'czhengfuall' ? '' : 'none';
+			}
+			</script>

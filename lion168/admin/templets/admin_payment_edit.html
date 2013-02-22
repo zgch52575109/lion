@@ -1,0 +1,65 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>配置接口详情</h2>
+            </div>
+            <div class="contentbox">
+            	<form action="?action=save" id="frmMain" name="frmMain" method="POST">
+            		<p>
+                        <label for="grouptitle"><strong>路径:</strong></label>
+						./include/payment/<?php echo $fetch['folder'];?>/ <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>名称:</strong></label>
+						<input type="text" name="subject" id="subject" class="inputbox" value="<?php echo $fetch['subject'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>描述:</strong></label>
+						<textarea name="description" class="inputbox" style="height:48px"><?php echo $fetch['description'];?></textarea> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>图片:</strong></label>
+						<input type="text" name="image" id="image" class="inputbox" value="<?php echo $fetch['image'];?>" /> <input type="button" class="btn"  style="margin-top:-40px;" name="Previewer" value="预览" onclick=" $('#payment_config_preview').show();  $('#payment_onfig_preview_src').attr('src', $('#image').val()); " /><span id="payment_config_preview" style="display:none;"><br><img id="payment_onfig_preview_src" src="<?php echo $fetch['image'];?>" alt="<?php echo $fetch['subject'];?>" border="0" /></span><br />
+                    </p>
+            		<p>
+<table width="100%">
+				<tr>
+					<td class="forumRowHighlight"><input name="" type="checkbox" value="" id="checkboxall" />删除选定的选项?</td>
+					<td class=forumrow>选项名</td>
+					<td class=forumrow>选项值</td>
+					<td class=forumrow>选项功能描述</td>
+				</tr>
+				<?php
+				foreach ($loops as $loop){
+				?>
+				<tr>
+					<td class="forumRowHighlight"><input type="checkbox" id="checkall" name="selects[]" value="<?php echo $loop['id'];?>" /></td>
+					<td class=forumrow><input type="text" name="confkey<?php echo $loop['id'];?>" size="12" value="<?php echo $loop['confkey'];?>" /></td>
+				    <td class=forumrow><input type="text" name="confval<?php echo $loop['id'];?>" size="35" value="<?php echo $loop['confval'];?>" /></td>
+				    <td class=forumrow><input type="text" name="description<?php echo $loop['id'];?>" size="35" value="<?php echo $loop['description'];?>" /></td>
+				</tr>
+				<input type="hidden" name="updates[]" value="<?php echo $loop['id'];?>" />
+				<?php }?>
+				<tr>
+					<td class="td1">添加新选项: </td>
+					<td class="td2"><input type="text" name="confkeyn" size="12" value="" /></td>
+				    <td class="td2"><input type="text" name="confvaln" size="35" value="" /></td>
+				    <td class="td2"><input type="text" name="descriptionn" size="35" value="" /></td>
+				</tr>
+</table>
+                    </p>
+					<input type="submit" value="保存配置" class="btn" />
+					<input type="hidden" name="configid" value="<?php echo $fetch['id'];?>" />
+					<input type="hidden" name="configsubmit" value="1" />
+                </form>
+            </div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

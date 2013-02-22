@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <title>存款</title>
+    <meta name="keywords" content="keyword ..." />
+    <meta name="Description" content="description ..." />
+    <!--<link href="favicon.ico" rel="shortcut icon" />-->
+    <link href="../css/member/global.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<?php echo $this->_fetch_compile("member/top.html"); ?>
+
+<div id="maincontent">
+ <div class="title">存款</div>
+ <div id="leftcontent">
+  <ul>
+    <li><a href="deposit_remit.php">本地银行转账</a></li>
+    <li><a href="javascript:tanchuceng(1000,700,'金狮国际娱乐城--在线支付系统','<?php echo $this->_vars['Sponsored_Connectivity']; ?>
+?c=pay&a=index&uid=<?php echo $this->_vars['userID']; ?>
+&Mer_key=<?php echo $this->_vars['Mer_key']; ?>
+&Mer_code=<?php echo $this->_vars['Mer_code']; ?>
+&Billno=<?php echo $this->_vars['BillNo']; ?>
+&Amount=<?php echo $this->_vars['Mer_Amount_cash']; ?>
+')">线上借记卡</a></li>
+  </ul>
+ </div>
+ <div id="rightcontent">
+   <p class="p">使用我们安全可靠的线上支付服务便可快速简单的存款至您的金狮国际账户。</p>
+   <dl class="dl">
+     <dt>存款要求：</dt>
+     <dd>
+       <ul>
+         <li>请关闭您的拦截弹出窗口功能（如有）。</li>
+         <li>持卡人姓名必须与在金狮国际账户内所登记的姓名一致。</li>
+         <li>如客户使用第三方的银行卡进行存款，金狮国际保留权利暂停此账户的运转。</li>
+       </ul>
+     </dd>
+   </dl>
+ </div>
+ <div class="clear"></div>
+</div>
+<?php echo $this->_fetch_compile("member/footer.html"); ?>
+</body>
+</html>
+<?php echo $this->_fetch_compile("member/ifreme.html"); ?>

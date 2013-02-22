@@ -1,0 +1,173 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>代理信息详情</h2>
+            </div>
+            <div class="contentbox" <?php if($page >=1){echo "style='display: none; '";}?>>
+            	<form action="?action=save" id="frmMain" name="frmMain" method="POST">
+            		<p>
+                        <label for="grouptitle"><strong>登录名:</strong> </label>
+						<input type="text" name="username" id="username" class="inputbox" value="<?php echo $row['username'];?>" <?php if($row['username']!='')echo "readonly";?>/> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>密码:</strong></label>
+						<input type="password" name="password" id="password" class="inputbox" value="" />不改请留空 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>确认密码:</strong></label>
+						<input type="password" name="password2" id="password2" class="inputbox" value="" />不改请留空 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>所属代理:</strong></label>
+						<select name='sjdl'>
+						<?php
+						if($row['topuid']!=0){
+						$topuid=$row['topuid'];
+						$rowp = $dsql->GetOne("Select * From `ek_proxy` where uid = '$topuid'");
+						echo "<option value='";
+						echo $rowp['uid'];
+						echo"'>";
+						echo $rowp['username'];
+						echo"</option>";
+						}
+						?>
+						
+						<option value='0'>>---没有---<</option>
+			  	<?php
+			  	$dsql->SetQuery("Select username,uid from ek_proxy order by uid desc");
+			  	$dsql->Execute("ut");
+			  	while($myrow = $dsql->GetObject("ut"))
+			  	{
+			  		echo "<option value='".$myrow->uid."'>".$myrow->username."</option>\r\n";
+			  	}
+			  	?>
+			  </select> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>邮箱:</strong></label>
+						<input type="text" name="email" id="email" class="inputbox" value="<?php echo $row['email'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>真实姓名:</strong></label>
+						<input type="text" name="truename" id="truename" class="inputbox" value="<?php echo $row['truename'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>电话:</strong></label>
+						<input type="text" name="phone" id="phone" class="inputbox" value="<?php echo $row['phone'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>联系QQ:</strong></label>
+						<input type="text" name="qq" id="qq" class="inputbox" value="<?php echo $row['qq'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>代理域名:</strong></label>
+						<input type="text" name="domain" id="domain" class="inputbox" value="<?php echo $row['domain'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>代理后缀:</strong></label>
+						<input type="text" name="domainid" id="domainid" class="inputbox" value="<?php echo $row['domainid'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>分成比例:</strong></label>
+						<input type="text" name="fencheng" id="fencheng" class="inputbox" style="width:50px" value="<?php echo $row['fencheng'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>下线代理分成比例:</strong></label>
+						<input type="text" name="xjfencheng" id="xjfencheng" class="inputbox" style="width:50px" value="<?php echo $row['xjfencheng'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>活跃会员数:</strong></label>
+						<input type="text" name="active" id="active" class="inputbox" style="width:50px" value="<?php echo $row['active'];?>" /><br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>可绑银行卡数:</strong></label>
+						<input type="text" name="bankmaxnum" id="bankmaxnum" class="inputbox" style="width:50px" value="<?php echo $row['bankmaxnum'];?>" />默认为1张<br />
+                    </p>
+
+            		<p>
+
+                    </p>
+					<input type="submit" value="保存" class="btn" />
+					<input type="hidden" name="id" value="<?php echo $id;?>" />
+                </form>
+            </div>
+</div>
+
+ 
+  <div class="contentcontainer">
+    <div class="headings alt" style="cursor:pointer" > <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/>
+      <h2>代理登录详情</h2>
+    </div>
+    <div class="contentbox" <?php if($page ==""){echo "style='display: none; '";}?> >
+      <table width="90%">
+        <tr>
+          <td>序号</td>
+          <td>IP</td>
+          <td>时间</td>
+        </tr>
+        <?php
+				$page = isset($page) ? intval($page) : 1;
+				$numPerPage = isset($listpage) ? intval($listpage) : 10;
+				$page = isset($page) ? intval($page) : 1;
+				$uid = isset($id) ? intval($id) : 0;
+				$begincash = isset($begincash) ? intval($begincash) : 0;
+				$endcash = isset($endcash) ? intval($endcash) : 0;
+				
+				if($page==0) $page=1;
+				$whereStr=" where 1='1'";
+				
+				$csqlStr="select count(*) as dd from `ek_proxy_login_log` where uid=$id ";
+				$row = $dsql->GetOne($csqlStr);
+				if(is_array($row)){
+				$TotalResult = $row['dd'];
+				}else{
+				$TotalResult = 0;
+				}
+				$TotalPage = ceil($TotalResult/$numPerPage);
+				if ($page>$TotalPage) $page=$TotalPage;
+				
+				$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_proxy.php?action=edit&id='.$id.($dateline ? '&dateline='.$dateline : ''));
+				
+				$limitstart = ($page-1) * $numPerPage;
+				if($limitstart<0) $limitstart=0;
+				$sqlStr="select * from `ek_proxy_login_log` where uid=$id  order by dateline desc limit $limitstart,$numPerPage";
+				$dsql->SetQuery($sqlStr);
+				$dsql->Execute('class_list');
+				$ii=0;
+				while($row=$dsql->GetArray('class_list'))
+				{
+					$ii++;
+			?>
+        <tr>
+          <td><?php echo $ii;?></td>
+		    <?php
+			$ip = $row['ip'];
+			$QQWry = new QQWry;
+			$ifErr = $QQWry->QQWry($ip);
+			?>
+          <td><a  title="<?php echo mb_convert_encoding("$QQWry->Country$QQWry->Local\n", "UTF-8", "GBK");?>"><?php echo $row['ip'];?></a></td>
+          <td><?php echo isCurrentDay($row['dateline']);?></td>
+     
+        </tr>
+		
+		
+        <?php 
+						}		
+						?>
+      </table>
+	  <ul class="pagination">
+				<li class="text">页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> 总收录数据<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+    </div>
+  </div>
+
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

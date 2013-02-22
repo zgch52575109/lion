@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Admin Control</title>
+<link href="styles/layout.css" rel="stylesheet" type="text/css" />
+<link href="styles/wysiwyg.css" rel="stylesheet" type="text/css" />
+<!-- Theme Start -->
+<link href="themes/blue/styles.css" rel="stylesheet" type="text/css" />
+<!-- Theme End -->
+
+<style type="text/css">
+<!--
+.STYLE2 {font-size: 13px}
+-->
+</style>
+</head>
+<body id="homepage">
+
+	<div id="header">
+    	<a href="" title=""><img src="img/cp_logo.png" alt="Control Panel" class="logo" /></a>
+    	<div id="searcharea">
+		<form name="member_search" action="admin_member.php" method="post">
+    	  <input type="text" class="searchbox" name="keyword" value="输入会员任何属性中的一项精确或模糊搜索" onclick="if (this.value =='输入会员任何属性中的一项精确或模糊搜索'){this.value=''}"/>
+            <input type="submit" value="搜索(R)" class="searchbtn" />
+			</form>
+      </div>
+    </div>
+        
+    <!-- Top Breadcrumb Start -->
+    <div id="breadcrumb">
+    	<ul>	
+        	<li><img src="img/icons/icon_breadcrumb.png" alt="Location" /></li>
+        	<li><strong>后台管理</strong></li>
+            <li><a href="index.php" title="">管理首页</a></li>
+            <li>/</li>
+            <li class="current"><?php echo $pagetitle;?></li>
+        </ul>
+    </div>
+    <!-- Top Breadcrumb End -->

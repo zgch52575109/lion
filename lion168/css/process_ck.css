@@ -1,0 +1,172 @@
+/* CSS Document */
+*{ margin:0px; padding:0px; font-size:12px;}
+body{ text-align:center; background:#000000}
+.img{ border:none}
+.box{
+	width:100%;
+	height:auto;
+	background:url(../images/img1.jpg) no-repeat top center
+}
+.top{ width:100%; height:222px; text-align:center;}
+.top-1{ width:100%; height:23px; margin:auto;}
+.top-2{ width:100%; height:199px; margin:auto;}
+.banner-1{ width:1000px; height:19px; background:url(../images/img5.jpg) no-repeat center; margin:auto;}
+.banner-2{ width:1000px; height:368px; background:url(../images/img6.jpg); margin:auto}
+.banner-3{ width:1000px; height:9px; background:url(../images/img7.jpg) no-repeat; margin:auto; }
+.neirong{
+	width:1000px;
+	height:656px;
+	margin:auto
+}
+.ggao{ color:#b79898; line-height:20px; padding-top:7px}
+
+.game{ padding-left:0px; padding-top:5px}
+.game img{ border:none;}
+.g1{ width:176px; height:124px; float:left}
+.g1 a{ display:block; width:176px; height:124px; background:url(../images/img16.gif)}
+.g1 a:hover{ background:url(../images/img12.gif)}
+
+.g2{ width:175px; height:124px; float:left}
+.g2 a{ display:block; width:175px; height:124px; background:url(../images/img17.gif)}
+.g2 a:hover{ background:url(../images/img13.gif)}
+
+.g3{ width:174px; height:124px; float:left}
+.g3 a{ display:block; width:174px; height:124px; background:url(../images/img18.gif)}
+.g3 a:hover{ background:url(../images/img14.gif)}
+
+.xiazai a{ display:block; width:183px; height:104px; background:url(../images/img20.jpg); margin-top:17px}
+.xiazai a:hover{ background:url(../images/21.jpg)}
+.bottom{ width:100%; height:169px; background:url(../images/2.png) no-repeat center top; margin-top:18px}
+.di a{color:#444343; text-decoration:none }
+.di a:hover{ color:#FF9900}
+
+.yvyuan{ width:1000px; height:50px; position:absolute; top:-199px; left:0px; color:#FFFFFF; margin:auto; text-align:right; color:#878787}
+.yvyuan a{ color:#878787; text-decoration:none}
+.yvyuan a:hover{ color:#FF9900; }
+
+.toubu td{ color:#acacac; line-height:22px; text-align:left}
+.toubu a{color:#acabab; text-decoration:none}
+.toubu a:hover{color:#FFCC00}
+.wb-1 input{ width:104px; height:16px; border:solid 1px #373737; background:#0f0f0f; color:#999999; font-weight:bold; line-height:16px; }
+.tijiao input{ border:none; width:51px; height:17px; background:url(../images/img22.jpg)}
+.wangmi a{ color:#acabab; text-decoration:none}
+.wangmi a:hover{ color:#FFCC00}
+
+.yyxz{ width:80px;  height:22px; position:relative}
+.yyjd{  height:22px; position:absolute; left:-5px; top:0px; overflow:hidden}
+
+.preferential_center_left{
+	float:left;
+	width:240px;
+	height:656px;
+	background-color:#000;
+}
+
+.guidance{
+	margin-left:0px;
+	margin-top:17px;
+	height:332px;
+	width:222px;
+}
+
+.guidance_top{
+	float:left;
+	width:222px;
+	height:79px;
+	background-image:url(../images/preferential_08.gif)
+}
+
+.guidance_left{
+	float:left;
+	width:34px;
+	height:154px;
+	background-image:url(../images/preferential_15.gif)	
+}
+
+
+.guidance_center{
+	float:left;
+	width:154px;
+	height:154px;
+}
+
+.guidance_center_1{
+	float:left;
+	width:154px;
+	height:31px;
+}
+
+.guidance_center_z{
+	float:left;
+	width:154px;
+	height:10px;
+	background-image:url(../images/preferential_18.gif)
+}
+
+.guidance_right{
+	float:left;
+	width:34px;
+	height:154px;
+	background-image:url(../images/preferential_17.gif)
+}
+
+
+.guidance_bottom{
+	float:left;
+	width:222px;
+	height:99px;
+	background-image:url(../images/preferential_24.gif)
+}
+
+
+.preferential_center_right{
+	float:left;
+	width:944px;
+	height:626px;
+	background-color:#000;
+	padding-top:30px;
+	padding-right:28px;
+	padding-left:28px;
+}
+
+.title2{
+	float:left;
+	width:78px;
+	height:19px;
+	margin-left:0px;
+	background-image:url(../images/qk.gif)
+	}
+
+.line_1{
+	float:left;
+	margin-left:0px;
+	width:944px;
+	height:16px;
+	background:url(../images/preferential_12.gif) repeat-x;
+}
+
+.poster{
+	float:left;
+	width:944px;
+	height:259px;
+	margin-top:10px;
+	background-image:url(../images/preferential_14.gif)
+}
+
+.line_2{
+	float:left;
+	width:944px;
+	height:10px;
+	border-bottom-color:#630;
+	border-bottom-style:dotted;
+	margin-bottom:10px;
+	}
+	
+.w_1{
+	margin-top:10px;
+	float:left;
+	width:944px;
+	line-height:18px;
+	font-size:12px;
+	margin-left:0px;
+}

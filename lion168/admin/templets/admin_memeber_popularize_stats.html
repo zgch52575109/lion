@@ -1,0 +1,99 @@
+    <div id="rightside">
+        
+         <!-- Graphs Box Start -->
+        <div class="contentcontainer" id="graphs">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>推广统计</h2>
+            </div>
+            <div class="contentbox" id="graphs-1">
+					<table style="display: none;" class="bar">
+                        <caption> 概况</caption>
+                       <thead>
+                            <tr>
+                                <td></td>
+								<?php
+                                $csqlStr="select phttp from `popularize`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+								while($rs=mysql_fetch_array($query)){
+echo '<th scope="col">'.$rs[phttp].'</th>';}?>
+                            </tr>
+                        </thead>
+                        <tbody>
+							<tr>
+                                <th scope="row">开户</th>
+                                <?php
+                                $csqlStr="select pname from `popularize`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+								while($rs=mysql_fetch_array($query)){
+                                $pname=$rs[pname];
+								$countnum=getinpopularizecountfirstmoney(1,$pname);
+									echo '<td>'.$countnum.'</td>';if($countnum>0) echo $pname.'开户'.$countnum.'<br>';
+								}?>
+                            </tr>
+	                            <tr>
+                                <th scope="row">注册</th>
+                                <?php
+                                $csqlStr="select pname from `popularize`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+                                while($rs=mysql_fetch_array($query)){
+                                $pname=$rs[pname];
+								$countnum=getinpopularizecount(2,$pname);
+									echo '<td>'.$countnum.'</td>';if($countnum>0) echo $pname.'注册'.$countnum.'<br>';
+								}?>
+                            </tr>
+                        </tbody>
+                    </table>
+					</div>
+            <div class="contentbox" id="graphs-1">
+					<table style="display: none;" class="bar">
+                        <caption><?php echo date("Y-m"); 
+ ?>概况</caption>
+                       <thead>
+                            <tr>
+                                <td></td>
+								<?php
+                                $csqlStr="select phttp from `popularize`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+								while($rs=mysql_fetch_array($query)){
+echo '<th scope="col">'.$rs[phttp].'</th>';}?>
+                            </tr>
+                        </thead>
+                        <tbody>
+							<tr>
+                                <th scope="row">开户</th>
+                                <?php
+                                $csqlStr="select pname from `popularize`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+								while($rs=mysql_fetch_array($query)){
+                                $pname=$rs[pname];
+              					$begin_date=date("Y-m").'-01'; 
+                                $countnum=pularizecountdayfirstmoney(1,$pname,$begin_date);
+									echo '<td>'.$countnum.'</td>';if($countnum>0) echo $pname.'开户'.$countnum.'<br>';
+								}?>
+                            </tr>
+	                            <tr>
+                                <th scope="row">注册</th>
+                                <?php
+                                
+                                
+                                $csqlStr="select pname from `popularize`";
+                                $query=mysql_query($csqlStr) or die(mysql_error());
+                                while($rs=mysql_fetch_array($query)){
+                                $pname=$rs[pname];
+              					$begin_date=date("Y-m").'-01'; 
+                                $countnum=pularizecountday(2,$pname,$begin_date);
+									echo '<td title="'.$countnum.'">'.$countnum.'</td>';if($countnum>0) echo $pname.'注册'.$countnum.'<br>';
+								}?>
+                            </tr>
+                        </tbody>
+                    </table>
+					</div>
+            
+        </div>
+        <!-- Graphs Box End -->
+   
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

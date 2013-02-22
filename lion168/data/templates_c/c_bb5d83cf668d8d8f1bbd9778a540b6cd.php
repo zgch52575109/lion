@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>常见问题</title>
+<meta name="keywords" content="<?php echo $this->_vars['cfg_keywords']; ?>
+" />
+<meta name="description" content="<?php echo $this->_vars['cfg_description']; ?>
+" />
+<link type="text/css" href="css/responsibility.css" rel="stylesheet">
+<script language="javascript" src="js/date.js"></script>
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+</script>
+</head>
+
+<body>
+ <div class="box">
+   <div class="top">
+<?php echo $this->_fetch_compile("top.html"); ?>   
+   <div class="neirong">
+     <div class="preferential_center_right">
+       <div class="title2"><img src="images/conect_us_11.gif" width="78" height="19" /></div>
+   <div class="line_1"></div>
+   <DIV align=left class="w_1" style="SCROLLBAR-FACE-COLOR:#623313; SCROLLBAR-HIGHLIGHT-COLOR:#2C1D07; OVERFLOW:
+auto; SCROLLBAR-SHADOW-COLOR:
+COLOR:#000000 ; SCROLLBAR-3DLIGHT-COLOR:#351C0D; SCROLLBAR-ARROW-COLOR:
+#300; SCROLLBAR-DARKSHADOW-COLOR: #351C0D; HEIGHT:566px; WIDTH:895px;">
+
+   <div align="left">
+   <div class="center_1">
+   <div class="center_1_left"  style="margin-left:300px;"></div>
+   </div>
+   <div class="center_2" style="height:auto">
+     <p style="font-size:14px; color: #C60"><strong>       1. 如果我的电脑网络或电脑出问题了会发生什么事？</strong></p>
+     <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金狮国际娱乐场的软件系统监视着游戏运作的每一步。 当网络连接重新接上或是电脑被重新启动，然后玩家重新登录金狮国际网页，游戏停留在游戏被中断的地方可让玩家继续完成它，除了'实况赌博娱乐场'。因为'实况赌博娱乐场'每一场赌局时间都是现场而且是真实 的。一旦玩家确定了他们的下注，下注花费会直接进入玩家的帐户不管网络连接失败。赌局的结果仍然可以到' 账户'里面的'报告' 查询。<br />
+     </p>
+     <p style="font-size:14px; color: #C60"> <strong>2. 如果我要投诉，跟谁联络？</strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在投诉的情况下，请给娱乐场发电子邮件。 金狮国际娱乐场可以帮助更快地解决问题，提到的内容和情况越多越好。 我们会做出调查然后尽快解决问题。 <br />
+     </p>
+     <p style="font-size:14px; color: #C60"><strong>3. 我怎么肯定游戏都是公平的，真实地呈现了'真实现场'游戏？</strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金狮国际所有的产品皆由菲律宾政府第一卡格杨经济特区(FCLRC)授权和监管。所有技术和操作标准都符合相关要求。<br />
+     </p>
+     <p style="font-size:14px; color: #C60"> <strong>4. 我怎样开始玩？</strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在注册为我站的有效用户并成功存款后，点击进入游戏，即可进入游戏大厅。<br />
+     </p>
+     <p style="font-size:14px; color: #C60"> <strong>5. 玩时需要的电脑要求和软件是什么？</strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PIII-800以上<br />
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IE 6.0或Firefox浏览器<br />
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adobe Flash Player 8.0以上<br />
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;稳定和快速的网络连接<br />
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;多媒体扬声器(随意的)<br />
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;显示器最少1024 x 768的分辨率<br />
+     </p>
+     <p style="font-size:14px; color: #C60"> <strong>6. 游戏的结果是怎样决定的？</strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系统采用的是任意数字生产器(RNG) 保证每一个游戏的结果都是任意的。<br />
+     </p>
+     <p style="font-size:14px; color: #C60"> <strong>7. 用户名和密码都是高度机密的吗？</strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是<br />
+     </p>
+     <p style="font-size:14px; color: #C60"> <strong>8. 我不记得密码了，我应该怎么做？</strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按 '遗失密码 '图 标，填充表格再递交表格，娱乐场会帮你登记一个新的密码，再寄给你一个户口启动密码。或者和我们的客服人员联系<br />
+     </p>
+     <p style="font-size:14px; color: #C60"> <strong>9. 我的网络有时掉线，我应该怎么做？</strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请查检您的网络接连稳定性，或者联系您的网络提供商取得帮助。<br />
+     </p>
+     <p style="font-size:14px; color: #C60"><strong>10. 我怎样知道关于游戏的更多东西？</strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当你在游戏里，选择'规则' 图案，就会打开游戏的规则和付钱表格的内容。<br />
+     </p>
+     <p style="font-size:14px; color: #C60"><strong>11. 我认为我赢了几把，但我没有拿到钱，有没有任何方法可以察到结果和我有没有收到奖金？</strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;玩家可以按'大厅'键看他们的游戏历史，然后再选择'账户' 键，然后按'报告'键 玩家输入游戏的时间和日期，系统就会显示出一个报告， 此报告可以打印出来。要解释结果，玩家需要回到游戏的规则里，那里有所有的资料。<br />
+     </p>
+     <p style="font-size:14px; color: #C60"><strong>12. 我怎么样更改我的个人资料？</strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;玩家可以登录娱乐场后更改自己的资料，然后选择&quot;账户&quot;菜单连接，再选择&quot;用户资料&quot;连接作出恰当的更改。</p>
+     <p></p>
+     <p style="font-size:14px; color: #C60"><br />
+     </p>
+     <div class="center_3"></div>
+     <p style="font-size:14px; color: #C60">&nbsp;</p>
+   </div>
+   </div>
+</DIV>
+ </div>
+   </div>
+<?php echo $this->_fetch_compile("foot.html"); ?>
+ </div>
+</body>
+
+</html>

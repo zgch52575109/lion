@@ -1,0 +1,228 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>爱赢娱乐-会员中心-资料修改</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" type="text/css" href="style/style10.css" />
+<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="js/common.js"></script>
+<script language="javascript" type="text/javascript" src="js/notice.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
+<!--{include file="member/top.html"}-->
+
+    <!-- 网页主体 -->
+    <div class="main">
+      <div class="in-main  clear">
+            <!-- 左 -->
+ <!--{include file="member/left.html"}-->
+            <!-- 左 / -->
+
+            <!-- 右 -->
+            <div class="main-right right">
+                <!-- 会员欢迎 -->
+                <div class="welcome-user">
+                    <strong><span id="MemberSession">qfroot</span> 您好，欢迎进入会员中心</strong>
+                </div>
+                <!-- 网站定位 -->
+               <div class="site-place"><a href="Index.html" target="_self">首页</a> &gt; 会员中心</div>
+                <div class="main-content">
+                <!-- 户内转账 -->
+                    <div id="user-hnzz">
+                        <div class="the-title"><h2><img src="images/title-10.gif"  alt="账户余额" /></h2></div>
+                        <!-- 余额 -->
+                        <div class="user-ye">
+                             <strong id="aiyin">0.00</strong>
+                        </div>
+                        <div class="user-ye-info"><span>爱赢娱乐城账户余额：<strong id="aiyinx">读取中...</strong></span>　　　<span>明星俱乐部账户余额：<strong id="mingxing">读取中...</strong></span>　　　<span>体育投注账户余额：<strong id="qipaiboyi">0.00</strong></span></div>
+
+                        <div class="the-title"><h2><img src="images/title-hnzz.gif"  alt="户内转账" /></h2></div>
+
+                        <div class="tab-nav-dy2"></div>
+                        <div class="tab-main">
+                            <div class="zz-content">
+                                <div class="zz-fx">
+                                    <div class="title">从  <span class="zh-1">本站账户</span>  转账至 <span class="zh-2">游戏帐户</span></div>
+                                    <div class="the-form clear" id="Type1">
+                                        <span>转账金额：</span>
+                                        <input type="text" class="text-input" name="Amount1" onkeyup="clearNoNum(this)"/>
+                                        <img src="images/btn-1.gif" class="to-submit" name="btn1" onclick="Save(true)" align="absmiddle"/>
+                                    </div>
+                                </div>
+                                <div class="tab-nav-dy2"></div>
+                                <div class="zz-fx">
+                                    <div class="title">从  <span class="zh-2">游戏帐户</span>  转账至  <span class="zh-1">本站帐户</span></div>
+                                     <div class="the-form clear" id="Type2">
+                                        <span>转账金额：</span>
+                                        <input type="text" class="text-input" name="Amount2" onkeyup="clearNoNum(this)"/>
+                                         <img src="images/btn-1.gif" class="to-submit" name="btn2" onclick="Save(false)"/>
+                                    </div>
+                                </div>
+                                <div class="tab-nav-dy2"></div>
+                                <div class="notice">
+                                    <strong>户内转账说明：</strong><br />
+                                    1）为及时到账，请转账时务必先退出爱赢娱乐城游戏客户端；<br />
+                                    2）户内转账最低额内20元人民币；<br />
+                                    3）户内转账不收取任何手续费；<br />
+                                    4）如有疑问，请及时联系在线客服。<br />
+                                </div>
+                        
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- 右 / -->
+        </div>
+    </div>
+    <!-- 网页主体 / -->
+    
+<!--{include file="member/foot.html"}-->
+<script type="text/javascript" language="javascript">
+function Save(b)
+{
+	var value;
+	if(b)
+	{
+		value=document.Frm.Amount1.value;
+	}
+	else
+	{
+		value=document.Frm.Amount2.value;
+	}
+	var reg=/[^\d]/;
+	var reg1=/^\d+(\.\d+)?$/;
+	if(IsBlank(value)==false)
+	{
+		alert("请填写转账金额");
+		if(b)
+			document.Frm.Amount1.focus();
+		else
+			document.Frm.Amount2.focus();
+		return;
+	}
+	else if(isNaN(value))
+	{
+		alert("转账金额必须为数字");
+		if(b)
+			document.Frm.Amount1.focus();
+		else
+			document.Frm.Amount2.focus();
+		return;
+	}
+	else if(reg1.test(value)==false)
+	{
+		alert("转账金额必须为数字");
+		if(b)
+			document.Frm.Amount1.focus();
+		else
+			document.Frm.Amount2.focus();
+		return;
+	}
+	else if(value<20)
+	{
+		alert("转账金额不得小于20元");
+		if(b)
+			document.Frm.Amount1.focus();
+		else
+			document.Frm.Amount2.focus();
+		return;
+	}
+	else
+	{
+		var len=value.split(".").length;
+		if(len==2)
+		{
+			if(value.split(".")[1].length>2)
+			{
+				alert("转账金额填写错误，最多支持2位小数点");
+				if(b)
+					document.Frm.Amount1.focus();
+				else
+					document.Frm.Amount2.focus();
+				return;
+			}
+		}
+	}
+	var from;
+	var to;
+	if(b)
+	{
+		window.Type1.innerHTML="<span></span><font color=red>请稍后，正在进行转账......，请勿进行其他操作，否则导致转账失败</font>";
+		from="163win";
+		to="livecasino";
+		document.Frm.Amount2.disabled=true;
+		document.Frm.btn2.disabled=true;
+	}
+	else
+	{
+		window.Type2.innerHTML="<span></span><font color=red>请稍后，正在进行转账......，请勿进行其他操作，否则导致转账失败</font>";
+		from="livecasino";
+		to="163win";
+		document.Frm.Amount1.disabled=true;
+		document.Frm.btn1.disabled=true;
+	}
+	Init();
+	if(xmlhttp!=null)
+	{
+		var url="Application.Aspx?Action=Transfer&Amount="+value+"&From="+from+"&To="+to;
+		xmlhttp.onreadystatechange=function()
+		{
+			if(xmlhttp.readyState==4)
+			{
+				if(xmlhttp.responseText.indexOf("失败")>=0)
+				{
+					alert("十分抱歉，您的转账失败了，请联系我们的客服帮您解决");
+					location.reload();
+				}
+				else
+				{
+					alert("转账成功");
+					location.reload();
+				}
+			}
+		}
+		xmlhttp.open("GET",url,true);
+		xmlhttp.setRequestHeader("If-Modified-Since","0");   
+		xmlhttp.send(null);
+	}
+	else
+	{
+		if(b)
+		{
+			window.Type1.innerHTML="<span>转账金额：</span><input type=\"text\" class=\"text-input\" name=\"Amount1\" onkeyup=\"clearNoNum(this)\"/><img src=\"images/btn-1.gif\" class=\"to-submit\" onclick=\"Save(true)\" align=\"absmiddle\"/>";
+			document.Frm.Amount2.disabled=false;
+			document.Frm.btn2.disabled=false;
+		}
+		else
+		{
+			window.Type2.innerHTML="<span>转账金额：</span><input type=\"text\" class=\"text-input\" name=\"Amount2\" onkeyup=\"clearNoNum(this)\"/><img src=\"images/btn-1.gif\" class=\"to-submit\" onclick=\"Save(false)\" align=\"absmiddle\"/>";
+			document.Frm.Amount1.disabled=false;
+			document.Frm.btn1.disabled=false;
+		}
+		alert("ActiveXObject方法失败,请调整浏览器安全设置或更换浏览器使用");
+	}
+}
+</script>
+
+</body>
+</html>

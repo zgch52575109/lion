@@ -1,0 +1,153 @@
+    <div id="rightside">
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script> 
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>现金系统</h2>
+            </div>
+            <div class="contentbox"><form method="post" name="main_form" action="" style="margin:0px;"> 
+            	<table width="100%">
+                	<thead>
+				<tr>
+				<form method="POST" name="myform" action="admin_member_incash.php">
+				<td colspan="21">
+				帐号：<input type="text" name="account" size="12" value="<?php echo $account;?>" id="account">
+				日期：<input type="text" name="begin_date" value="<?php echo $begin_date;?>" size="12" id="begin_date" onclick="return showCalendar('begin_date', 'y-m-d');" />
+      			至 <input type="text" name="end_date" size="12" value="<?php echo $end_date;?>" id="end_date" onclick="return showCalendar('end_date', 'y-m-d');" />
+				每页显示：<input type="text" class="inputbox" style="width:10px;" name="listpage" value="<?php if(!intval($listpage)) echo '30'; else echo $listpage;?>">
+				<input type="submit" name="Submit" align="absmiddle" value="查 询..." class="btn"></td>
+				</form>
+				</tr>
+                    <tr>
+                        <th>UID</th>
+                        <th>账号</th>
+						<th>真实姓名</th>
+			  	<?php
+			  	$dsql->SetQuery("Select * from ek_member_promotions where states=1 and uid!=1 and uid!=2 and uid!=0  order by id desc");
+			  	$dsql->Execute("ut");
+			  	while($myrow = $dsql->GetObject("ut"))
+			  	{
+			  		echo "<th>".$myrow->name."</th>";
+			  	}
+			  	?>
+						<th>手续费</th>
+						<th>红利总和</th>
+                    </tr>
+                </thead>
+            <tbody>
+<?php
+$numPerPage = isset($listpage) ? intval($listpage) : 30;
+$page = isset($page) ? intval($page) : 1;
+$uid = isset($uid) ? intval($uid) : 0;
+$begincash = isset($begincash) ? intval($begincash) : 0;
+$endcash = isset($endcash) ? intval($endcash) : 0;
+
+if($page==0) $page=1;
+	if ($begin_date){
+		$begindate=strtotime($begin_date);
+		$whereStr.=" and b.addtime >='$begindate'";
+	}
+	if ($end_date){
+		$enddate=strtotime($end_date);
+		$whereStr.=" and b.addtime <='$enddate'";
+	}
+	if ($account){
+		$whereStr.=" and m.username='$account'";
+	}
+$csqlStr="select count(*) as dd from ek_member m left join ek_member_incash b on b.uid=m.uid where (b.hongli>0 or b.shouxufei>0) and b.state=2 $whereStr $wheretr";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_member_hongli.php?uid='.$uid.'&bankid='.$bankid.($listpage ? '&listpage='.$listpage : '').($begin_date ? '&begin_date='.$begin_date : '').($end_date ? '&end_date='.$end_date : '').($account ? '&account='.$account : '').($groupid ? '&groupid='.$groupid : '').($stype ? '&stype='.$stype : '').($state ? '&state='.$state : '').($check!='' ? '&check='.$check : '').($operation!='' ? '&operation='.$operation : '').($czhengfu ? '&czhengfu='.$czhengfu : '').($checkadmin ? '&checkadmin='.$checkadmin : '').($cardnum ? '&cardnum='.$cardnum : '').($begincash ? '&begincash='.$begincash : '').($endcash ? '&endcash='.$endcash : '').($ctime ? '&ctime='.$ctime : ''));
+
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select distinct(m.username),m.truename,m.uid from  ek_member m left join ek_member_incash b on b.uid=m.uid where (b.hongli>0 or b.shouxufei>0) and b.state=2 $whereStr order by b.addtime desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+$cunkuan=$qukuan='0';
+while($row=$dsql->GetArray('class_list'))
+{
+$uid=$row['uid'];
+$rowr = $dsql->GetOne("Select sum(b.hongli) as allhongli,sum(b.shouxufei) as shouxufei From `ek_member_incash` b left join ek_member m on m.uid=b.uid where b.uid='$uid' and b.state=2 $whereStr");
+$row['allhongli']=$rowr['allhongli']+$rowr['shouxufei'];
+$allhonglis=$allhonglis+$row['allhongli'];
+$allshouxufei=$allshouxufei+$rowr['shouxufei'];
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                            <td><?php echo $row['uid'];?></td>
+                            <td><?php echo $row['username'];?></td>
+							<td><?php echo $row['truename'];?></td>
+			  	<?php
+			  	$dsql->SetQuery("Select * from ek_member_promotions where states=1 and uid!=1 and uid!=2 and  uid!=0  order by id desc");
+			  	$dsql->Execute("promotions");
+			  	while($myrow = $dsql->GetObject("promotions"))
+			  	{
+					$type=$myrow->uid;
+					$rowb = $dsql->GetOne("Select sum(b.hongli) as hongli From `ek_member_incash` b left join ek_member m on m.uid=b.uid where b.uid='$uid' and b.type='$type' and b.state=2 $whereStr");
+					$hongli=$rowb['hongli'];
+					$all="all_$type";
+					$$all=$hongli+$$all;
+					if($hongli>0){
+			  		echo "<td>".$hongli."</td>";
+					}else{
+					echo "<td>0.00</td>";
+					}
+			  	}
+			  	?>
+							<td><?php echo $rowr['shouxufei'];?></td>
+							<td><?php echo $row['allhongli'];?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+<tr>
+<th colspan="3" align="center">本页总结</th>
+			  	<?php
+			  	$dsql->SetQuery("Select * from ek_member_promotions where states=1 and uid!=1 and uid!=2 and  uid!=0  order by id desc");
+			  	$dsql->Execute("ek_ut");
+			  	while($myrows = $dsql->GetObject("ek_ut"))
+			  	{
+					$type=$myrows->uid;
+					$all="all_$type";
+					if($$all>0){
+			  		echo "<th>".$$all."</th>";
+					}else{
+			  		echo "<th>0.00</th>";
+					}
+			  	}
+			  	?>
+<th><?php echo $allshouxufei;?></th>
+<th><?php echo $allhonglis;?></th>
+</tr>
+
+                    </tbody>
+                </table>
+                <ul class="pagination">
+				<li class="text">页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> 总收录数据<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>
+<script type='text/javascript' src='scripts/main.js'></script>

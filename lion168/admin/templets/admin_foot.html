@@ -1,0 +1,45 @@
+        <!-- Left Dark Bar Start -->
+<?php include(EK_ADMIN.'/templets/admin_left.html');?>
+    <!-- Left Dark Bar End --> 
+    
+    <!-- Notifications Box/Pop-Up Start --> 
+<?php include(EK_ADMIN.'/templets/admin_newmessage.html');?>
+    <!-- Notifications Box/Pop-Up End --> 
+    
+    <script type="text/javascript" src="http://dwpe.googlecode.com/svn/trunk/_shared/EnhanceJS/enhance.js"></script>	
+    <script type='text/javascript' src='http://dwpe.googlecode.com/svn/trunk/charting/js/excanvas.js'></script>
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js'></script>
+	<script type='text/javascript' src='scripts/jquery.wysiwyg.js'></script>
+    <script type='text/javascript' src='scripts/visualize.jQuery.js'></script>
+    <script type="text/javascript" src='scripts/functions.js'></script>
+    <script type="text/javascript">
+
+		$(function(){
+			$(".contentcontainer .headings").css("cursor","pointer");
+			//$(".contentcontainer .headings").next(".contentbox").hide();	
+			$(".contentcontainer .headings").click(function(){
+				var srcShow="img/1.png";
+				var srcHide="img/2.png";
+				if($(this).next(".contentbox").is(":hidden")){
+					$(this).next(".contentbox").slideDown();
+					$(this).find("img").attr("src",srcHide)
+				}else{
+					$(this).next(".contentbox").slideUp();	
+					$(this).find("img").attr("src",srcShow)
+				}
+			})
+			//左边导航菜单
+			//$(".expanded").next(".navigation").hide();
+		
+				   
+		})
+</script>
+    <!--[if IE 6]>
+    <script type='text/javascript' src='scripts/png_fix.js'></script>
+    <script type='text/javascript'>
+      DD_belatedPNG.fix('img, .notifycount, .selected');
+    </script>
+    <![endif]--> 
+</body>
+</html>

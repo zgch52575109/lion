@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <title>代理登录 - 金狮娱乐</title>
+    <meta name="keywords" content="keyword ..." />
+    <meta name="Description" content="description ..." />
+    <!--<link href="favicon.ico" rel="shortcut icon" />-->
+    <link href="../css/index/global.css" rel="stylesheet" type="text/css" />
+    <style>
+	   .yellow { color:#F3C32C; }
+	</style>
+    <script language="javascript" src="js/date.js"></script>
+
+</head>
+<body >
+ <!--{include file="index/top1.html"}-->  
+ 
+<div id="maincontent">
+ <div id="informscroll">
+  <div id="informcontent">
+    <!--{include file="index/inc_notice.html"}-->
+    <div class="tel"></div>
+    </div>
+ </div>
+ <div id="listcontent">
+   <div class="inners">
+    <!--{include file="index/left_menu.html"}--> 
+   <div id="rightcontent">
+     <div class="site"><a href="agency.html">合作加盟</a><span>&gt;</span>代理登录</div>
+ 
+<form action="" method=post id="agentlogin" name="agentlogin">   
+<table width="370" height="177" border="0" align="center" cellpadding="0" cellspacing="0" background="images/agent/bg.jpg" style="width:370px; height:177px; background-image:url(images/agent/left.jpg) repeat-x; margin-top:100px; margin-bottom:100px;  ">
+  <tr>
+     <td width="8"><img src="images/agent/left.jpg" /> </td>
+     <td width="">
+
+
+<table width="100%" height="135" border="0" align="center" cellpadding="0" cellspacing="0" class="yellow">
+  <tr>
+    <td width="90" align="right" valign="middle">登 录 名：</td>
+    <td width="25">&nbsp;</td>
+    <td align="left" valign="middle"><input name="username" type="text" class="text"  id="username"/></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">密 码：</td>
+    <td>&nbsp;</td>
+    <td align="left" valign="middle"><input name="password"  id="password" type="password" class="text" /></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">验 证 码：</td>
+    <td>&nbsp;</td>
+    <td align="left" valign="middle"><input name="ValidateCode" type="text" class="text" style="width:80px; margin-right:25px;" onkeyup='this.value=this.value.replace(/[^0-9a-zA-Z]\D*$/,"")'/><img id="vdimgck" src="/include/vdimgck.php" alt="看不清？点击更换" align="absmiddle" style="cursor:pointer" onclick="this.src=this.src+'?'" /></td>
+  </tr>
+  <tr>
+    <td height="35">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>
+    
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="79" align="left" valign="middle"><input name="提交" type="image" src="images/index/submit.jpg" onclick="document.agentlogin.submit();" /></td>
+    <td width="20" align="center" valign="middle"><img src="images/agent/line.jpg" width="10" height="35" /></td>
+    <td align="left" valign="middle" style="color:#FFF">忘记密码<br>
+      代理注册 </td>
+  </tr>
+</table>
+
+    
+      
+      
+      </td>
+  </tr>
+</table>
+
+     
+     </td>
+    <td width="8"><img src="images/agent/right.jpg" /> </td>
+  </tr>
+</table>
+ 
+          
+     <input type="hidden" name="action" value="login">
+</form>
+   </div>
+   <div class="clear"></div>
+   </div>
+ </div>
+</div>
+<!--{include file="index/footer.html"}--> 
+ <script type="text/javascript">				
+ $(function(){
+   //$(".leftcontent dl dd").hide();
+   $(".leftcontent dl dt").click(function(){
+   $(".leftcontent dl dd").not($(this).next()).hide();
+   $(this).next().slideToggle(500); 
+    });
+ });
+ </script>  
+</body>
+</html>

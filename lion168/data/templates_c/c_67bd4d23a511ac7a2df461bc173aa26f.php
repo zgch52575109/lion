@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>存款须知</title>
+<meta name="keywords" content="<?php echo $this->_vars['cfg_keywords']; ?>
+" />
+<meta name="description" content="<?php echo $this->_vars['cfg_description']; ?>
+" />
+<link type="text/css" href="css/responsibility.css" rel="stylesheet">
+<script language="javascript" src="js/date.js"></script>
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+</script>
+</head>
+
+<body>
+ <div class="box">
+   <div class="top">
+<?php echo $this->_fetch_compile("top.html"); ?>   
+   <div class="neirong">
+     <div class="preferential_center_right">
+       <div class="title2"><img src="images/footer_deposit_guidelines.gif" width="78" height="19" /></div>
+   <div class="line_1"></div>
+   <DIV align=left class="w_1" style="SCROLLBAR-FACE-COLOR:#623313; SCROLLBAR-HIGHLIGHT-COLOR:#2C1D07; OVERFLOW:
+auto; SCROLLBAR-SHADOW-COLOR:
+COLOR:#000000 ; SCROLLBAR-3DLIGHT-COLOR:#351C0D; SCROLLBAR-ARROW-COLOR:
+#300; SCROLLBAR-DARKSHADOW-COLOR: #351C0D; HEIGHT:566px; WIDTH:895px; height: auto">
+
+   <div align="left">
+   <div class="center_1">
+   <div class="center_1_left"  style="margin-left:300px;"></div>
+   </div>
+   <div class="center_2" style="height:auto">
+     <p>金狮国际使用的是GoDaddy.com Turbo SSL证书确保为客户提供100%的安全及保障。     </p>
+     <p style="font-size:14px; color: #C60"><strong>我该如何开户？     </strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;凡是我网站的有效注册用户，存款后即视为开户。 </p>
+     <p style="font-size:14px; color: #C60"><strong>开户需要多少钱？ 
+     </strong> </p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;真钱开户不收取任何费用，但最低存款为100元人民币。
+     </p>
+     <p style="font-size:14px; color: #C60"><strong>我该如何进行存款呢？ </strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;凭您的用户名和密码，从会员登陆口登陆进去，然后您就可以向我站指定的帐户存钱了。进入网站首页，在&quot;会员登入&quot;处输入您的真钱帐号和密码。<br />
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在弹出的会员页面，按&quot;存款&quot;选项。<br />
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在我们提供的多种容易和安全的存款方式中，选择一种您喜欢的存款方法。<br />
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们使用最新的加密和保护技术，保证您财务信息的绝对安全。 </p>
+     <p style="font-size:14px; color: #C60"><strong>我可以使用网上银行支付吗？都支持哪些银行？     </strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎您使用网上银行支付。目前中国大陆地区大部分银行的储蓄卡都可进行网上支付。     </p>
+     <p style="font-size:14px; color: #C60"><strong>我存款后多久可以进行游戏？     </strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在大部分的情形下，您的存款会在较快的速度下被处理，最快8分钟。但在某些特殊的情况下，您的存款处理延迟，请联系客服获得帮助。     </p>
+     <p style="font-size:14px; color: #C60"><strong>如果我提交了一笔存款，但我的账户中却没有看到，怎么办？ </strong></p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正常情况下，您的存款通过审核后，系统后自动将金额添加到您的网站账户中。如果时间过久没有查询到，请及时联系我们的客户服务代表，核对信息。</p>
+     <p style="font-size:14px; color: #C60"><br />
+     </p>
+     <p style="font-size:14px; color: #C60">&nbsp;</p>
+   </div>
+   </div>
+</DIV>
+ </div>
+   </div>
+<?php echo $this->_fetch_compile("foot.html"); ?>
+ </div>
+</body>
+
+</html>

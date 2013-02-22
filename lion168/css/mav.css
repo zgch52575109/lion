@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+.body{
+	width:100%;
+	margin:0; 
+	}
+
+.mav_wz1{
+	font-size:12px;
+	color:#CCC;
+	text-decoration:none;
+	}
+
+.mav_wz2{
+	font-size:12px;
+	color:#FC0;
+	text-decoration:none;
+	}
+
+.mav_wz3{
+	font-size:12px;
+	color:#FFF;
+	text-decoration:none;
+	}
+
+.mavmk{
+	height:120px;
+	width:100%;
+	background-image:url(images/index_new_02.gif);
+	
+	margin:0 auto;
+	margin-bottom:10px;
+	}
+
+.mav_top{
+	height:99px;
+	width:1000px;
+	float:inherit;
+	margin:0 auto;
+	}
+
+.mav_logo{
+	height:99px;
+	width:210px;
+	float:left;
+	}
+
+.mav_bottom{
+	width:468px;
+	height:87px;
+	float:left;
+	margin-left:43px;
+	margin-top:0;
+	}
+	
+.mav_bottom_1{
+	width:auto;
+	height:87px;
+	float:left;
+	}
+
+.mav_login{
+	width:240px;
+	height:99px;
+	float:left;
+	margin-left:30px;
+	}
+
+.mav_list{
+	height:21px;
+	width:1000px;
+	float:inherit;
+	margin: 0 auto;
+	background-image:url(images/index_new_02a.gif);
+	}
+
+.mav_wz{
+	width:auto;
+	font-size:12px;
+	color:#CCC;
+	text-decoration:none;
+	float:left;
+	margin-left:6px;
+	margin-top:2px;
+	}
+
+.mav_news{
+	width:400px;
+	font-size:12px;
+	color:#FC0;
+	text-decoration:none;
+	float:left;
+	margin-left:20px;
+	margin-top:2px;
+	}
+
+.mav_time{
+	width:236px;
+	font-size:12px;
+	color:#FFF;
+	text-decoration:none;
+	float:left;
+	margin-left:35px;
+	margin-top:2px;
+	}

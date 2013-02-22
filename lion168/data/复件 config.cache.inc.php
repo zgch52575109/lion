@@ -1,0 +1,72 @@
+<?php
+$cfg_webname = '金狮国际';
+$cfg_basehost = 'http://www.lion168.com';
+$cfg_cmspath = '';
+$cfg_cookie_encode = 'KpXRp6700O';
+$cfg_df_style = 'red';
+$cfg_df_html = 'html';
+$cfg_keywords = 'E客软件系统';
+$cfg_description = 'E客软件系统';
+$cfg_cachetime = '1024';
+$cfg_iscache = '0';
+$cfg_webhashid = '3.1.4.1.5.9.2.6';
+$cfg_cli_time = '8';
+$cfg_upload_dir = 'uploads';
+$cfg_max_face = '1024';
+$cfg_imgtype = 'jpg|gif|png';
+$cfg_logo = 'images/logo.gif';
+$cfg_ico = 'images/www.ico';
+$cfg_qq = '';
+$cfg_consumermb_allowreg = '1';
+$cfg_proxy_allowreg = '1';
+$cfg_newusergroupid = '1';
+$cfg_memeber_default_status = '1';
+$cfg_mb_notallow = 'www,bbs,ftp,mail,user,users,admin,administrator';
+$cfg_mb_idmin = '3';
+$cfg_mb_pwdmin = '3';
+$cfg_mb_pwdtype = '32';
+$cfg_memeber_bank_edit = '1';
+$cfg_memeber_bank_del = '1';
+$cfg_memeber_incash_min_money = '10';
+$cfg_memeber_incash_max_money = '1000000';
+$cfg_memeber_incash_edit_sender = '1';
+$cfg_memeber_incash_hongli = '0.01';
+$cfg_memeber_incash_maxhongli = '50';
+$cfg_memeber_incash_shouxufei = '0.01';
+$cfg_memeber_incash_maxshouxufei = '50';
+$cfg_memeber_first_hongli = '0.1';
+$cfg_memeber_first_maxhongli = '300';
+$cfg_memeber_outcash_min_money = '10';
+$cfg_memeber_outcash_j = '0.1';
+$cfg_memeber_outcash_x = '0.1';
+$cfg_memeber_outcash_y = '0.1';
+$cfg_memeber_outcash_noallow_str = '投注金额未到达指定限额，不能提现';
+$cfg_memeber_outcash_noallow_str2 = '投注金额未到达指定限额，不能提现';
+$cfg_memeber_outcash_checkout_str = '您提交的提款需要审核，请耐心等待';
+$cfg_memeber_tuijian_fencheng = '0.1';
+$cfg_memeber_tuijian_fencheng2 = '0.05';
+$cfg_memeber_tuijian_fencheng3 = '0.02';
+$cfg_memeber_limit_list_pagesize = '40';
+$cfg_agentid = '';
+$cfg_refno = '';
+$cfg_promoid = '';
+$cfg_currencyid = 'RMB';
+$cfg_apiurl = 'https://toponeuat.hogaming.info/cgibin/EGameIntegration';
+$cfg_apiloginurl = 'https://toponeuat.hogaming.info/login/visitor/checkLoginGI.jsp?ticketId=';
+$cfg_foot = '';
+$cfg_stats = '<script type=\"text/javascript\">
+
+  var _gaq = _gaq || [];
+  _gaq.push([\'_setAccount\', \'UA-27090737-1\']);
+  _gaq.push([\'_setDomainName\', \'.lion168.com\']);
+  _gaq.push([\'_trackPageview\']);
+
+  (function() {
+    var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;
+    ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';
+    var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertB';
+$cfg_ipaccess = '';
+$cfg_banip = '';
+$cfg_admin_ipaccess = '';
+$cfg_admin_banip = '';
+?>

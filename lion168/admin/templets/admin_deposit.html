@@ -1,0 +1,77 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>手工提交存款单</h2>
+            </div>
+            <div class="contentbox">
+            	<form action="?action=save" id="frmMain" name="frmMain" method="POST">
+            		<p>
+                        <label for="grouptitle"><strong>用户名或者ID:</strong> </label>
+						<input type="text" name="account" id="account" class="inputbox" value="" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>存入银行卡:</strong></label> 
+						<select name='bankid'>
+				<optgroup label="收款银行">
+			  	<?php
+			  	$dsql->SetQuery("Select * from ek_receive_bank order by torder asc,id desc");
+			  	$dsql->Execute("ut");
+			  	while($myrow = $dsql->GetObject("ut"))
+			  	{
+			  		echo "<option value='".$myrow->id."'>".$myrow->subject."</option>\r\n";
+			  	}
+			  	?>
+				</optgroup>
+				<optgroup label="第三方支付">
+				<?php
+				$sqlStr="select * from ek_payment_config WHERE upid = '0' ORDER BY used DESC";
+				$dsql->SetQuery($sqlStr);
+				$dsql->Execute('class_list');
+				while($row=$dsql->GetArray('class_list'))
+				{
+				?>
+				<option value="s<?php echo $row['id'];?>"<?php if($bankid==$row['id']) echo ' selected';?>><?php echo $row['subject'];?></option>
+				<?php
+				}
+				?></optgroup>
+			  </select> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>汇款金额:</strong></label>
+						<input type="text" name="cash" id="cash" class="inputbox" style="width:50px" />元 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>汇款人姓名:</strong></label>
+						<input type="text" name="sender" id="sender" class="inputbox" style="width:50px" />不填写将使用用户的真实姓名 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>银行卡后四位:</strong></label>
+						<input type="text" name="cardnum" id="cardnum" class="inputbox" style="width:50px" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>跨行存款:</strong></label>
+						<input type="checkbox" name="otherbank" id="otherbank" value="1" />如果是跨行转账请点击选中 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>是否审核:</strong></label>
+						<input type="checkbox" name="check" id="check" value="1" />选中直接通过审核 <br />
+                    </p>
+
+            		<p>
+
+                    </p>
+					<input type="submit" value="保存" class="btn" />
+                </form>
+            </div>
+</div>
+
+
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

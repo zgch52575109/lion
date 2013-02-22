@@ -1,0 +1,369 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户信息详情</h2>
+            </div>
+            <div class="contentbox">
+            	<form action="?action=save" id="frmMain" name="frmMain" method="POST">
+            		<p>
+                        <label for="grouptitle"><strong>登录名:</strong> <?php echo $row['username'];?></label>
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>会员级别:</strong> <select name='groupid'>
+			  	<?php
+			  	
+			  	$dsql->SetQuery("Select * from `ek_member_group` order by groupid asc");
+			  	$dsql->Execute("ut");
+			  	while($myrow = $dsql->GetObject("ut"))
+			  	{
+			  		if($row['groupid']==$myrow->groupid) echo "<option value='".$myrow->groupid."' selected='1'>".$myrow->grouptitle."</option>\r\n";
+			  		else echo "<option value='".$myrow->groupid."'>".$myrow->grouptitle."</option>\r\n";
+			  	}
+			  	?>
+			  </select></label>
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>密码:</strong></label>
+						<input type="password" name="password" id="password" class="inputbox" value="" />不改请留空 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>确认密码:</strong></label>
+						<input type="password" name="password2" id="password2" class="inputbox" value="" />不改请留空 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>邮箱:</strong></label>
+						<input type="text" name="email" id="email" class="inputbox" value="<?php echo $row['email'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>真实姓名:</strong></label>
+						<input type="text" name="truename" id="truename" class="inputbox" value="<?php echo $row['truename'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>电话:</strong></label>
+						<input type="text" name="phone" id="phone" class="inputbox" value="<?php echo $row['phone'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>联系QQ:</strong></label>
+						<input type="text" name="qq" id="qq" class="inputbox" value="<?php echo $row['qq'];?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>性别:</strong></label>
+						<input type="radio" name="gender"  value="1"<?php if($row['gender']==1) echo "checked";?>>男&nbsp;<input type="radio" name="gender" value="0"<?php if($row['gender']==0) echo "checked";?>>女 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>出生日期:</strong></label>
+						<input type="text" name="birthyear" id="birthyear" class="inputbox" style="width:30px" value="<?php echo $row['birthyear'];?>" />年<input type="text" name="birthmonth" id="birthmonth" class="inputbox" style="width:30px" value="<?php echo $row['birthmonth'];?>" />月<input type="text" name="birthday" id="birthday" class="inputbox" style="width:30px" value="<?php echo $row['birthday'];?>" />日 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>最多可绑银行卡:</strong></label>
+						<input type="text" name="bankmaxnum" id="bankmaxnum" class="inputbox" style="width:50px" value="<?php echo $row['bankmaxnum'];?>" />为0表示继承用户组的设置 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>每天取款次数:</strong></label>
+						<input type="text" name="dayoutcashnum" id="dayoutcashnum" class="inputbox" style="width:50px" value="<?php echo $row['dayoutcashnum'];?>" />为0表示继承用户组的设置 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>每次最多取款金额:</strong></label>
+						<input type="text" name="maxoutmoney" id="maxoutmoney" class="inputbox" style="width:50px" value="<?php echo $row['maxoutmoney'];?>" />为0表示继承用户组的设置 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>取款审核额度:</strong></label>
+						<input type="text" name="checkoutmoney" id="checkoutmoney" class="inputbox" style="width:50px" value="<?php echo $row['checkoutmoney'];?>" />为0表示继承用户组的设置 <br />
+                    </p>
+
+            		<p>
+
+                    </p>
+					<input type="submit" value="保存" class="btn" />
+					<input type="hidden" name="id" value="<?php echo $id;?>" />
+                </form>
+            </div>
+</div>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史邮箱</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>邮箱</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_history_email where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['email'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史QQ</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>QQ</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_history_qq where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['qq'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史电话</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>电话</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_history_phone where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['phone'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史真实名</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>真实名</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_history_truename where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['truename'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史密码</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>密码</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_history_password where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['password'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史银行信息</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>银行</th>
+							<th>名字</th>
+							<th>卡号</th>
+							<th>修改时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select b.*,bt.tname from ek_member_history_bank b left join ek_bank_type bt on bt.tid=b.bankid where b.uid='$id' order by b.id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+                            <td><?php echo $row['tname'];?></td>
+							<td><?php echo $row['realname'];?></td>
+							<td><?php echo $row['cardnum'];?></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户历史登录信息</h2>
+            </div>
+            <div class="contentbox" style="display:none">
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>序号</th>
+                            <th>IP</th>
+							<th>登录时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+$sqlStr="select * from ek_member_login_log where uid='$id' order by id desc limit 10";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('data_list');
+$i=1;
+while($row=$dsql->GetArray('data_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0) echo ' class="alt"';?>>
+                        	<td><?php echo $i;?></td>
+			 <?php
+			$ip = $row['ip'];
+			$QQWry = new QQWry;
+			$ifErr = $QQWry->QQWry($ip);
+			?>
+
+                            <td><a  title="<?php echo mb_convert_encoding("$QQWry->Country$QQWry->Local\n", "UTF-8", "GBK");?>"><?php echo $row['ip'];?></a></td>
+							<td><?php echo isCurrentDay($row['dateline']);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+                <div style="clear: both;"></div>
+            </div>
+</div>
+
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

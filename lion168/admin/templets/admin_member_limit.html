@@ -1,0 +1,122 @@
+    <div id="rightside">
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script> 
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>用户额度操作记录</h2>
+            </div>
+            <div class="contentbox"><form method="post" name="main_form" action="" style="margin:0px;"> 
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+                        	<th>ID</th>
+                            <th>用户</th>
+							<th>操作时间</th>
+							<th>转换来源</th>
+							<th>转换目标</th>
+							<th>转前本站账户资金</th>
+							<th>转后本站账户资金</th>
+							<th>转前游戏账户资金</th>
+							<th>转后游戏账户资金</th>
+                            <th>转换金额</th>
+                        </tr>
+				<tr><form method="POST" name="myform" action="">
+				<td colspan="21">
+				帐号：<input type="text" name="account" size="12" value="<?php echo $account;?>" id="account">
+				日期：<input type="text" name="begin_date" value="<?php echo $begin_date;?>" size="12" id="begin_date" onclick="return showCalendar('begin_date', 'y-m-d');" />
+      			至 <input type="text" name="end_date" size="12" value="<?php echo $end_date;?>" id="end_date" onclick="return showCalendar('end_date', 'y-m-d');" />
+				金额：<input type="text" name="begincash" size="12" value="<?php echo $begincash;?>" id="begincash"> 至 <input type="text" name="endcash" size="12" value="<?php echo $endcash;?>" id="endcash">
+				类型：<select size="1" name="stype"><option value="0">类型</option><option value="1"<?php if($stype==1) echo ' selected';?>>转入</option><option value="2"<?php if($stype==2) echo ' selected';?>>转出</option></select>
+				北京时间：<input type="checkbox" name="ctime" value="1"<?php if($ctime==1) echo ' checked';?>>
+				<input type="submit" name="Submit" align="absmiddle" value="查 询..." class="btn"></td>
+				</form>
+				</tr>
+                    </thead>
+                    <tbody>
+<?php
+$numPerPage=30;
+$page = isset($page) ? intval($page) : 1;
+$uid = isset($uid) ? intval($uid) : 0;
+if($page==0) $page=1;
+$whereStr=" where 1='1'";
+if ($uid){$whereStr.=" and b.uid ='$uid'";}
+	if ($begin_date){
+		$begindate=strtotime($begin_date);
+		$whereStr.=" and b.addtime >='$begindate'";
+	}
+	if ($end_date){
+		$enddate=strtotime($end_date);
+		$whereStr.=" and b.addtime <='$enddate'";
+	}
+	if(trim($account)!=''){
+		$leftstr=" left join ek_member m on m.uid=b.uid";
+		$whereStr.=" and (m.username ='$account' or m.truename='$account')";
+	}
+if ($stype){$whereStr.=" and b.type ='$stype'";}
+if($begincash){
+$whereStr.=" and b.cash >='$begincash'";
+}
+if($endcash){
+$whereStr.=" and b.cash <='$endcash'";
+}
+$csqlStr="select count(*) as dd from `ek_game_log` b $leftstr $whereStr";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_member_limit.php?uid='.$uid.($begin_date ? '&begin_date='.$begin_date : '').($end_date ? '&end_date='.$end_date : '').($account ? '&account='.$account : '').($stype ? '&stype='.$stype : '').($begincash ? '&begincash='.$begincash : '').($endcash ? '&endcash='.$endcash : '').($ctime ? '&ctime='.$ctime : ''));
+
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select b.*,m.username,m.truename,g.grouptitle from ek_game_log b left join ek_member m on m.uid=b.uid left join ek_member_group g on g.groupid=m.groupid $whereStr order by b.addtime desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+while($row=$dsql->GetArray('class_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+                        	<td><?php echo $row['id'];?></td>
+                            <td><?php echo $row['username'];?></td>
+							<td><?php echo isCurrentDay($row['addtime'],$ctime);?></td>
+							<td><?php echo $row['zhuanhuanly'];?></td>
+							<td><?php echo $row['zhuanhuanmb'];?></td>
+							<td><?php echo number_format($row['zqcash'],2);?></td>
+							<td><?php echo number_format(($row['type']==1 ? ($row['zqcash']-$row['cash']) : ($row['zqcash']+$row['cash'])),2);?></td>
+							<td><?php echo number_format($row['zqedu'],2);?></td>
+							<td><?php echo number_format(($row['type']==1 ? ($row['zqedu']+$row['cash']) : ($row['zqedu']-$row['cash'])),2);?></td>
+							<td><?php if($row['type']==1) echo '转入';else echo '转出';echo number_format($row['cash'],2);?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+
+                <ul class="pagination">
+				<li class="text">&nbsp;页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> 总收录数据<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>
+<script type='text/javascript' src='scripts/main.js'></script>

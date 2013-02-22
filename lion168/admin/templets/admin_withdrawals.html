@@ -1,0 +1,39 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>手工提交存款单</h2>
+            </div>
+            <div class="contentbox">
+            	<form action="?action=save" id="frmMain" name="frmMain" method="POST">
+            		<p>
+                        <label for="grouptitle"><strong>用户名或者ID:</strong> </label>
+						<input type="text" name="account" id="account" class="inputbox" value="" onblur="getbanklist();" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>提款金额:</strong></label>
+						<input type="text" name="cash" id="cash" class="inputbox" style="width:50px" />元 <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>是否审核:</strong></label>
+						<input type="checkbox" name="check" id="check" value="1" />选中直接通过审核 <br />
+                    </p>
+
+            		<p>
+
+                    </p>
+					<input type="submit" value="保存" class="btn" />
+                </form>
+            </div>
+</div>
+
+
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>
+<script type='text/javascript' src='scripts/main.js'></script>

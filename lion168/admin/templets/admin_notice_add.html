@@ -1,0 +1,26 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>发布公告</h2>
+            </div>
+            <div class="contentbox">
+            	<form method="post" action="?action=save">
+            		<p>
+                        <label for="textfield"><strong>标题:</strong></label>
+                        <input type="text" id="l_title" name="l_title" value="<?php echo $row['l_title']?>" class="inputbox" />
+                    </p>
+				<textarea class="text-input textarea" id="wysiwyg" name="l_body" rows="10" cols="75"><?php echo $row['l_body']?></textarea>
+				<input type="hidden" name="id" value="<?php echo $id;?>">
+                <input type="submit" value="Submit" class="btn" />
+				</form>
+            </div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

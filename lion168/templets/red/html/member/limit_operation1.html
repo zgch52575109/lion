@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人中心</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+<link type="text/css" rel="stylesheet" href="css.css" >
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+<link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script>
+</head>
+<!--{include file="member/top.html"}-->
+  <div class="content">
+<div  class="left"></div>
+<div  class="m">
+<div  class="top">
+<ul>
+<li style="margin-right:1px;"><a href="index.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','images/wdqbbb.png',1)"><img src="images/wdqbbb.png" name="Image14" width="84" height="31" border="0" id="Image14" /></a></li>
+<li><a href="latest_preferential.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','images/yhbb.png',1)"><img src="images/yhaa.png" name="Image15" width="84" height="31" border="0" id="Image15" /></a></li>
+<li><a href="deposit_remit.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','images/cqkbb.png',1)"><img src="images/cqkaa.png" name="Image16" width="84" height="31" border="0" id="Image16" /></a></li>
+<li><a href="feedback.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','images/wtfkbb.png',1)"><img src="images/wtfkaa.png" name="Image17" width="84" height="31" border="0" id="Image17" /></a></li>
+</ul>
+</div>
+<div class="wdqb">
+<div style="height:23px; border-bottom:#FEB638 solid 1px">
+<ul>
+<li style="background-color:#F60;"><a href="index.php"><strong style="color:#000">返回个人中心</strong></a></li>
+<li style="margin-left:1px; background-color: #FEB638;"><a href="limit_operation.php">额度操作</a></li>
+<li><a href="cash_system.php">现金系统</a></li>
+<li ><a href="bank_bd.php">绑定银行</a></li>
+</ul>
+</div>
+<div class="nl">
+<div class="nltop"><strong>额度操作</strong></div>
+<div style="margin-top:10px;">
+<form action ="" method=get id=form1 name=form1>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="line-height:20px; font-size:11px;">
+  <tr>
+    <td width="2%" height="12" align="left" valign="middle" bgcolor="#FEB638">&nbsp;</td>
+    <td width="10%" align="left" valign="middle" bgcolor="#FEB638">额度查询</td>
+    <td width="30%" align="left" valign="middle" bgcolor="#FEB638">日期：
+      <label for="textfield2"></label>
+      <input type="text" name="begin_date" value="<!--{$begin_date}-->" size="12"  style="line-height:12px; height:12px;" id="begin_date" onclick="return showCalendar('begin_date', 'y-m-d');" />
+      至
+      <label for="textfield3"></label>
+      <input type="text" name="end_date" size="12" value="<!--{$end_date}-->"  style="line-height:12px; height:12px;" id="end_date" onclick="return showCalendar('end_date', 'y-m-d');" /></td>
+    <td width="20%" align="left" valign="middle" bgcolor="#FEB638">账号：
+      <label for="textfield4"></label>
+      <input type="text"  size="12" value="<!--{$username}-->" style="line-height:12px; height:12px;" name="username" id="username" readonly /></td>
+    <td width="16%" align="left" valign="middle" bgcolor="#FEB638">
+      <input type="checkbox" name="ctime" value="1"<!--{if $ctime==1}--> checked<!--{/if}-->>
+      <label for="radio"></label>美东时间</td>
+    <td width="17%" align="left" valign="middle" bgcolor="#FEB638">每页
+      <label for="textfield5"></label>
+      <input type="text" name="pagesize" value="<!--{$numPerPage}-->" style="line-height:12px; height:12px; width:20px" id="pagesize" />
+      条</td>
+    <td width="5%"  align="center" valign="middle" bgcolor="#000000"><a href="#" onclick="document.form1.submit()" style=" color:#FEB638; text-decoration:none;">查询</a></td>
+    </tr>
+</table>
+</form> 
+</div>
+<div style="margin-top:10px;">
+<form action ="" method=post id="form2" name="form2">
+<table height="24" width="100%" border="0" cellpadding="0" cellspacing="0" style="line-height:20px; font-size:11px;">
+  <tr>
+    <td width="2%" height="12" align="left" valign="middle" bgcolor="#FEB638">&nbsp;</td>
+    <td width="10%"  align="left" valign="middle" bgcolor="#FEB638">操作额度
+      <label for="textfield"></label></td>
+    <td width="20%"  align="left" valign="middle" bgcolor="#FEB638">可转资金：<!--{$money}--><input type="hidden" name="tcash" value="<!--{$money}-->"><input type="hidden" name="tamount" value="<!--{$tamount}-->"></td>
+    <td valign="middle" bgcolor="#FEB638"><p>
+      <label>
+        <input type="radio" name="truntype" value="1" style="line-height:12px; height:12px; width:20px" value="单选" id="truntype_0" checked />
+        转入</label>
+      <select style="line-height:12px; height:18px; width:77px; font-size:12;" name="game">
+        <option>游戏大厅</option>
+        </select>&nbsp;
+      |
+      <label> 
+        <input type="radio" name="truntype" value="2" style="line-height:12px; height:12px; width:20px" value="单选" id="truntype_1" />
+        转出</label> 
+      <label for="textfield6"></label>
+      <input type="text"  size="20"  style="line-height:12px; height:12px;"  name="amount" value="0" id="amount" onkeyup='this.value=this.value.replace(/[^0-9]\D*$/,"")' ondragenter="return false" onpaste="return !clipboardData.getData('text').match(/\D/)"" />    </td>
+    <td width="5%" align="center" valign="middle" bgcolor="#000000"><input type="hidden" name="action" value="save"><a href="#" onclick="amcheck()" style=" color:#FEB638; text-decoration:none;">操作</a></td>
+    </tr>
+</table>
+</form>
+</div>
+<div class="nlcon">
+<table border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC" style="font-size:12px" width="960" >
+  <tr align="center">
+    <td height="25" bgcolor="#000000">账号 </td>
+    <td height="25" bgcolor="#000000">转前资金</td>
+    <td height="25" bgcolor="#000000">转前额度</td>
+    <td height="25" bgcolor="#000000">转入额度</td>
+    <td height="25" bgcolor="#000000">转出额度</td>
+    <td height="25" bgcolor="#000000">日期</td>
+    <td height="25" bgcolor="#000000">明细</td>
+    <td height="25" bgcolor="#000000">备注</td>
+  </tr>
+  <!--{foreach value=data key=key from=$datas}-->
+  <tr height="40" style="color:#000">
+    <td height="25" bgcolor="#FFFFFF"><!--{$username}--></td>
+    <td height="25" bgcolor="#FFFFFF"><!--{$data[zqcash]}--></td>
+    <td height="25" bgcolor="#FFFFFF"><!--{$data[zqedu]}--></td>
+    <td height="25" bgcolor="#FFFFFF"><!--{if $data[type]=='1'}--><!--{$data[cash]}--><!--{else}-->0<!--{/if}--></td>
+    <td height="25" bgcolor="#FFFFFF"><!--{if $data[type]=='2'}--><!--{$data[cash]}--><!--{else}-->0<!--{/if}--></td>
+    <td height="25" bgcolor="#FFFFFF"><!--{$data[addtime]}--></td>
+    <td height="25" bgcolor="#FFFFFF"><!--{$data[mingxi]}--></td>
+    <td height="25" bgcolor="#FFFFFF"><!--{$data[note]}--></td>
+  </tr>
+  <!--{/foreach}-->
+    <tr>
+    <td height="25" colspan="8" bgcolor="#FEB638" align="center" style="color:#000000">共<!--{$TotalResult}-->条 每页<!--{$numPerPage}-->条 第<!--{$page}-->/<!--{$TotalPage}-->页  <a href="<!--{$firstpage}-->">[首页]</a> <a href="<!--{$perpage}-->">[上一页]</a> <a href="<!--{$nextpage}-->">[下一页]</a> <a href="<!--{$lastpage}-->">[尾页]</a></td>
+    </tr>
+</table>
+
+</div>
+</div>
+
+</div>
+</div>
+<div style="display:block; float:left; width:201px; height:692px; background-image:url(images/04.gif)"></div>
+
+  <!-- end .content --></div>
+<!--{include file="member/foot.html"}-->
+</body>
+</html>
+<script language=JavaScript>
+
+function amcheck(){
+	if (document.form2.amount.value == 0 )
+	{
+        window.alert("额度为0不能操作!");
+		document.form2.amount.focus(); 
+		return false; 
+	}
+
+	if (document.form2.truntype[0].checked ){
+	
+		if( parseFloat(document.form2.amount.value) > parseFloat(document.form2.tcash.value)){
+			window.alert("您的转入额度大于可转资金，请调整转入额度!"); 
+			document.form2.amount.focus(); 
+			return false;} 
+		
+		else {
+			if (confirm("您确定要转入额度" + document.form2.amount.value +"元吗？")){
+		document.form2.submit();
+		return true;}
+			}
+	}
+	else{
+	
+		if(parseFloat(document.form2.amount.value) > parseFloat(document.form2.tamount.value)){
+			window.alert("您的转出额度大于可转额度，请调整转出额度!"); 
+			document.form2.amount.focus(); 
+			return false;} 
+		
+		else {
+			if (confirm("您确定要转出额度" + document.form2.amount.value +"元吗？")){
+		document.form2.submit();
+		return true;}
+			}
+
+
+	}
+ 	
+	return false;	
+ 
+} 
+//-->
+</script>

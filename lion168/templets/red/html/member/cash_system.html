@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <title>存取款记录</title>
+    <meta name="keywords" content="keyword ..." />
+    <meta name="Description" content="description ..." />
+    <link href="../css/member/global.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script>
+</head>
+<body>
+<!--{include file="member/top.html"}-->
+
+<div id="maincontent">
+ <div class="title">存取款记录</div>
+ <div id="leftcontent">
+  <ul>
+    <li><a href="limit_operation.php">户头转账</a></li>
+    <li><a href="limit_operation_list.php">转账记录</a></li>
+    <li><a href="cash_system.php" class="current">存取款记录</a></li>
+  </ul>
+ </div>
+ <div id="rightcontent">
+ <form action="" method="get" id="searchform" name="searchform">
+ <table width="740" border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#F0F0F0" style=" color:#000 ; margin-bottom:30px; height:30px;">
+   <tr>
+   <td>日期：</td>
+   <td>
+   <input type="text" name="begin_date" value="<!--{$begin_date}-->" size="12"  style="line-height:12px; height:12px;" id="begin_date" onclick="return showCalendar('begin_date', 'y-m-d');" />
+   至
+   <input type="text" name="end_date" size="12" value="<!--{$end_date}-->" style="line-height:12px; height:12px;" id="end_date" onclick="return showCalendar('end_date', 'y-m-d');" /></td>
+   <td>  
+   <label><input type="checkbox" name="state[]" value="1" id="state1"<!--{if in_array(1,$state)}--> checked<!--{/if}--> />处理</label>
+   <label><input type="checkbox" name="state[]" value="3" id="state2"<!--{if in_array(3,$state)}--> checked<!--{/if}--> />拒绝</label>
+   <label><input type="checkbox" name="state[]" value="4" id="state4"<!--{if in_array(4,$state)}--> checked<!--{/if}--> />审核</label>
+   <label><input type="checkbox" name="state[]" value="2" id="state3"<!--{if in_array(2,$state)}--> checked<!--{/if}--> />完成</label>
+   </td>
+   <td><input type="button" class="submit" value="查询" onclick="search_submit();" /></td>
+    </tr>
+ </table>
+ </form>
+ <table width="740" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#F0F0F0" style=" color:#000">
+  <tr style="background-color:#A50B01;color:White; height:28opx; line-height:28px;">
+    <td width="60" align="center" valign="bottom">会员名称</td>
+    <td width="60" align="center" valign="bottom">会员帐号</td>
+    <td width="40" align="center" valign="bottom">类型</td>
+    <td width="40" align="center" valign="bottom">手续费</td>
+    <td width="50" align="center" valign="bottom">现金红利</td>
+    <td width="60" align="center" valign="bottom">存取款</td>
+    <td width="100" align="center" valign="bottom">出款平台</td>
+    <td width="60" align="center" valign="bottom">账户调整</td>
+    <td width="80" align="center" valign="bottom">出入款状况</td>
+    <td width="150" align="center" valign="bottom">出入款日期</td>
+    <td width="" align="center" valign="bottom">备注</td>
+  </tr>
+  <!--{foreach value=data key=key from=$datas}-->
+  <tr>
+    <td height="35" align="center" valign="middle" ><!--{$truename}--></td>
+    <td height="35" align="center" valign="middle" ><!--{$username}--></td>
+	<td height="35" align="center" valign="middle" ><!--{if $data[type]==1}-->存款<!--{elseif $data[type]==2}-->取款<!--{elseif $data[type]==5}-->首存红利<!--{elseif $data[type]==11}-->反水奖励<!--{/if}--></td>
+    <td height="35" align="center" valign="middle" ><!--{$data[shouxufei]}--></td>
+    <td height="35" align="center" valign="middle" ><!--{$data[hongli]}--></td>
+    <td height="35" align="center" valign="middle" ><!--{$data[cash]}--></td>
+    <td height="35" align="center" valign="middle" ><!--{if $data[ctype]=='1'}--><!--{$data[bank]}--><br><!--{$data[realname]}-->,<!--{$data[cardnum]}--><!--{if $data[otherbank]=='1'}-->,<font color="red">跨行</font><!--{/if}--><!--{else}--><!--{$data[bank]}--><!--{/if}--></td>
+    <td height="35" align="center" valign="middle" ><!--{$data[czhengfu]}--></td>
+    <td height="35" align="center" valign="middle"><strong><!--{if $data[state]=='1'}-->处理中<!--{elseif $data[state]=='2'}-->完成<!--{elseif $data[state]=='3'}-->拒绝<!--{elseif $data[state]=='4'}-->审核<!--{/if}--></strong></td>
+    <td height="35" align="center" valign="middle" ><!--{$data[addtime]}--></td>
+    <td height="35" align="center" valign="middle" ><!--{$data[operationxuanxiang]}--></td>
+  </tr>
+  <!--{/foreach}-->
+  <tr>
+    <td height="50" colspan="11" align="right" valign="middle">共<!--{$TotalResult}-->条 每页<!--{$numPerPage}-->条 第<!--{$page}-->/<!--{$TotalPage}-->页  <a href="<!--{$firstpage}-->">[首页]</a> <a href="<!--{$perpage}-->">[上一页]</a> <a href="<!--{$nextpage}-->">[下一页]</a> <a href="<!--{$lastpage}-->">[尾页]</a></td>
+    </tr>
+</table>
+
+ 
+ </div>
+ <div class="clear"></div>
+</div>
+<!--{include file="member/footer.html"}-->
+<script type="text/javascript">
+function search_submit(){
+	document.searchform.submit();
+	return true;
+}
+</script> 
+</body>
+</html>

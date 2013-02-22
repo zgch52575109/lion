@@ -1,0 +1,196 @@
+/* CSS Document */
+*{
+	font-size: 12px;
+
+
+}
+body{ text-align:center; background:#000000}
+.img{ border:none}
+.box{
+	width:100%;
+	height:auto;
+	background:url(../images/img1.jpg) no-repeat top center
+}
+.top{ width:100%; height:222px; text-align:center;}
+.top-1{ width:100%; height:23px; margin:auto;}
+.top-2{ width:100%; height:199px; margin:auto;}
+.banner-1{ width:1000px; height:19px; background:url(../images/img5.jpg) no-repeat center; margin:auto;}
+.banner-2{ width:1000px; height:368px; background:url(../images/img6.jpg); margin:auto}
+.banner-3{ width:1000px; height:9px; background:url(../images/img7.jpg) no-repeat; margin:auto; }
+.neirong{
+	width:1000px;
+	height:685px;
+	margin:auto
+}
+.ggao{ color:#b79898; line-height:20px; padding-top:7px}
+
+.game{ padding-left:0px; padding-top:5px}
+.game img{ border:none;}
+.g1{ width:176px; height:124px; float:left}
+.g1 a{ display:block; width:176px; height:124px; background:url(../images/img16.gif)}
+.g1 a:hover{ background:url(../images/img12.gif)}
+
+.g2{ width:175px; height:124px; float:left}
+.g2 a{ display:block; width:175px; height:124px; background:url(../images/img17.gif)}
+.g2 a:hover{ background:url(../images/img13.gif)}
+
+.g3{ width:174px; height:124px; float:left}
+.g3 a{ display:block; width:174px; height:124px; background:url(../images/img18.gif)}
+.g3 a:hover{ background:url(../images/img14.gif)}
+
+.xiazai a{ display:block; width:183px; height:104px; background:url(../images/img20.jpg); margin-top:17px}
+.xiazai a:hover{ background:url(../images/21.jpg)}
+.bottom{ width:100%; height:169px; background:url(../images/2.png) no-repeat center top; margin-top:18px}
+.di a{color:#444343; text-decoration:none }
+.di a:hover{ color:#FF9900}
+
+.yvyuan{ width:1000px; height:50px; position:absolute; top:-199px; left:0px; color:#FFFFFF; margin:auto; text-align:right; color:#878787}
+.yvyuan a{ color:#878787; text-decoration:none}
+.yvyuan a:hover{ color:#FF9900; }
+
+.toubu td{ color:#acacac; line-height:22px; text-align:left}
+.toubu a{color:#acabab; text-decoration:none}
+.toubu a:hover{color:#FFCC00}
+.wb-1 input{ width:104px; height:16px; border:solid 1px #373737; background:#0f0f0f; color:#999999; font-weight:bold; line-height:16px; }
+.tijiao input{ border:none; width:51px; height:17px; background:url(../images/img22.jpg)}
+.wangmi a{ color:#acabab; text-decoration:none}
+.wangmi a:hover{ color:#FFCC00}
+
+.yyxz{ width:80px;  height:22px; position:relative}
+.yyjd{  height:22px; position:absolute; left:-5px; top:0px; overflow:hidden}
+
+.sign_in_left{
+	float:left;
+	width:228px;
+	height:auto;
+}
+
+.left_top{
+	float:left;
+	width:228px;
+	height:323px;
+	background-image:url(../images/user_sign_in_05.gif);
+	}
+	
+.left_center{
+	float:left;
+	width:228px;
+	height:26px;
+	min-height:26px;
+	background:url(../images/user_sign_in_09.gif) repeat-y;
+	}
+	
+.left_bottom{
+	float:left;
+	width:228px;
+	height:352px;
+	background-image:url(../images/user_sign_in_11.gif);
+	}
+
+.sign_in_center{
+	float:left;
+	width:543px;
+	height:auto;
+}
+	
+.center_top{
+	float:left;
+	width:543px;
+	height:110px;
+	background-image:url(../images/user_sign_in_06.gif);
+	}
+	
+.center_center{
+	float:left;
+	width:543px;
+	height:auto;
+	min-height:495px;
+	color:#D9631D;
+	background:url(../images/user_sign_in_08.gif)  repeat-y;
+	}
+	
+.center_1{
+	float:left;
+	width:543px;
+	line-height:30px;
+	height:510px;
+	/* [disabled]min-height:490px; */
+}
+
+.center_1 input{
+	width:160px;
+	margin-left: 10px;
+	height:16px;
+	}
+
+.center_bottom{
+	float:left;
+	width:543px;
+	height:81px;
+	background-image:url(../images/user_sign_in_13.gif);
+	/* [disabled]margin-top: 10px; */
+	}
+
+.sign_in_right{
+	float:left;
+	width:228px;
+	height:auto;
+}
+	
+.right_top{
+	float:left;
+	width:228px;
+	height:323px;
+	background-image:url(../images/user_sign_in_05_1.gif);
+	}
+	
+.right_center{
+	float:left;
+	width:228px;
+	height:26px;
+	min-height:26px;
+	background:url(../images/user_sign_in_09_1.gif) repeat-y;
+	}
+	
+.right_bottom{
+	float:left;
+	width:228px;
+	height:352px;
+	background-image:url(../images/user_sign_in_11_1.gif);
+	}
+
+.line_1{
+	list-style-type:none;
+	width:297px;
+	height:20px;
+	text-align:left;
+}
+.line_1 input{ font-size:14px;}
+.line_2{
+	list-style-type:none;
+	width:297px;
+	height:10px;
+	background-image:url(../images/registered_09.gif)
+}
+
+.line_3{
+	list-style-type:none;
+	width:113px;
+	height:28px;
+	background-image:url(../images/login_16.gif)
+}
+
+.line_4{
+	list-style-type:none;
+	width:113px;
+	height:23px;
+	background-image:url(../images/login_18.gif)
+}
+
+.registered_center_2_bottom{
+	float:left;
+	width:297px;
+	height:137px;
+	background-image:url(../images/registered_11.gif);
+	background-position:bottom;
+	}

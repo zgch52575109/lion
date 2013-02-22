@@ -1,0 +1,145 @@
+/* CSS Document */
+body{ text-align:center; background:#000000}
+.img{ border:none}
+.box{ width:100%; height:auto; background:url(../images/img1.jpg) no-repeat top center }
+.top{ width:100%; height:222px; text-align:center;}
+.top-1{
+	width:100%;
+	height:23px;
+	margin:auto;
+	background-color:#000;
+	font-size: 12px;
+	padding-bottom: 5px;
+}
+
+.top_3_1{
+	height:280px;
+	width:788px;
+	float: left;
+	}
+
+.top_3_2{
+	height:280px;
+	width:212px;
+	float: left;
+	}
+
+.top_2{
+	margin:auto;
+	width:1400px;
+	height:922px;
+}
+.left_1{
+	float:left;
+	display:block;
+	background-image:url(../images/ranking_list_02.gif);
+	width:200px;
+	height:922px;
+}
+.right_1{
+	float: right;
+	/* [disabled]display:block; */
+	background-image:url(../images/ranking_list_04.gif);
+	width:200px;
+	height:922px;
+	/* [disabled]margin-right:-500px; */
+	/* [disabled]margin-top:-907px; */
+}
+#l1{ width:168px; height: auto;}
+.l5{
+	background-image:url(../images/ranking_list_56.gif);
+	width: auto;
+	height: auto;
+	padding:60px 18px 30px 18px;
+}
+.l5 p{
+	color:#DCB876;
+	line-height:18px;
+	text-align:left;
+	font-size: 12px;
+	width:139px;
+	height:90px;
+}
+.con{float:left; display:block;width:1000px;height: auto;}
+.con .top_3{
+	background-image:url(../images/ranking_list_03.gif);
+	width:1000px;
+	height: 280px;
+}
+.con .c1{
+	background-image:url(../images/ranking_list_05.gif);
+	height:19px;
+}
+.con .left_2{
+	float:left;
+	display:block;
+	width:168px;
+	height:608px;
+	margin-top:3px;
+}
+.a{ width:39px; height:33px; float:left; margin-left:32px; margin-top:20px;}
+.a1{ background:url(../images/ranking_list_21.png); width:186px; height:24px; float:left; margin-left:32px; text-align:center; font-size:15px; color:#FF0; padding-top:7px; margin-top:20px;}
+.b{
+	width:39px;
+	height:33px;
+	float:left;
+	margin-left:32px;
+	margin-top:20px;
+}
+.b1{ background: url(../images/ranking_list_34.gif); width:186px; height:24px; float:left; margin-left:32px; text-align:center; font-size:15px; color:#FF0; padding-top:7px; margin-top:20px;}
+.o{
+	width:37px;
+	height:31px;
+	float:left;
+	margin-left:32px;
+	margin-top:20px;
+}
+.o1{ background: url(../images/ranking_list_41.gif); width:186px; height:24px; float:left; margin-left:32px; text-align:center; font-size:15px; color:#FF0; padding-top:7px; margin-top:20px;}
+.f{ background: url(../images/ranking_list_50.gif); width:30px; height:23px; float:left; margin-left:37px; margin-right:3px; margin-top:4px; text-align:center; font-size:18px; margin-top:20px;}
+.f1{ background: url(../images/ranking_list_48.gif); width:186px; height:24px; float:left; margin-left:32px; text-align:center; font-size:15px; color:#FF0; padding-top:7px;  margin-top:20px;}
+.f h4{
+	margin-top:2px;
+	color: #FF3;
+}
+.m1{
+	display:block;
+	float:left;
+	margin-left:37px;
+	margin-top:20px;
+	color:#C90;
+}
+.m2{
+	display:block;
+	float:left;
+	margin-left:32px;
+	margin-top:20px;
+	width:186px;
+	color:#C90;
+}
+.m3{ margin:130px 50px 13px 800px; color: #F90}
+.m3 a{ color:#F60}
+.bottom{
+	width:100%;
+	height:169px;
+	background:url(../images/2.png) no-repeat center top;
+	margin-top:18px;
+	clear: left;
+	font-size: 12px;
+}
+.di a{color:#444343; text-decoration:none }
+.di a:hover{ color:#FF9900}
+
+.yvyuan{ width:1000px; height:50px; position:absolute; top:-199px; left:0px; color:#FFFFFF; margin:auto; text-align:right; color:#878787}
+.yvyuan a{ color:#878787; text-decoration:none}
+.yvyuan a:hover{ color:#FF9900; }
+
+.toubu td{ color:#acacac; line-height:22px; text-align:left}
+.toubu a{color:#acabab; text-decoration:none}
+.toubu a:hover{color:#FFCC00}
+.wb-1 input{ width:104px; height:16px; border:solid 1px #373737; background:#0f0f0f; color:#999999; font-weight:bold; line-height:16px; }
+.tijiao input{ border:none; width:51px; height:17px; background:url(../images/img22.jpg)}
+.wangmi a{ color:#acabab; text-decoration:none}
+.wangmi a:hover{ color:#FFCC00}
+
+.yyxz{ width:80px;  height:22px; position:relative}
+.yyjd{  height:22px; position:absolute; left:-5px; top:0px; overflow:hidden}

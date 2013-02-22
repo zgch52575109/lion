@@ -1,0 +1,108 @@
+    <div id="rightside">
+
+
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>添加优惠发放类型</h2>
+            </div>
+            <div class="contentbox">
+				<table width="90%">					
+                      <tr>
+                        <td>序号</td>
+						<td>类型编号</td>
+                        <td>类型</td>
+                        <td>优惠金额</td>
+                        <td>属性</td>
+                      </tr>
+					  <?php
+					  	$selesql="Select * from ek_member_promotions where states=1 and uid!=1 and uid!=2 and uid!=5 and uid!=11 and uid!=0";
+						
+						$dsql->SetQuery($selesql); 
+						$dsql->Execute('class_list');
+						while($row=$dsql->GetArray('class_list'))
+						{
+							$ii++;
+							?>
+							
+							<tr>
+								<td><?php echo $ii;?></td>
+								<td><?php echo $row['uid'];?></td>
+								<td><?php echo $row['name'];?></td>
+								<td><?php echo $row['money'];?></td>
+								<td><a href='?action=edit&pid=<?php echo $row[id];?>'>修改</a> | <a href='?action=delet&pid=<?php echo $row[id];?>'>删除</a></td>
+                     	 	</tr>
+									
+						<?php 
+						}		
+						?>
+                      
+                    </table>
+            	<form action="?action=add<?php if($roww['id']){echo "add";}?>" id="frmMain_2" name="frmMain_2" method="POST">
+					<p>
+                        <label for="grouptitle"><strong>优惠类型编号：</strong> </label>
+						<input type="text" name="number2" id="number2" class="inputbox"  value="<?php echo $roww['uid']?>" <?php if( $roww['uid']){echo readonly;}?>/> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>优惠类型：</strong> </label>
+						<input type="text" name="account2" id="account2" class="inputbox"  value="<?php echo $roww['name']?>" /> <br />
+                    </p>
+            		<p>
+                        <label for="grouptitle"><strong>优惠金额:</strong></label>
+						<input type="text" name="cash2" id="cash2" class="inputbox" style="width:50px"  value="<?php echo $roww['money']?>"/>元 <br />
+                    </p>
+					<input type="submit" value="保存" class="btn" />
+                </form>
+            </div>
+</div>
+
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2>恢复优惠发放类型</h2>
+            </div>
+            <div class="contentbox" style="display: none; ">
+				<table width="90%">					
+                      <tr>
+                        <td>序号</td>
+						<td>类型编号</td>
+                        <td>类型</td>
+                        <td>优惠金额</td>
+                        <td>属性</td>
+                      </tr>
+					  <?php
+					  	$selesql="Select * from ek_member_promotions where states=0";						
+						$dsql->SetQuery($selesql); 
+						$dsql->Execute('class_list');
+						while($row=$dsql->GetArray('class_list'))
+						{
+							$ii++;
+							?>
+							
+							<tr>
+								<td><?php echo $ii;?></td>
+								<td><?php echo $row['uid'];?></td>
+								<td><?php echo $row['name'];?></td>
+								<td><?php echo $row['money'];?></td>
+								<td><a href='?action=dele&pid=<?php echo $row[id];?>'>恢复</a></td>
+                     	 	</tr>
+									
+						<?php 
+						}		
+						?>
+                      
+                    </table>
+            	
+            </div>
+</div>
+
+
+
+
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>

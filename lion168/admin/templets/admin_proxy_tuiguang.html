@@ -1,0 +1,107 @@
+    <div id="rightside">
+    
+
+<div class="contentcontainer">
+            <div class="headings alt" style="cursor:pointer" >
+               <img  src="img/1.png" style="float:left; margin-right:15px; margin-top:10px;"/> <h2><?php echo $rowp['username']?>下线列表</h2>
+            </div>
+            <div class="contentbox"><form method="post" name="main_form" action="" style="margin:0px;"> 
+            	<table width="100%">
+                	<thead>
+                    	<tr>
+							  <th>ID</th>
+							  <th>会员账号</th>
+							  <th>真实名称</th>
+							  <th>会员级别</th>
+							  <th>投注额</th>
+							  <th>开通日期</th>
+							  <th>现金码</th>
+							  <th>利润（元）</th>
+							  <th>分成比例</th>
+							  <th>提成（元）</th>
+							  <th>状态</th>
+							  <th>活跃</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+<?php
+if($rowp['fencheng']){
+	$fencheng=$rowp['fencheng'];
+}else{
+	$rowg = $dsql->GetOne("select fengcheng from ek_proxy where uid='$id'");
+	$fencheng=$rowg['fencheng'];
+}
+$numPerPage=30;
+$page = isset($page) ? intval($page) : 1;
+$uid = isset($uid) ? intval($uid) : 0;
+if($page==0) $page=1;
+$whereStr="where proxyuid='$id'";
+$csqlStr="select count(*) as dd from `ek_proxy_member_thismonth` $whereStr";
+$row = $dsql->GetOne($csqlStr);
+if(is_array($row)){
+$TotalResult = $row['dd'];
+}else{
+$TotalResult = 0;
+}
+$TotalPage = ceil($TotalResult/$numPerPage);
+if ($page>$TotalPage) $page=$TotalPage;
+$pagebar=multi($TotalResult, $numPerPage, $page, 'admin_proxy.php?action=viewfencheng&id='.$id.'');
+$limitstart = ($page-1) * $numPerPage;
+if($limitstart<0) $limitstart=0;
+$sqlStr="select * from ek_proxy_member_thismonth $whereStr order by userActive desc limit $limitstart,$numPerPage";
+$dsql->SetQuery($sqlStr);
+$dsql->Execute('class_list');
+$i=1;
+$allmoney=$allhongli=$allshouxufei=0;
+while($row=$dsql->GetArray('class_list'))
+{
+?>
+                    	<tr<?php if ($i%2==0){ echo ' class="alt"';}else{echo ' class="hover_5"';} ?>>
+							<td><?php echo $row['uid'];?></td>
+                        	<td><?php echo $row['userNumber'];?></td>
+                        	<td><?php echo $row['userName'];?></td>
+                        	<td><?php echo $row['userGrouptitle'];?></td>
+                        	<td><?php echo $row['userAllStakedAmount'];?></td>
+                        	<td><?php echo $row['userJointime'];?></td>
+                        	<td><?php echo $row['userAllRegularChips'];?></td>
+                        	<td><?php echo $row['netoKita'];?></td>
+                        	<td><?php echo $row['fencheng'];?></td>
+                        	<td><?php echo $row['komisyon'];?></td>
+                        	<td><?php if ($row[userStatus]){?>
+							<strong style="color:#3366FF">启用</strong><?php }
+							if (! $row[userStatus]){?>
+							<strong style="color:#FF0000">停用</strong><?php }
+							?></td>
+                        	<td><?php if($row['userActive']>0){$activenm="<a title='活跃用户'><img src='img\/active.png' width='16' height='16'></a>";}else{$activenm="<a title='非活跃用户'><img src='img\/active2.png' width='16' height='16'></a>";} echo $activenm;?></td>
+                        </tr>
+<?php
+$i++;
+}
+?>
+
+                    </tbody>
+                </table>
+
+                <ul class="pagination">
+				<li class="text">&nbsp;本页显示共获得推广佣金<b><?php echo number_format(($allmoney-$allhongli-$allshouxufei)*$fencheng,2);?></b>元 页次：<b><?php echo $page;?></b>/<b><?php echo $TotalPage;?></b> 每页<b><?php echo $numPerPage;?></b> 总收录数据<b><font color=#ff0000><?php echo $TotalResult;?></font></b>条</li>
+				<?php echo $pagebar;?>
+                </ul>
+                <div style="clear: both;"></div>
+            </form>
+			</div>
+</div>
+
+
+        <div id="footer">
+        	&copy; Copyright 2010 Your Company Name
+        </div> 
+          
+</div>
+<script type='text/javascript' src='scripts/main.js'></script>
+			<script type="text/javascript" language="javascript">
+
+			function showmanageform(tid){
+				$$('form_checkall').style.display = tid == 'checkall' ? '' : 'none';
+				$$('form_czhengfuall').style.display = tid == 'czhengfuall' ? '' : 'none';
+			}
+			</script>
