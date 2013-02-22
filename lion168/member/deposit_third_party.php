@@ -8,11 +8,11 @@ if($action=='save'){
 	$bank_id = isset($bank_id) && is_numeric($bank_id) ? $bank_id : 0;
 	$cash = isset($cash) && is_numeric($cash) ? $cash : 0;
 	if($cash<$cfg_memeber_incash_min_money){
-		ShowMsg("×îĞ¡³äÖµ½ğ¶îÎª£º$cfg_memeber_incash_min_moneyÔª£¡","-1");
+		ShowMsg("æœ€å°å……å€¼é‡‘é¢ä¸ºï¼š$cfg_memeber_incash_min_moneyå…ƒï¼","-1");
 		exit();
 	}
 	if($cash>$cfg_memeber_incash_max_money){
-		ShowMsg("×î´ó³äÖµ½ğ¶îÎª£º$cfg_memeber_incash_max_moneyÔª£¡","-1");
+		ShowMsg("æœ€å¤§å……å€¼é‡‘é¢ä¸ºï¼š$cfg_memeber_incash_max_moneyå…ƒï¼","-1");
 		exit();
 	}
 	$orderid=date('ymdHis').rand(1000,9999);
@@ -28,7 +28,7 @@ if($action=='save'){
 		}
 		require_once EK_ROOT.'/include/payment/'.$apier['folder'].'.php';
 		$payment = new _wespace_apis_payment_($loops['conf']);
-		$loops['apied'] = $payment->creater($apier['id'],$orderid,'´æ¿îÔÚÏß³äÖµ',$cash);
+		$loops['apied'] = $payment->creater($apier['id'],$orderid,'å­˜æ¬¾åœ¨çº¿å……å€¼',$cash);
 		unset($payment);
 	}
 	$bank=$loops['api']['subject'];
@@ -45,15 +45,15 @@ if($action=='save'){
 		if ($loops['apied']['method_ispost']){
 			echo '					<form name="wanepaymentid" action="'.$loops['apied']['paymentaction'].'" method="post">';
 			echo $loops['apied']['paymentstring'];
-			echo '						<input id="payment_payer_apied" name="payment_payer_apied" type="submit" value="Á¢¼´¸¶¿î" />';
+			echo '						<input id="payment_payer_apied" name="payment_payer_apied" type="submit" value="ç«‹å³ä»˜æ¬¾" />';
 			echo '					</form>';
-			echo '<script>payment_payer_apied.submit();</script>ÕıÔÚ×ªÏòÖ§¸¶Ò³Ãæ£¬ÇëÉÔºò¡£¡£¡£';
+			echo '<script>payment_payer_apied.submit();</script>æ­£åœ¨è½¬å‘æ”¯ä»˜é¡µé¢ï¼Œè¯·ç¨å€™ã€‚ã€‚ã€‚';
 		}else{
 			header('Location:'.$loops['apied']['paymentstring']);
 		}
 		exit();
 	}
-	ShowMsg('Ìá½»Ê§°Ü£¬Çë¼ì²éÁªÏµ¹ÜÀíÔ±£¡','-1');
+	ShowMsg('æäº¤å¤±è´¥ï¼Œè¯·æ£€æŸ¥è”ç³»ç®¡ç†å‘˜ï¼','-1');
 	exit();
 }
 
