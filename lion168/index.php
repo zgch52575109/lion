@@ -9,4 +9,4 @@ if(GetCookie('EKuid')!=''){
 	$t->assign('loginname',GetCookie('EKUserName'));
 	$t->assign('loginuid',GetCookie('EKuid'));
 }
-$t->display('index/index.html',"$cacheid");
+$t->display('index/index.html',"$cacheid"); 
