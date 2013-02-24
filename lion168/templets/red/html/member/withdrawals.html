@@ -1,104 +1,97 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
-    <title>取款</title>
-    <meta name="keywords" content="keyword ..." />
-    <meta name="Description" content="description ..." />
+    <meta charset="utf-8" />
+    <title>Sky133-优惠活动</title>
+    <meta name="keywords" content="优惠活动" />
+    <meta name="Description" content="优惠活动" />
     <!--<link href="favicon.ico" rel="shortcut icon" />-->
-    <link href="../css/member/global.css" rel="stylesheet" type="text/css" />
+    <link href="../css/global.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<!--{include file="member/top.html"}-->
-
+<!--{include file="member/top1.html"}-->  
 <div id="maincontent">
- <div class="title">取款</div>
- <div id="leftcontent">
-  <ul> 
-    <li><a href="withdrawals.php" class="current">立即取款</a></li>
-  </ul>
- </div>
- <div id="rightcontent">
- <form action="" method=post id="frmMain" name="frmMain">
-   <ul class="list">
-    <li>
-       <div class="l"><b>您的资金余额 </b></div>
-       <div class="r"><!--{$money}-->元</div>
-       <div class="clear"></div>
-     </li>
-   
- 
-     
-     <li>
-       <div class="l"><b>请选择银行卡</b><span>*</span><p>(选择取款银行卡)</p></div>
-       <div class="r">
-       <select name="bankid" id="bankid" class="select" onchange="window.location.href=('?bankid='+this.options[this.selectedIndex].value);">
+  <div id="leftcontent">
+    <div class="quickmenu">
+    <div class="inner">
+      <h3>热门优惠</h3>
+      <ul class="list">
+       <li><a href="#">新玩家奖池</a></li>
+       <li><a href="#">首存礼包</a></li>
+       <li><a href="#">老虎机争霸赛</a></li>
+       <li><a href="#">返水优惠</a></li>
+      </ul>
+      <div class="b"></div>
+     </div>
+    </div>
+  </div>
+  <div id="rightcontent">
+    <div class="tabs">
+      <strong>会员中心</strong>
+      <ul>
+        <li><a href="info.php" tab="info">我的帐户</a></li>
+        <li><a href="deposit.php" tab="deposit">存款</a></li>
+        <li  class="current"><a href="withdrawals.php" tab="withdraval">取款</a></li>
+        <li><a href="limit_operation.php" tab="transfer">资金转账</a></li>
+        <li><a href="record.php" tab="record">交易记录</a></li>           
+      </ul>
+    </div>
+     <div id="newaddcontent" id="withdraval">
+      <div class="title">取款</div>
+      <div class="body">
+      <form action="" method=post id="frmMain" name="frmMain">
+	      	<ul>
+	      	<li>您的资金余额：￥<!--{$money}--></li>
+	      	<li>请选择银行卡: <select name="bankid" id="bankid" class="select" onchange="window.location.href=('?bankid='+this.options[this.selectedIndex].value);">
        
 	  <!--{foreach value=data key=key from=$datas}-->
         <option value="<!--{$data[id]}-->"<!--{if $data[id]==$bankid}--> selected<!--{/if}-->><!--{$data[tname]}-->(<!--{$data[intro]}-->)</option>
 		<!--{/foreach}-->
-      </select>
-       </div>
-       <div class="clear"></div>
-     </li>
-
-     <li>
-       <div class="l"><b>持卡人 </b></div>
-       <div class="r"><!--{$rowc[realname]}--></div>
-       <div class="clear"></div>
-     </li>
-     
-     <li>
-       <div class="l"><b>省份 </b></div>
-       <div class="r"><!--{$rowc[sf]}--></div>
-       <div class="clear"></div>
-     </li>
-     
-     <li>
-       <div class="l"><b>城市 </b></div>
-       <div class="r"><!--{$rowc[city]}--></div>
-       <div class="clear"></div>
-     </li>
-     
-     <li>
-       <div class="l"><b>开户行 </b></div>
-       <div class="r"><!--{$rowc[tname]}--> <!--{$rowc[zhihang]}--></div>
-       <div class="clear"></div>
-     </li>
-     <li>
-       <div class="l"><b>银行卡号 </b></div>
-       <div class="r"><!--{$rowc[cardnum]}--></div>
-       <div class="clear"></div>
-     </li>  
-     
-     
-     
-     
-     
-     
-     
-     <li>
-       <div class="l"><b>提款金额 </b><span>*</span><p>(单笔不得低于<!--{$mincash}-->元)</p></div>
-       <div class="r"><input name="cash" type="text" class="text" id="cash" maxlength="12" onkeyup="clearNoNum(this)" /></div>
-       <div class="clear"></div>
-     </li>
- 
-   </ul>
-   <dl class="tip">
-     <dt>重要提示：</dt>
-     <dd>单日取款限<!--{$dayoutcashnum}-->次。</dd>
-     <dd>取款时间间隔小于24小时，扣除手续费3元。</dd>     
-   </dl>
-   <div class="btns"><div class="btndiv"><!--{ if $datas}--><input type="hidden" name="action" value="save"><input type="button" class="submit" value="确  认" onclick="WithDrawal()" /><!--{else}-->
-     <a href="bank_bd.php"><strong>点击绑定银行卡</strong></a>
-     <!--{/if}--></div></div>
-   </form>
- </div>
- <div class="clear"></div>
+      </select></li>
+			<li>持卡人姓名：
+			<!--{$rowc[realname]}--></li>
+			<li>省份:
+			<!--{$rowc[sf]}--></li>
+			<li>城市:
+			<!--{$rowc[city]}--></li>
+			<li>开户行:
+			<!--{$rowc[tname]}--> <!--{$rowc[zhihang]}--></li>
+			<li>银行卡号:
+			<!--{$rowc[cardnum]}--></li>
+			<li>提款金额(单笔不得低于<!--{$mincash}-->元):
+			<input name="cash" type="text" class="text" id="cash" maxlength="12" onkeyup="clearNoNum(this)" /></li>
+			    <dl class="tip">
+			     <dt>重要提示：</dt>
+			     <dd>单日取款限<!--{$dayoutcashnum}-->次。</dd>
+			     <dd>取款时间间隔小于24小时，扣除手续费3元。</dd>     
+			   </dl>
+<!--{ if $datas}-->
+ <li><a href="bank_bd.php">点击绑定银行卡</a></li>
+<input type="hidden" name="action" value="save"><input type="button" class="submit" value="确  认" onclick="WithDrawal()" /><!--{else}--> <!--{/if}-->			</ul>
+		</form>
+		</div>
+    </div>
+  </div>
+  <div class="clear"></div>
 </div>
-<!--{include file="member/footer.html"}-->
-
-<script language="javascript">
+<div id="friendlink">
+ <ul>
+   <li><a href="sign_in.php"><img src="../image/friendlink01.jpg" alt="" title="" /></a></li>
+   <li><a href="sign_in.php"><img src="../image/friendlink02.jpg" alt="" title="" /></a></li>
+   <li><a href="sign_in.php"><img src="../image/friendlink03.jpg" alt="" title="" /></a></li>
+   <li><a href="sign_in.php"><img src="../image/friendlink04.jpg" alt="" title="" /></a></li>
+   <li class="split"></li>
+   <li><a href="sign_in.php"><img src="../image/friendlink05.jpg" alt="" title="" /></a></li>
+   <li><a href="sign_in.php"><img src="../image/friendlink06.jpg" alt="" title="" /></a></li>
+ </ul>
+</div>
+<div id="footer">
+  <div class="menu"><a href="#">关于我们</a><a href="#">代理合作</a><a href="#">责任博彩</a><a href="#">规则条款</a><a href="#">隐私政策</a><a href="#">站点地图</a></div>
+  <div class="copy">Copyright <span>&copy;</span> 2012, Sky133. All Rights Reserved.</div>
+</div>
+<script language="javascript" type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script language="javascript" type="text/javascript" src="../js/default.js"></script>
+<script type="text/javascript">
 function WithDrawal()
 {
 	var value=document.frmMain.cash.value;
@@ -161,6 +154,6 @@ function clearNoNum(obj)
 	obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
 }
 </script>
-
 </body>
 </html>
+

@@ -118,6 +118,7 @@ body{ background:url(../pic/mainbg.jpg) no-repeat center 0px #000101;}
 #newaddcontent .title{ color:White; font-size:18px; padding:15px 20px; line-height:20px; background-color:#002D47;}
 #newaddcontent .body{ border-top:solid 1px #004A7A; background-color:#002F4A; padding:40px 20px; line-height:25px;}
 #newaddcontent .body li{ font-size:14px; color:White; cursor:pointer; padding:5px 0px;}
+#newaddcontent .body li a{color:red; cursor:pointer; padding:5px 0px;}
 #newaddcontent .body li span{ color:White; display:inline-block; width:400px; font-size:14px;}
 #newaddcontent .body li:hover{ font-weight:bold;}
 #newaddcontent .body p{ color:White; text-indent:2em; padding:5px 0px;}

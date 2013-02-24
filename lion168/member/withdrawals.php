@@ -140,5 +140,9 @@ $t->assign('rowc',$rowc);
 $t->assign('mincash',$cfg_memeber_incash_min_money);
 $t->assign('maxcash',$maxoutmoney);
 $t->assign('dayoutcashnum',$dayoutcashnum);
-
-$t->display('member/withdrawals.html',"$cacheid");
+if(empty($datas)){
+	$t->display('member/bank_bd.html',"$cacheid");
+}
+else{
+	$t->display('member/withdrawals.html',"$cacheid");
+}

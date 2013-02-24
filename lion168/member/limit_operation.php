@@ -3,7 +3,6 @@ require_once(dirname(__FILE__)."/config.php");
 CheckRank(0,0);
 CheckNotAllow();
 $cacheid = "limit_operation";
-
 $id = isset($id) && is_numeric($id) ? $id : 0;
 $page = isset($page) && is_numeric($page) ? $page : 1;
 $pagesize = isset($pagesize) && is_numeric($pagesize) ? $pagesize : $cfg_memeber_limit_list_pagesize;
@@ -22,7 +21,6 @@ if($action=='save'){
 	   $truntype = 2;
     } 
  
-	
 	$zqcash=$cfg_cl->fields['money'];
 	$tmount=getHGmoney($cfg_cl->fields['username'],$cfg_cl->fields['truename']);
 	if($truntype==2){
@@ -139,7 +137,8 @@ $t->assign('perpage',$perpage);
 $t->assign('nextpage',$nextpage);
 
 $tmount=getHGmoney($cfg_cl->fields['username'],$cfg_cl->fields['truename']);
- 
- 
+$tmount = number_format($tmount,2); 
+$t->assign('tmount',$tmount);
+$t->assign("balance",number_format($tmount+$t->get_vars("money"),2));
 $t->assign('tmount',$tmount);
 $t->display('member/limit_operation.html',"$cacheid");

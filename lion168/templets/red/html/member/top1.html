@@ -1,0 +1,49 @@
+<div id="header">
+  <h1 id="logo"><a href="http://www.Sky133.com">Sky133</a></h1>
+  <div class="service"><a href="#">客服</a></div>
+  <div id="login">
+    <div class="img"><a href="info.php"><img src="../pic/member.jpg" alt="" title="" /></a></div>
+    <!--{if $username != ''}-->
+ 	<div style="color: #ffffff;padding: 20px 0px 0px 0px;float: left;">欢迎您回来，<!--{$username}-->，<a href="member/Logout.php" style="color: #ffffff;">退出</a></div>
+ 	<!--{else}-->
+    <form action="" method="post" id="frmLogin" name="frmLogin"  onSubmit="" >
+    <div class="info">
+     <div class="item"><input type="text" class="text" name="username" id="username"/><input name="password" id="password" type="password" class="text" /></div>
+     <div class="item"><a href="sign_in.php" class="regbtn"></a><a href="#" class="getpsw"></a></div>
+    <input type="hidden" value="login" name="action">
+    </div>
+    <input type="button" class="loginbtn" value="" />
+    </form>
+   <!--{/if}-->
+  </div>
+  <div id="nav">
+    <ul>
+      <li><a href="#">线上赌场</a></li>
+      <li><a href="#">老虎机</a></li>
+      <li><a href="#">彩票</a></li>
+      <li><a href="#">体育</a></li>
+      <li><a href="#">优惠活动</a></li>
+      <li class="en"><a href="#">English</a></li>
+    </ul>
+  </div>
+</div>
+<script language="javascript" type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script language="javascript" type="text/javascript" src="../js/default.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".loginbtn").click(function(){
+			if($("#username").val() == null || $("#username").val() == '' || $.trim($("#username").val()) == ''){
+				alert("用户名不能为空");
+				return false;
+			}
+			if($("#password").val() == null || $("#password").val() == '' || $.trim($("#password").val()) == ''){
+				alert("密码不能为空");
+				return false;
+			}
+			$("#frmLogin").attr("action","login.php");
+			$("#frmLogin").submit();
+		});
+		
+	});
+	
+</script>

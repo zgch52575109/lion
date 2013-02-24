@@ -9,7 +9,7 @@
     <link href="../css/global.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<!--{include file="member/top.html"}-->  
+<!--{include file="member/top1.html"}-->  
 <div id="maincontent">
   <div id="leftcontent">
     <div class="quickmenu">
@@ -29,21 +29,21 @@
     <div class="tabs">
       <strong>会员中心</strong>
       <ul>
-        <li class="current"><a href="info.php">我的帐户</a></li>
-        <li><a href="deposit.php">存款</a></li>
-        <li><a href="withdrawal.php">取款</a></li>
-        <li><a href="#">资金转账</a></li>
-        <li><a href="#">交易记录</a></li>           
+         <li  class="current"><a href="info.php" tab="info">我的帐户</a></li>
+        <li><a href="deposit.php" tab="deposit">存款</a></li>
+        <li><a href="withdrawals.php" tab="withdraval">取款</a></li>
+        <li><a href="limit_operation.php" tab="transfer">资金转账</a></li>
+        <li><a href="record.php" tab="record">交易记录</a></li>        
       </ul>
     </div>
-    <div id="newaddcontent">
+    <div id="newaddcontent" id="info">
      <div class="title">我的帐户</div>
       <div class="body">
       <ul>
-        <li><span>用户名：</span>xxx111</li>
-        <li><span>余额</span>￥0.00</li>
-        <li><span>Sky133主账户:</span>￥0.00</li>
-        <li><span>皇家贵宾厅余额：</span>￥0.00</li>
+        <li><span>用户名：</span><!--{$username}--></li>
+        <li><span>余额</span>￥<!--{$balance}--></li>
+        <li><span>Sky133主账户:</span>￥<!--{$money}--></li>
+        <li><span>皇家贵宾厅余额：</span>￥<!--{$tmount}--></li>
         <li><span>电子竞技厅月：</span>￥0.00</li>
         <li><span>更改密码</span></li>
       </ul>
@@ -69,6 +69,8 @@
 </div>
 <script language="javascript" type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
 <script language="javascript" type="text/javascript" src="../js/default.js"></script>
+<script type="text/javascript">
+</script>
 </body>
 </html>
 
