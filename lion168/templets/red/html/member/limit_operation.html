@@ -1,53 +1,52 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
-    <title>户头转账</title>
-    <meta name="keywords" content="keyword ..." />
-    <meta name="Description" content="description ..." />
+    <meta charset="utf-8" />
+    <title>Sky133-优惠活动</title>
+    <meta name="keywords" content="优惠活动" />
+    <meta name="Description" content="优惠活动" />
     <!--<link href="favicon.ico" rel="shortcut icon" />-->
-    <link href="../css/member/global.css" rel="stylesheet" type="text/css" />
+    <link href="../css/global.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<!--{include file="member/top.html"}-->
-
+<!--{include file="member/top1.html"}-->  
 <div id="maincontent">
- <div class="title">户头转账
- <p>金狮国际玩家，请把资金从此账户转到其相对应的账户。</p>
- </div>
- <div id="accountcontent">
-   <div class="l">
-     <dl class="d">
-       <dt>您的主要账户</dt>
-       <dd>
-         <div class="account">金狮国际 余额<span>RMB <!--{$money}--></span><span style="margin-left:145px;" id="my_1"></span></div>
-         <p><a href="#">此账户余额可以直接用于平台游戏。</a></p>
-       </dd>
-     </dl>
-     <div class="accountlist">
-      <dl class="dl1">
-        <dt>您的游戏账户</dt>
-        <dd>* 转账无法直接从游戏账户中转至另一个游戏账户</dd>
-      </dl>
-      <ul class="alist">
-       <li>
-        <dl>
-          <dt><span>RMB<!--{$tmount}--><span style="margin-left:30px; width:30px;" id="my_2"></span></span>金狮国际HG平台 Casino</dt>
-          <dd><a href="#">金狮国际拥有最热辣的美女真人荷官！</a></dd>
-        </dl>
-       </li>
-       
-         <li>
-        <dl>
-          <dt><span>RMB 0.00</span>IPM体育平台</dt>
-          <dd><a href="#">即将开放</a></dd>
-        </dl>
-       </li>        
+  <div id="leftcontent">
+    <div class="quickmenu">
+    <div class="inner">
+      <h3>热门优惠</h3>
+      <ul class="list">
+       <li><a href="#">新玩家奖池</a></li>
+       <li><a href="#">首存礼包</a></li>
+       <li><a href="#">老虎机争霸赛</a></li>
+       <li><a href="#">返水优惠</a></li>
       </ul>
+      <div class="b"></div>
      </div>
-   </div>
-   <div class="r">
-     <div class="content">
+    </div>
+  </div>
+  <div id="rightcontent">
+    <div class="tabs">
+      <strong>会员中心</strong>
+      <ul>
+        <li><a href="info.php" tab="info">我的帐户</a></li>
+        <li><a href="deposit.php" tab="deposit">存款</a></li>
+        <li><a href="withdrawals.php" tab="withdraval">取款</a></li>
+        <li   class="current"><a href="limit_operation.php" tab="transfer">资金转账</a></li>
+        <li><a href="record.php" tab="record">交易记录</a></li>           
+      </ul>
+    </div>
+    <div id="newaddcontent">
+      <div class="title">资金转账</div>
+      <div class="body">
+      <ul>
+        <li><span>余额</span>￥<!--{$balance}--></li>
+        <li><span>Sky133主账户:</span>￥<!--{$money}--></li>
+        <li><span>皇家贵宾厅余额：</span>￥<!--{$tmount}--></li>
+        <li><span>电子竞技厅余额：</span>￥0.00</li>
+      </ul>
+	  
+	  <div class="content">
      
      <form action ="" method=post id="form2" name="form2">
        <h3>转账</h3>
@@ -56,39 +55,46 @@
         <b>转出账户</b>
         <select class="select" name="cash_out" id="cash_out">
         <option value="">&nbsp;&nbsp;选择账户</option>
-        <option value="1">&nbsp;&nbsp;金狮账户</option>
-        <option value="2">&nbsp;&nbsp;HG平台</option>
+        <option value="0">&nbsp;&nbsp;皇家贵宾厅</option>
+        <option value="1">&nbsp;&nbsp;电子竞技厅</option>
         </select>
         </li>
         <li>
         <b>转入账户</b>
         <select class="select" name="cash_in" id="cash_in">
         <option value="">&nbsp;&nbsp;选择账户</option>
-        <option value="1">&nbsp;&nbsp;金狮账户</option>
-        <option value="2">&nbsp;&nbsp;HG平台</option>
+  <option value="0">&nbsp;&nbsp;皇家贵宾厅</option>
+        <option value="1">&nbsp;&nbsp;电子竞技厅</option>
         </select>
         </li>
         <li><input name="amount" type="text" class="text" id="amount" onkeyup='this.value=this.value.replace(/[^0-9]\D*$/,"")' maxlength="12" ondragenter="return false" onpaste="return !clipboardData.getData('text').match(/\D/)" />数额</li>
-        <li class="btnli"><div class="btndiv"><input type="hidden" name="action" value="save"><input name="提交" type="submit" class="submit" onclick="amcheck()" value="转账" /></div></li>
+        <li class="btnli"><div class="btndiv"><input type="hidden" name="cash" id="cash" value="0.00">
+		<input type="hidden" name="action" value="save"><input name="提交" type="submit" class="submit" onclick="amcheck()" value="转账" /></div></li>
        </ul>
        </form>
        
      </div>
-     <div class="content contentbottom">
-       <h3>历史记录</h3>
-       <ul class="ul">
-         <li><a href="cash_system.php">存款记录</a></li>
-         <li><a href="limit_operation_list.php">转账记录</a></li>
-       </ul>
-     </div>
-   </div>
-   <div class="clear"></div>
- </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
 </div>
-<!--{include file="member/footer.html"}-->
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" language="javascript" type="text/javascript"></script>
- <script type="text/javascript">
+<div id="friendlink">
+ <ul>
+   <li><a href="sign_in.php"><img src="../image/friendlink01.jpg" alt="" title="" /></a></li>
+   <li><a href="sign_in.php"><img src="../image/friendlink02.jpg" alt="" title="" /></a></li>
+   <li><a href="sign_in.php"><img src="../image/friendlink03.jpg" alt="" title="" /></a></li>
+   <li><a href="sign_in.php"><img src="../image/friendlink04.jpg" alt="" title="" /></a></li>
+   <li class="split"></li>
+   <li><a href="sign_in.php"><img src="../image/friendlink05.jpg" alt="" title="" /></a></li>
+   <li><a href="sign_in.php"><img src="../image/friendlink06.jpg" alt="" title="" /></a></li>
+ </ul>
+</div>
+<div id="footer">
+  <div class="menu"><a href="#">关于我们</a><a href="#">代理合作</a><a href="#">责任博彩</a><a href="#">规则条款</a><a href="#">隐私政策</a><a href="#">站点地图</a></div>
+  <div class="copy">Copyright <span>&copy;</span> 2012, Sky133. All Rights Reserved.</div>
+</div>
+<script type="text/javascript">
 $(document).ready(function(){  
 	   $("#cash_out").change(function(){
 		   var cash_out=parseInt($.trim($("#cash_out").val()));
@@ -132,6 +138,6 @@ $(document).ready(function(){
 		}); 
 }); 
 </script> 
- 
 </body>
 </html>
+
