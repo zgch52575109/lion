@@ -1,10 +1,13 @@
 <div id="header">
-  <h1 id="logo"><a href="http://www.Sky133.com">Sky133</a></h1>
+  <h1 id="logo"><a href=".">Sky133</a></h1>
   <div class="service"><a href="#">客服</a></div>
   <div id="login">
     <div class="img"><a href="member/info.php"><img src="pic/member.jpg" alt="" title="" /></a></div>
     <!--{if $loginname != ''}-->
- 	<div style="color: #ffffff;padding: 20px 0px 0px 0px;float: left;">欢迎您回来，<!--{$loginname}-->，<a href="member/Logout.php" style="color: #ffffff;">退出</a></div>
+ 	<div style="color: #ffffff;padding: 20px 0px 0px 0px;float: left;">欢迎您回来，<!--{$loginname}-->,<a href="member/Logout.php" style="color: #ffffff;">退出</a>
+ 	<br>
+ 	<a style="color: #D98E11;" href="member/info.php">我的账户</a>   <a style="color: #D98E11;" href="member/deposit.php">存款</a> <a style="color: #D98E11;" href="member/withdrawals.php">取款</a> <span style="color: #D98E11;">余额:<!--{$balance}--></span>
+ 	</div>
  	<!--{else}-->
     <form action="" method="post" id="frmLogin" name="frmLogin"  onSubmit="" >
     <div class="info">
@@ -18,11 +21,11 @@
   </div>
   <div id="nav">
     <ul>
-      <li><a href="#">线上赌场</a></li>
-      <li><a href="#">老虎机</a></li>
+      <li><a href="livecasino.php">线上赌场</a></li>
+      <li><a href="casino.php">老虎机</a></li>
       <li><a href="#">彩票</a></li>
       <li><a href="#">体育</a></li>
-      <li><a href="#">优惠活动</a></li>
+      <li><a href="promotions.php">优惠活动</a></li>
       <li class="en"><a href="#">English</a></li>
     </ul>
   </div>

@@ -151,6 +151,7 @@ class MemberLogin
 				$this->M_Groupid = $this->fields['groupid'];
 				$this->M_Money = $this->fields['money'];
 				$this->M_Status = $this->fields['status'];
+				$_SESSION['userInfo'] = $this->fields;
 			}
 			else
 			{

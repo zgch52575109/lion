@@ -58,11 +58,11 @@ $cfg_agentid = '';
 $cfg_refno = '';
 $cfg_promoid = '';
 $cfg_currencyid = 'RMB';
-$cfg_apiurl = 'https://hi.lion168.com/cgibin/EGameIntegration';
-$cfg_apiloginurl = 'https://hi.lion168.com/login/visitor/checkLoginGI.jsp?ticketId=';
-$cfg_CasinoId = 'sw54aru29pa8thin';
-$cfg_api_username = 'topone';
-$cfg_api_password = 'top@one@';
+$cfg_apiurl = 'https://sky133uat.hointeractive.com/cgibin/EGameIntegration';
+$cfg_apiloginurl = 'https://sky133uat.hointeractive.com/login/visitor/checkLoginGI.jsp?ticketId=&lang=ch';
+$cfg_CasinoId = 'skyii3eyiwb06e4j';
+$cfg_api_username = 'sky133uat';
+$cfg_api_password = 'sky133@uat@';
 $cfg_apigeturl = 'http://services.hogaming.info/betapi.asmx/GetPlayerDetails';
 $cfg_livegame_apigeturl = 'http://webapi-asia.hointeractive.com/Betapi.asmx/GetPlayerBetAmount';
 $cfg_gamehistory_apigeturl = 'http://services.hogaming.info/betapi.asmx/GetAllbetdetails';
@@ -72,22 +72,7 @@ $Sponsored_Connectivity = 'http://pay.woaiqishi.com/index.php';
 $Mer_Amount_cash = '100-5000';
 $cfg_foot = '电子邮箱: cs@lion168.com  Copyright Reserved 2012 金狮国际娱乐城.All rights reserved.<br>
 免费电话：400-6454-688(中国大陆地区) 客服中心：0063-927-6888808  0063-927-6888818';
-$cfg_stats = '<script type=\"text/javascript\">
-
-  var _gaq = _gaq || [];
-  _gaq.push([\'_setAccount\', \'UA-31156298-1\']);
-  _gaq.push([\'_trackPageview\']);
-
-  (function() {
-    var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;
-    ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';
-    var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<div style=\"display:none;\"><script src=\"http://s13.cnzz.com/stat.php?id=3744286&web_id=3744286\" language=\"JavaScript\"></script>
-<script src=\"http://s13.cnzz.com/stat.php?id=3737663&web_id=3737663\" language=\"JavaScript\"></script>
-</div>';
+$cfg_stats = '';
 $cfg_ipaccess = '';
 $cfg_banip = '121.52.215.235
 220.181.158.108';

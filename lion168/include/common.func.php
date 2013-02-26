@@ -621,6 +621,8 @@ function regHGuser($username,$truename,$type='1'){
 }
 
 function getHGmoney($username,$truename,$type='1'){
+	//测试数据
+	//return 10.00;
 	global $cfg_apiurl;
 	$poststr='<?xml version="1.0"?><request action="accountbalance"><element><properties name="username">'.$username.'</properties><properties name="mode">'.$type.'</properties></element></request>';
 	$str=postUrl($cfg_apiurl,$poststr);
@@ -663,6 +665,8 @@ function zhuanruHGmoeny($amount,$username,$truename,$type='1'){
 }
 
 function zhuanchuHGmoeny($amount,$username,$truename,$type='1'){
+	//测试
+	//return "0";
 	global $cfg_apiurl,$cfg_currencyid,$cfg_refno,$cfg_promoid,$cfg_agentid;
 	$cfg_refno=substr(md5(date('ymdHis').rand(1000,9999)), 8, 16);
 	$poststr='<?xml version="1.0"?><request action="withdrawal"><element><properties name="username">'.$username.'</properties><properties name="mode">'.$type.'</properties><properties name="currencyid">'.$cfg_currencyid.'</properties><properties name="amount">'.$amount.'</properties>'.($cfg_refno ? '<properties name="refno">'.$cfg_refno.'</properties>' : '').($cfg_promoid ? '<properties name="promoid">'.$cfg_promoid.'</properties>' : '').($cfg_agentid ? '<properties name="agentid">'.$cfg_agentid.'</properties>' : '').'</element></request>';

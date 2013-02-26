@@ -6,11 +6,14 @@ $cacheid = "limit_operation";
 $id = isset($id) && is_numeric($id) ? $id : 0;
 $page = isset($page) && is_numeric($page) ? $page : 1;
 $pagesize = isset($pagesize) && is_numeric($pagesize) ? $pagesize : $cfg_memeber_limit_list_pagesize;
-
 if($action=='save'){
 	if(!is_numeric($amount)){
-		ShowMsg("金额只能为大于0的数字！","-1");
+		ShowMsg("金额只能为数字！","-1");
 		exit();
+	}
+	if($cash_out == '' ||  $cash_in == ''){
+			ShowMsg("请填写转出转入账户","-1");
+			exit();
 	}
 	if ($cash_out == 1 )
 	{

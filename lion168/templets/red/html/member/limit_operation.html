@@ -33,7 +33,8 @@
         <li><a href="deposit.php" tab="deposit">存款</a></li>
         <li><a href="withdrawals.php" tab="withdraval">取款</a></li>
         <li   class="current"><a href="limit_operation.php" tab="transfer">资金转账</a></li>
-        <li><a href="record.php" tab="record">交易记录</a></li>           
+         <li><a href="transactionRecord.php" tab="transactionRecord">存取款记录</a></li>   
+         <li><a href="limit_operation_list.php" tab="limit_operation_list">转账记录</a></li>            
       </ul>
     </div>
     <div id="newaddcontent">
@@ -55,16 +56,16 @@
         <b>转出账户</b>
         <select class="select" name="cash_out" id="cash_out">
         <option value="">&nbsp;&nbsp;选择账户</option>
-        <option value="0">&nbsp;&nbsp;皇家贵宾厅</option>
-        <option value="1">&nbsp;&nbsp;电子竞技厅</option>
+        <option value="1">&nbsp;&nbsp;Sky133主账户</option>
+        <option value="2">&nbsp;&nbsp;皇家贵宾厅</option>
         </select>
         </li>
         <li>
         <b>转入账户</b>
         <select class="select" name="cash_in" id="cash_in">
         <option value="">&nbsp;&nbsp;选择账户</option>
-  <option value="0">&nbsp;&nbsp;皇家贵宾厅</option>
-        <option value="1">&nbsp;&nbsp;电子竞技厅</option>
+  <option value="1">&nbsp;&nbsp;Sky133主账户</option>
+        <option value="2">&nbsp;&nbsp;皇家贵宾厅</option>
         </select>
         </li>
         <li><input name="amount" type="text" class="text" id="amount" onkeyup='this.value=this.value.replace(/[^0-9]\D*$/,"")' maxlength="12" ondragenter="return false" onpaste="return !clipboardData.getData('text').match(/\D/)" />数额</li>
@@ -107,7 +108,7 @@ $(document).ready(function(){
 					  $("#cash_in option[value='2']").remove();
 					  $("#my_2").html('');
 					  $("#my_1").html('<img src="../images/member/right.gif">');
-					  $("#cash_in").append("<option value='2'>&nbsp;&nbsp;HG平台</option>");
+					  $("#cash_in").append("<option value='2'>&nbsp;&nbsp;皇家贵宾厅</option>");
 			        }
 			     if (cash_out == 2)
 			       {
@@ -115,7 +116,7 @@ $(document).ready(function(){
 					  $("#cash_in option[value='2']").remove();
 					  $("#my_1").html('');	
 					  $("#my_2").html('<img src="../images/member/right.gif">');
-					  $("#cash_in").append("<option value='1'>&nbsp;&nbsp;金狮账户</option>");
+					  $("#cash_in").append("<option value='1'>&nbsp;&nbsp;Sky133主账户</option>");
 			       } 		
 			 }
  

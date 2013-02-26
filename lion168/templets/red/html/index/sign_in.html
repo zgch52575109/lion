@@ -7,7 +7,11 @@
     <meta name="Description" content="description ..." />
     <!--<link href="favicon.ico" rel="shortcut icon" />-->
     <link href="css/global.css" rel="stylesheet" type="text/css" />
-    <link href="js/datePicker/datePicker-min.css" type="text/css" rel="stylesheet" />
+    <link href="css/ValidForm.css" rel="stylesheet" type="text/css" />
+          <link rel="stylesheet" type="text/css" media="all" href="../js/calendar/calendar-win2k-cold-1.css"/>  
+<script type="text/javascript" src="../js/calendar/calendar.js"></script>  
+<script type="text/javascript" src="../js/calendar/calendar-zh.js"></script>
+<script type="text/javascript" src="../js/calendar/calendar-setup.js"></script>
     <style type="text/css">
     	.passwordStrength{
 		
@@ -96,11 +100,10 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
   				<table cellpadding="0" cellspacing="0">
   				  <tr>
                     <td class="need" style="width:10px;">*</td>
-                    <td style="width:70px;">昵称：</td>
-                    <td style="width:280px;"><input ajaxurl="ajax.php?action=checkusername" type="text" id = "username" value="" name="UserName" class="inputxt" datatype="s6-18" nullmsg="请输入您的昵称！" onkeydown="if(event.keyCode==13)event.keyCode=9" onkeyup="value=value.replace(/[\W]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  errormsg="昵称至少6个字符,最多18个字符！" /></td>
+                    <td style="width:70px;">用户名：</td>
+                    <td style="width:280px;"><input ajaxurl="ajax.php?action=checkusername" type="text" id = "username" value="" name="UserName" class="inputxt" datatype="s6-18" nullmsg="请输入您的用户名！" onkeydown="if(event.keyCode==13)event.keyCode=9" onkeyup="value=value.replace(/[\W]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  errormsg="用户名至少6个字符,最多18个字符！" /></td>
                     <td>
-                    	<div class="Validform_checktip"></div>
-                        <div class="info">昵称至少6个字符,最多18个字符</div>
+                    	<div class="Validform_checktip">用户名至少6个字符,最多18个字符</div>
                     </td>
                    </tr>
                    <tr>
@@ -111,8 +114,7 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                    		 <div class="passwordStrength">密码强度： <span>弱</span><span>中</span><span class="last">强</span></div>
                     </td>
                     <td>
-                        <div class="Validform_checktip"></div>
-                        <div class="info">密码至少6个字符,最多18个字符</div>
+                        <div class="Validform_checktip">密码至少6个字符,最多18个字符</div>
                     </td>
                 </tr>
                    <tr>
@@ -120,8 +122,7 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                     <td>确认密码：</td>
                     <td><input type="password" errormsg="两次输入的密码不一致！" nullmsg="请确认密码！" datatype="*6-18" recheck="Password" class="inputxt" name="repassword" value=""></td>
                     <td>
-                    	<div class="Validform_checktip"></div>
-                    	<div class="info">请确认您的密码</div>
+                    	<div class="Validform_checktip">请确认您的密码</div>
                     </td>
                 </tr>
   				</table>
@@ -136,8 +137,7 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                     <td>移动电话：</td>
                     <td><input type="text" errormsg="手机号格式不正确！" nullmsg="请输入您的手机号码！" datatype="m" class="inputxt" name="userTel" value=""></td>
                     <td>
-                    	<div class="Validform_checktip"></div>
-                        <div class="info">请输入您的手机号码</div>
+                    	<div class="Validform_checktip">请输入您的手机号码</div>
                     </td>
                 </tr>
                    <tr>
@@ -145,8 +145,7 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                     <td style="width:70px;">邮箱地址：</td>
                     <td style="width:280px;"><input type="text" value="" name="email" class="inputxt" datatype="e" nullmsg="请输入您的邮箱地址！" errormsg="邮箱格式不正确" /></td>
                     <td>
-                    	<div class="Validform_checktip"></div>
-                        <div class="info">邮箱地址为空！</div>
+                    	<div class="Validform_checktip">邮箱地址为空！</div>
                     </td>
                    </tr>
   				</table>
@@ -161,30 +160,33 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
                     <td style="width:70px;">真实姓名：</td>
                     <td style="width:280px;"><input type="text" value="" name="TrueName" class="inputxt" datatype="z2-4" nullmsg="请输入您的真实姓名！" errormsg="真实姓名至少2个汉字！" /></td>
                     <td>
-                    	<div class="Validform_checktip"></div>
-                        <div class="info">真实姓名至少2个汉字！</div>
+                    	<div class="Validform_checktip">真实姓名至少2个汉字！</div>
                     </td>
                    </tr>
                    <tr>
                     <td class="need" style="width:10px;">*</td>
                     <td style="width:70px;">出生日期：</td>
                     <td style="width:280px;">
-                    	<input type="text" value="" name="birthday" class="inputxt" plugin="datepicker" datatype="date"  nullmsg="请选择日期！" errormsg="日期格式错误！" />
+                    	<input type="text" value="" onclick="return showCalendar('birthday', 'y-m-d');" name="birthday" id="birthday" class="inputxt"  datatype="date"  nullmsg="请选择日期！" errormsg="日期格式错误！" />
                     </td>
                     <td>
-                    	<div class="Validform_checktip"></div>
-                        <div class="info">请选择出生年月日！</div>
+                    	<div class="Validform_checktip">请选择出生年月日！</div>
                     </td>
                    </tr>
                    <tr>
                     <td class="need" style="width:10px;">*</td>
                     <td style="width:70px;">性别：</td>
-                    <td style="width:280px;"><span class="radiolist"><input name="gender"  datatype="*" type="radio" checked class="radio" />男&nbsp;&nbsp;&nbsp;&nbsp;<input name="gender" type="radio" class="radio"  datatype="*" />女</span></td>
+                    <td style="width:280px;"><input name="gender"  datatype="*" type="radio"  class="radio"  nullmsg="请选择性别" errormsg="请选择性别"/>男&nbsp;&nbsp;&nbsp;&nbsp;<input name="gender" type="radio" class="radio"  />女</td>
                     <td>
-                    	<div class="Validform_checktip"></div>
-                        <div class="info">请告诉我们您的性别符</div>
+                    	<div class="Validform_checktip">请告诉我们您的性别</div>
                     </td>
                    </tr>
+                    <tr>
+	                    <td colspan="3"><input name="confirm"  datatype="*" type="checkbox"  nullmsg="请确认条款" errormsg="请确认条款"/>我已满18岁并同意规则和条款</td>
+	                    <td>
+	                    	<div class="Validform_checktip"></div>
+	                    </td>
+                    </tr>
   				</table>
   				</div>
                  </fieldset>
@@ -227,26 +229,6 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
 <script language="javascript" src="js/date.js"></script> -->
 <script type="text/javascript">
 $(function(){
-	var getInfoObj=function(){
-			return 	$(this).parents("td").next().find(".info");
-		}
-	
-	$("[datatype]").focusin(function(){
-		if(this.timeout){clearTimeout(this.timeout);}
-		var infoObj=getInfoObj.call(this);
-		if(infoObj.siblings(".Validform_right").length!=0){
-			return;	
-		}
-		infoObj.show().siblings().hide();
-		
-	}).focusout(function(){
-		var infoObj=getInfoObj.call(this);
-		this.timeout=setTimeout(function(){
-			infoObj.hide().siblings(".Validform_wrong,.Validform_loading").show();
-		},0);
-		
-	});
-	
 	var validForm = $(".registerform").Validform({
 		tiptype:2,
 		datatype:{

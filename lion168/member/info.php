@@ -3,10 +3,7 @@ require_once(dirname(__FILE__)."/config.php");
 CheckRank(0,0);
 CheckNotAllow();
 $cacheid = "index";
-$tmount=getHGmoney($cfg_cl->fields['username'],$cfg_cl->fields['truename']);
-$tmount = number_format($tmount,2); 
-$t->assign('tmount',$tmount);
-$t->assign("balance",number_format($tmount+$t->get_vars("money"),2));
+
 
 
 

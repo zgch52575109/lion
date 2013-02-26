@@ -128,10 +128,8 @@ body{ background:url(../pic/mainbg.jpg) no-repeat center 0px #000101;}
 #regcontent .table{ padding:10px 0px 5px 30px;}
 #regcontent td{ color:#ddd; line-height:27px; padding:5px 0px;}
 #regcontent li label{ display:inline-block; vertical-align:middle; width:100px; text-align:right; color:White; padding:0px 8px 0px 0px;}
+#regcontent .need{color: red;padding-top: 10px;}
 #regcontent td .inputxt{ width:200px; color:Black; vertical-align:middle; border:solid 1px #000; height:25px; line-height:25px; padding:0px 5px;}
-#regcontent td .Validform_error{ background-color:#FFE7E7; }
-#regcontent td .info{  display:none; color:#DDD; padding:0px 0px 0px 10px;}
-#regcontent td .Validform_wrong{ padding:0px 0px 0px 10px; color:Red;}
 #regcontent td .radio{ vertical-align:middle; margin:-2px 4px 0px 0px;}
 #regcontent td .radiolist{ vertical-align:middle; display:inline-block; width:212px;}
 #regcontent  .btn{  width:106px; height:22px; line-height:22px; border:0px; color:#8AABCE; cursor:pointer; margin:10px 15px 0px 0px; background:url(../pic/regbtn.jpg) no-repeat 0px 0px;}

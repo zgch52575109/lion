@@ -160,7 +160,6 @@ $t->assign('cmspath',$cfg_cmspath);
 $t->assign('cfg_stats',stripslashes($cfg_stats));
 $t->assign('cfg_foot',stripslashes($cfg_foot));
 $t->assign('cfg_qq',stripslashes($cfg_qq));
-
 @include EK_DATA.'/cache/cache_nextrun.php';
 //引入进程类
 require_once(EK_INC.'/libs/ek.process.php');

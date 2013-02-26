@@ -315,3 +315,7 @@ $t->assign('noticear',get_notice_list('1'));
 $t->assign('newsar',get_news_list('1'));
 $t->assign('nowtime',MyDate('H:i',time()));
 $t->assign('mdnowtime',MyDate('H:i',time(),'+8'));
+$tmount=getHGmoney($_SESSION['userInfo']['username'],$_SESSION['userInfo']['truename']);
+$tmount = number_format($tmount,2); 
+$t->assign('tmount',$tmount);
+$t->assign("balance",number_format($tmount+$_SESSION['userInfo']['money'],2));
